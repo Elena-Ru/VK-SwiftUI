@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
-		B4856F452962AE04001FA954 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* ContentView.swift */; };
+		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
 		B4856F4A2962AE06001FA954 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F492962AE06001FA954 /* Preview Assets.xcassets */; };
+		B4856F5129633242001FA954 /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F5029633242001FA954 /* LogoImage.swift */; };
+		B4856F5329633281001FA954 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F5229633281001FA954 /* LoginTextField.swift */; };
+		B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F542963346B001FA954 /* PasswordTextField.swift */; };
+		B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F572963550B001FA954 /* LoginSucceedView.swift */; };
+		B4856F5A29635578001FA954 /* LoginFailedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F5929635578001FA954 /* LoginFailedText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
-		B4856F442962AE04001FA954 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B4856F462962AE06001FA954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4856F492962AE06001FA954 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B4856F5029633242001FA954 /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
+		B4856F5229633281001FA954 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		B4856F542963346B001FA954 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		B4856F572963550B001FA954 /* LoginSucceedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSucceedView.swift; sourceTree = "<group>"; };
+		B4856F5929635578001FA954 /* LoginFailedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFailedText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
-				B4856F442962AE04001FA954 /* ContentView.swift */,
+				B4856F442962AE04001FA954 /* LoginView.swift */,
+				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
 			);
@@ -65,6 +76,18 @@
 				B4856F492962AE06001FA954 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B4856F56296334AE001FA954 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4856F5029633242001FA954 /* LogoImage.swift */,
+				B4856F5229633281001FA954 /* LoginTextField.swift */,
+				B4856F542963346B001FA954 /* PasswordTextField.swift */,
+				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
+				B4856F5929635578001FA954 /* LoginFailedText.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4856F452962AE04001FA954 /* ContentView.swift in Sources */,
+				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
+				B4856F5129633242001FA954 /* LogoImage.swift in Sources */,
+				B4856F5A29635578001FA954 /* LoginFailedText.swift in Sources */,
+				B4856F5329633281001FA954 /* LoginTextField.swift in Sources */,
+				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
+				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

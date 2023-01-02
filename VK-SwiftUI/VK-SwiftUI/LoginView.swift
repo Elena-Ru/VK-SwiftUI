@@ -6,57 +6,87 @@
 //
 
 import SwiftUI
+import Combine
 
-struct ContentView: View {
-    @State private var login = ""
-    @State private var password = ""
+let storedUsername = "1"
+let storedPassword = "1"
+
+struct LoginView: View {
+@State private var login = ""
+@State private var password = ""
+@State var authenticationDidFail: Bool = false
+@State var authenticationDidSucceed: Bool = false
+    
+private let keyboardIsOnPublisher = Publishers.Merge(
+    NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
+        .map { _ in true },
+    NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
+        .map { _ in false }
+)
+.removeDuplicates()
     
     var body: some View {
-        ScrollView {
-            VStack {
+        ZStack{
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    LogoImage()
+                }
+                .frame(height: UIScreen.main.bounds.height * 0.4)
                 
-                GeometryReader { geometry in
-                    Image("vkLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 120)
-                        .padding(30)
+                VStack {
+                    LoginTextField(username: $login)
+                    PasswordTextField(password: $password)
+                    Spacer(minLength: 30)
+                    if authenticationDidFail && ( login != "" || password != "") {
+                        LoginFailedText()
+                    }
+                    Button {
+                        if self.login == storedUsername
+                            && self.password == storedPassword {
+                            self.authenticationDidSucceed = true
+                            self.authenticationDidFail = false
+                        } else {
+                            self.authenticationDidFail = true
+                            self.authenticationDidSucceed = false
+                        }
+                    } label: {
+                        Text("Log in")
+                            .frame(width: 160, height: 40)
+                    }
+                    .disabled(login.isEmpty || password.isEmpty)
                 }
-                
-                Text("VKontakte Client")
-                Spacer()
-                HStack {
-                    Text("Login")
-                    Spacer()
-                    TextField("", text: $login)
-                        .frame(maxWidth: 150)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("Password")
-                    Spacer()
-                    SecureField("", text: $password)
-                        .frame(maxWidth: 150)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                Button {
-                    print("Hello")
-                } label: {
-                    Text("Log in")
-                }
-                .padding(.top, 50)
-                .padding(.bottom, 20)
-                .disabled(login.isEmpty || password.isEmpty)
-                
+                .frame(maxWidth: 280, maxHeight: UIScreen.main.bounds.height * 0.5)
             }
-            .frame(maxWidth: 250)
-            .padding()
+            
+            .onTapGesture {
+                UIApplication.shared.endEditing()
+            }
+            if authenticationDidSucceed {
+                LoginSucceedView()
+            }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+extension UIApplication {
+    func endEditing() {
+    sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from:
+    nil, for: nil)
     }
 }
+        
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}
+
+
+
+
+
+
+
+
+
+
