@@ -65,6 +65,10 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                 LoginSucceedView()
             }
         }
+        .background(
+            BackgroundImage()
+            )
+        
     }
 }
 
@@ -80,13 +84,5 @@ struct ContentView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
-
-
-
-
-
-
-
 
 
