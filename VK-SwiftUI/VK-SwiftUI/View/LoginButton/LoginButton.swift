@@ -12,6 +12,7 @@ struct LoginButton: View {
     @Binding var password: String
     @Binding var authenticationDidSucceed: Bool
     @Binding var authenticationDidFail: Bool
+   private var isDisabled: Bool { login.isEmpty || password.isEmpty }
     
     var body: some View {
         Button {
@@ -29,7 +30,7 @@ struct LoginButton: View {
                 .foregroundColor(.white)
                 .fontWeight(.semibold)
         }
-        .buttonStyle(LoginButtonStyle(color: .blue))
+        .buttonStyle(LoginButtonStyle(disabled: self.isDisabled))
         .disabled(login.isEmpty || password.isEmpty)
     }
 }

@@ -16,6 +16,8 @@ struct LoginView: View {
 @State private var password = ""
 @State var authenticationDidFail: Bool = false
 @State var authenticationDidSucceed: Bool = false
+@State var isDisabled = true
+
     
 private let keyboardIsOnPublisher = Publishers.Merge(
     NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
