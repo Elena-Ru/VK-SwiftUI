@@ -16,9 +16,7 @@ struct LoginView: View {
 @State private var password = ""
 @State var authenticationDidFail: Bool = false
 @State var authenticationDidSucceed: Bool = false
-@State var isDisabled = true
 
-    
 private let keyboardIsOnPublisher = Publishers.Merge(
     NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
         .map { _ in true },
@@ -28,37 +26,43 @@ private let keyboardIsOnPublisher = Publishers.Merge(
 .removeDuplicates()
     
     var body: some View {
-        ZStack{
-            ScrollView(showsIndicators: false) {
-                VStack {
+        GeometryReader { geometry in
+         
+            ZStack{
+                HStack{
+                   Spacer()
+                   Spacer()
+                }
+                ScrollView(showsIndicators: false) {
                     LogoImage()
-                }
-                .frame(height: UIScreen.main.bounds.height * 0.4)
-                
-                VStack {
-                    LoginTextField(username: $login)
-                    PasswordTextField(password: $password)
-                    Spacer(minLength: 30)
-                    if authenticationDidFail && ( login != "" || password != "") {
-                        LoginFailedText()
+                        .frame(width:geometry.size.width * 0.4, height: geometry.size.height * 0.4)
+                 
+                    VStack {
+                        LoginTextField(username: $login)
+                        PasswordTextField(password: $password)
+                        Spacer(minLength: 30)
+                        if authenticationDidFail && ( login != "" || password != "") {
+                            LoginFailedText()
+                        }
+                        LoginButton(login: $login,
+                                    password: $password,
+                                    authenticationDidSucceed: $authenticationDidSucceed,
+                                    authenticationDidFail: $authenticationDidFail)
                     }
-                    LoginButton(login: $login,
-                                password: $password,
-                                authenticationDidSucceed: $authenticationDidSucceed,
-                                authenticationDidFail: $authenticationDidFail)
+                    .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.5)
                 }
-                .frame(maxWidth: 280, maxHeight: UIScreen.main.bounds.height * 0.5)
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
+                if authenticationDidSucceed {
+                    LoginSucceedView()
+                }
             }
-            .onTapGesture {
-                UIApplication.shared.endEditing()
-            }
-            if authenticationDidSucceed {
-                LoginSucceedView()
-            }
-        }
-        .background(
-            BackgroundImage()
+            .background(
+                BackgroundImage()
             )
+            .ignoresSafeArea()
+        }
     }
 }
 
