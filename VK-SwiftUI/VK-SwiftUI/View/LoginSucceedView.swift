@@ -12,7 +12,7 @@ struct LoginSucceedView: View {
         Text("Login succeeded!")
             .font(.headline)
             .frame(width: 250, height: 80)
-            .background(Color.green)
+            .background(Color.green.opacity(0.7))
             .cornerRadius(20.0)
             .foregroundColor(.white)
     }

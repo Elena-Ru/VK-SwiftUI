@@ -40,20 +40,10 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                     if authenticationDidFail && ( login != "" || password != "") {
                         LoginFailedText()
                     }
-                    Button {
-                        if self.login == storedUsername
-                            && self.password == storedPassword {
-                            self.authenticationDidSucceed = true
-                            self.authenticationDidFail = false
-                        } else {
-                            self.authenticationDidFail = true
-                            self.authenticationDidSucceed = false
-                        }
-                    } label: {
-                        Text("Log in")
-                            .frame(width: 160, height: 40)
-                    }
-                    .disabled(login.isEmpty || password.isEmpty)
+                    LoginButton(login: $login,
+                                password: $password,
+                                authenticationDidSucceed: $authenticationDidSucceed,
+                                authenticationDidFail: $authenticationDidFail)
                 }
                 .frame(maxWidth: 280, maxHeight: UIScreen.main.bounds.height * 0.5)
             }
@@ -82,5 +72,3 @@ struct ContentView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
-

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginFailedText: View {
     var body: some View {
         Text("Information not correct. Try again.")
+            .fontWeight(.semibold)
             .offset(y: -10)
             .foregroundColor(.red)
     }
