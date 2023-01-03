@@ -57,7 +57,6 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                 }
                 .frame(maxWidth: 280, maxHeight: UIScreen.main.bounds.height * 0.5)
             }
-            
             .onTapGesture {
                 UIApplication.shared.endEditing()
             }
@@ -68,7 +67,6 @@ private let keyboardIsOnPublisher = Publishers.Merge(
         .background(
             BackgroundImage()
             )
-        
     }
 }
 

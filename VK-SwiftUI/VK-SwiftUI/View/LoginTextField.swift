@@ -10,10 +10,14 @@ import SwiftUI
 struct LoginTextField: View {
     @Binding var username: String
     var body: some View {
-        TextField("Login", text: $username)
-            .padding()
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(16)
+        HStack {
+            Image(systemName: "person")
+                .foregroundColor(.gray)
+            TextField("Login", text: $username)
+        }
+         .padding()
+         .background(Color(.secondarySystemBackground))
+         .cornerRadius(16)
     }
 }
 
