@@ -9,9 +9,22 @@ import SwiftUI
 
 struct FriendsRow: View {
     var body: some View {
-        Image("tom")
-            .resizable()
-            .modifier(CircleShadow())
+        HStack (spacing: 30){
+            
+            Image("tom")
+                .resizable()
+                .modifier(CircleShadow())
+            VStack {
+                Text("Tom Cruise")
+                    .bold()
+                
+                Text("Johnson State College")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+        }
+        .padding()
     }
 }
 

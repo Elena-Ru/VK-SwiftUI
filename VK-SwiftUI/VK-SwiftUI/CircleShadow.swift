@@ -20,6 +20,4 @@ struct CircleShadow: ViewModifier {
             }
             .shadow(radius: 10)
     }
-    
-    
 }
