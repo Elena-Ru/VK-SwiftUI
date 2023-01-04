@@ -15,15 +15,12 @@ struct GroupRow: View {
     
     var body: some View {
         HStack (spacing: 30) {
-            
             Avatar(avatar: $groupImage)
             VStack (alignment: .leading) {
                 NameBoldText(name: $groupName)
                 Secondary2lineText(text: $groupCategory)
                 Text("\(subscribersCount) подписчик")
-                    .lineLimit(1)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    .modifier(SecondaryText())
             }
             Spacer()
         }
