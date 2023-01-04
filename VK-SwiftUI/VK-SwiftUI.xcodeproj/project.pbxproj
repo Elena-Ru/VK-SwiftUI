@@ -22,6 +22,7 @@
 		B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6229645F8B001FA954 /* Friend'sRow.swift */; };
 		B4856F6529646837001FA954 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6429646837001FA954 /* CircleShadow.swift */; };
 		B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6629652AC0001FA954 /* FavoriteButton.swift */; };
+		B4856F69296535F4001FA954 /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F68296535F4001FA954 /* GroupRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B4856F6229645F8B001FA954 /* Friend'sRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend'sRow.swift"; sourceTree = "<group>"; };
 		B4856F6429646837001FA954 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
 		B4856F6629652AC0001FA954 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		B4856F68296535F4001FA954 /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
+				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B4856F6429646837001FA954 /* CircleShadow.swift */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
@@ -188,6 +191,7 @@
 			files = (
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
+				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,
 				B4856F5129633242001FA954 /* LogoImage.swift in Sources */,
 				B4856F5A29635578001FA954 /* LoginFailedText.swift in Sources */,
