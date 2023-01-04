@@ -11,19 +11,15 @@ struct GroupRow: View {
     @State private var subscribersCount = 43461
     @State private var groupName = "HASH"
     @State private var groupCategory = "Программирование"
+    @State private var groupImage = "group"
     
     var body: some View {
         HStack (spacing: 30) {
             
-            Image("group")
-                .resizable()
-                .modifier(CircleShadow())
+            Avatar(avatar: $groupImage)
             VStack (alignment: .leading) {
                 NameBoldText(name: $groupName)
-                Text(groupCategory)
-                    .lineLimit(2)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                Secondary2lineText(text: $groupCategory)
                 Text("\(subscribersCount) подписчик")
                     .lineLimit(1)
                     .font(.caption)
@@ -40,3 +36,5 @@ struct GroupRow_Previews: PreviewProvider {
         GroupRow()
     }
 }
+
+

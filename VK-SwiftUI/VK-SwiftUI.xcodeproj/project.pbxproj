@@ -24,6 +24,8 @@
 		B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6629652AC0001FA954 /* FavoriteButton.swift */; };
 		B4856F69296535F4001FA954 /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F68296535F4001FA954 /* GroupRow.swift */; };
 		B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6A2965CE68001FA954 /* NameBoldText.swift */; };
+		B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */; };
+		B4856F6F2965D353001FA954 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6E2965D353001FA954 /* Avatar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		B4856F6629652AC0001FA954 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		B4856F68296535F4001FA954 /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
 		B4856F6A2965CE68001FA954 /* NameBoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameBoldText.swift; sourceTree = "<group>"; };
+		B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secondary2lineText.swift; sourceTree = "<group>"; };
+		B4856F6E2965D353001FA954 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +107,10 @@
 				B4856F612963DDE4001FA954 /* LoginButton */,
 				B4856F5029633242001FA954 /* LogoImage.swift */,
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
+				B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */,
 				B4856F542963346B001FA954 /* PasswordTextField.swift */,
 				B4856F6A2965CE68001FA954 /* NameBoldText.swift */,
+				B4856F6E2965D353001FA954 /* Avatar.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
 				B4856F5929635578001FA954 /* LoginFailedText.swift */,
 				B4856F5B2963CF4F001FA954 /* BackgroundImage.swift */,
@@ -195,6 +201,7 @@
 				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
+				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,
 				B4856F5129633242001FA954 /* LogoImage.swift in Sources */,
@@ -202,6 +209,7 @@
 				B4856F5C2963CF4F001FA954 /* BackgroundImage.swift in Sources */,
 				B4856F5E2963DA00001FA954 /* LoginButtonStyle.swift in Sources */,
 				B4856F602963DD6A001FA954 /* LoginButton.swift in Sources */,
+				B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */,
 				B4856F5329633281001FA954 /* LoginTextField.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
