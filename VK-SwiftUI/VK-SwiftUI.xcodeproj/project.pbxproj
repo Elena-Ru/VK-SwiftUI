@@ -23,6 +23,7 @@
 		B4856F6529646837001FA954 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6429646837001FA954 /* CircleShadow.swift */; };
 		B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6629652AC0001FA954 /* FavoriteButton.swift */; };
 		B4856F69296535F4001FA954 /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F68296535F4001FA954 /* GroupRow.swift */; };
+		B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6A2965CE68001FA954 /* NameBoldText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		B4856F6429646837001FA954 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
 		B4856F6629652AC0001FA954 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		B4856F68296535F4001FA954 /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
+		B4856F6A2965CE68001FA954 /* NameBoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameBoldText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				B4856F5029633242001FA954 /* LogoImage.swift */,
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
 				B4856F542963346B001FA954 /* PasswordTextField.swift */,
+				B4856F6A2965CE68001FA954 /* NameBoldText.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
 				B4856F5929635578001FA954 /* LoginFailedText.swift */,
 				B4856F5B2963CF4F001FA954 /* BackgroundImage.swift */,
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,

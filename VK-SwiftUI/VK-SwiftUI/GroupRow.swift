@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct GroupRow: View {
+    @State private var subscribersCount = 43461
+    @State private var groupName = "HASH"
+    @State private var groupCategory = "Программирование"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack (spacing: 30) {
+            
+            Image("group")
+                .resizable()
+                .modifier(CircleShadow())
+            VStack (alignment: .leading) {
+                NameBoldText(name: $groupName)
+                Text(groupCategory)
+                    .lineLimit(2)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                Text("\(subscribersCount) подписчик")
+                    .lineLimit(1)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+        }
+        .padding()
     }
 }
 

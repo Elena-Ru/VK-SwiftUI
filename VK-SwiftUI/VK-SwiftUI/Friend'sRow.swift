@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FriendsRow: View {
     @State var isFavorite = false
+    @State private var fullName = "Tom Cruise"
     
     var body: some View {
         HStack (spacing: 30){
@@ -17,9 +18,7 @@ struct FriendsRow: View {
                 .resizable()
                 .modifier(CircleShadow())
             VStack (alignment: .leading) {
-                Text("Tom Cruise")
-                    .bold()
-                    .lineLimit(1)
+                NameBoldText(name: $fullName)
                 Text("Johnson State College")
                     .lineLimit(2)
                     .font(.caption)
