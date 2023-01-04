@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct FriendsRow: View {
+    @State var isFavorite = false
+    
     var body: some View {
         HStack (spacing: 30){
             
             Image("tom")
                 .resizable()
                 .modifier(CircleShadow())
-            VStack {
+            VStack (alignment: .leading) {
                 Text("Tom Cruise")
                     .bold()
-                
+                    .lineLimit(1)
                 Text("Johnson State College")
+                    .lineLimit(2)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
             Spacer()
+            FavoriteButton(isSet: $isFavorite)
         }
         .padding()
     }
