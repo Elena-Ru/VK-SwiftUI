@@ -12,6 +12,7 @@ let storedUsername = "1"
 let storedPassword = "1"
 
 struct LoginView: View {
+    
 @State private var login = ""
 @State private var password = ""
 @State var authenticationDidFail: Bool = false
