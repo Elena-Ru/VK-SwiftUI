@@ -42,9 +42,6 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                         LoginTextField(username: $login)
                         PasswordTextField(password: $password)
                         Spacer(minLength: 30)
-                        if authenticationDidFail && ( login != "" || password != "") {
-                            LoginFailedText()
-                        }
                         LoginButton(login: $login,
                                     password: $password,
                                     authenticationDidSucceed: $authenticationDidSucceed,
@@ -55,6 +52,11 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                 .onTapGesture {
                     UIApplication.shared.endEditing()
                 }
+                .alert(isPresented: $authenticationDidFail, content: {
+                    Alert(title: Text("Error"),
+                          message: Text("Information not correct. Try again.")
+                    )
+                })
                 if authenticationDidSucceed {
                     LoginSucceedView()
                 }

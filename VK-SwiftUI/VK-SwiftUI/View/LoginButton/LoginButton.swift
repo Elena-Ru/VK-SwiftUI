@@ -14,16 +14,20 @@ struct LoginButton: View {
     @Binding var authenticationDidFail: Bool
    private var isDisabled: Bool { login.isEmpty || password.isEmpty }
     
+    fileprivate func verifyLoginData() {
+        if login == storedUsername
+            && password == storedPassword {
+            authenticationDidSucceed = true
+            authenticationDidFail = false
+        } else {
+            authenticationDidFail = true
+            authenticationDidSucceed = false
+        }
+    }
+    
     var body: some View {
         Button {
-            if login == storedUsername
-                && password == storedPassword {
-                authenticationDidSucceed = true
-                authenticationDidFail = false
-            } else {
-                authenticationDidFail = true
-                authenticationDidSucceed = false
-            }
+            verifyLoginData()
         } label: {
             Text("Login")
                 .frame(width: 160, height: 40)
