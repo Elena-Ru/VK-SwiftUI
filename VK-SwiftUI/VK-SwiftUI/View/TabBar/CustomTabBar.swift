@@ -21,29 +21,49 @@ struct CustomTabBar: View {
     var body: some View {
         VStack {
             HStack {
-                ForEach(Tab.allCases, id: \.rawValue) {
-                    tab in
+                ForEach(Tab.allCases, id: \.rawValue) { tab in
                     Spacer()
                     VStack {
-                        Image(systemName: selectedTab == tab ? fillImage : tab.rawValue)
-                            .scaleEffect(tab == selectedTab ? 1.3 : 1.0)
-                            .font(.system(size: 22))
-                            .onTapGesture {
-                                withAnimation(.easeIn(duration: 0.2)) {
-                                    selectedTab = tab
+                        if selectedTab == tab {
+                            Image(systemName: fillImage)
+                                .padding()
+                                .background( Color(hex: "#e84f37"))
+                                .clipShape(Circle())
+                                .overlay {
+                                    Circle().stroke(.white, lineWidth: 3).shadow(radius: 7)
                                 }
+                                .offset(y: -30)
+                                .padding(.bottom , -20)
+                                .onTapGesture {
+                                    withAnimation(.easeIn(duration: 0.2)) {
+                                        selectedTab = tab
+                                    }
+                                }
+                            
+                            Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
+                                .offset(y: -10)
+                                .foregroundColor(Color(hex: "#244469"))
+                                .bold()
+                        } else {
+                            Image(systemName:  tab.rawValue)
+                                 .onTapGesture {
+                                     withAnimation(.easeIn(duration: 0.1)) {
+                                         selectedTab = tab
+                                     }
+                             }
+                            Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
+                                .offset(y: -10)
+                                .hidden()
                         }
-                        Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
                     }
-                    .foregroundColor(selectedTab == tab ? .white: .gray)
-                    .padding()
+                  .foregroundColor(selectedTab == tab ? .white: Color(hex: "#244469"))
                     Spacer()
                 }
             }
+            .padding(.vertical, -20)
             .frame(width: nil, height: 70)
-            .background(Color(hex: "#244469"))
-            .cornerRadius(26)
-            .padding()
+            .background(.thinMaterial)
+            .shadow(radius: 8)
         }
     }
 }

@@ -36,6 +36,7 @@ struct MainView: View {
                 Spacer()
                 CustomTabBar(selectedTab: $selection)
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
