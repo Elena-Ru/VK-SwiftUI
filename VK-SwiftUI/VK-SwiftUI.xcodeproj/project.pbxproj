@@ -29,6 +29,8 @@
 		B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = B4B02BB72966B0A4002BA614 /* AlertX */; };
 		B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BB92966C4F5002BA614 /* MainView.swift */; };
 		B4B02BBC2966C5AF002BA614 /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BBB2966C5AF002BA614 /* NewsRow.swift */; };
+		B4B02BC52966F0AF002BA614 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BC42966F0AF002BA614 /* CustomTabBar.swift */; };
+		B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BC629671244002BA614 /* Extension+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		B4856F732965D6BD001FA954 /* SecondaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryText.swift; sourceTree = "<group>"; };
 		B4B02BB92966C4F5002BA614 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B4B02BBB2966C5AF002BA614 /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
+		B4B02BC42966F0AF002BA614 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		B4B02BC629671244002BA614 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
+				B4B02BC8296713F8002BA614 /* Extensions */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
-				B4B02BB92966C4F5002BA614 /* MainView.swift */,
 				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
 				B4856F56296334AE001FA954 /* View */,
@@ -111,6 +115,7 @@
 		B4856F56296334AE001FA954 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B4B02BC929671450002BA614 /* TabBar */,
 				B4856F712965D5FF001FA954 /* Image */,
 				B4856F612963DDE4001FA954 /* LoginButton */,
 				B4856F702965D5D1001FA954 /* Text */,
@@ -158,6 +163,23 @@
 				B4856F6429646837001FA954 /* CircleShadow.swift */,
 			);
 			name = Avatar;
+			sourceTree = "<group>";
+		};
+		B4B02BC8296713F8002BA614 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4B02BC629671244002BA614 /* Extension+Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4B02BC929671450002BA614 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B4B02BB92966C4F5002BA614 /* MainView.swift */,
+				B4B02BC42966F0AF002BA614 /* CustomTabBar.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +274,8 @@
 				B4856F5329633281001FA954 /* LoginTextField.swift in Sources */,
 				B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
+				B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */,
+				B4B02BC52966F0AF002BA614 /* CustomTabBar.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */,
