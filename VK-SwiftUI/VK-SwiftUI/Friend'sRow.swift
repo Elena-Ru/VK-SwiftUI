@@ -9,21 +9,17 @@ import SwiftUI
 
 struct FriendsRow: View {
     @State var isFavorite = false
+    @State private var fullName = "Tom Cruise"
+    @State private var education = "Johnson State College"
+    @State private var friendAvatar = "tom"
     
     var body: some View {
         HStack (spacing: 30){
             
-            Image("tom")
-                .resizable()
-                .modifier(CircleShadow())
+            Avatar(avatar: $friendAvatar)
             VStack (alignment: .leading) {
-                Text("Tom Cruise")
-                    .bold()
-                    .lineLimit(1)
-                Text("Johnson State College")
-                    .lineLimit(2)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                NameBoldText(name: $fullName)
+                Secondary2lineText(text: $education)
             }
             Spacer()
             FavoriteButton(isSet: $isFavorite)
@@ -37,3 +33,5 @@ struct FriendsRow_Previews: PreviewProvider {
         FriendsRow()
     }
 }
+
+

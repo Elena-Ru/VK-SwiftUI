@@ -22,6 +22,11 @@
 		B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6229645F8B001FA954 /* Friend'sRow.swift */; };
 		B4856F6529646837001FA954 /* CircleShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6429646837001FA954 /* CircleShadow.swift */; };
 		B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6629652AC0001FA954 /* FavoriteButton.swift */; };
+		B4856F69296535F4001FA954 /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F68296535F4001FA954 /* GroupRow.swift */; };
+		B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6A2965CE68001FA954 /* NameBoldText.swift */; };
+		B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */; };
+		B4856F6F2965D353001FA954 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6E2965D353001FA954 /* Avatar.swift */; };
+		B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F732965D6BD001FA954 /* SecondaryText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,11 @@
 		B4856F6229645F8B001FA954 /* Friend'sRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend'sRow.swift"; sourceTree = "<group>"; };
 		B4856F6429646837001FA954 /* CircleShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadow.swift; sourceTree = "<group>"; };
 		B4856F6629652AC0001FA954 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		B4856F68296535F4001FA954 /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
+		B4856F6A2965CE68001FA954 /* NameBoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameBoldText.swift; sourceTree = "<group>"; };
+		B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secondary2lineText.swift; sourceTree = "<group>"; };
+		B4856F6E2965D353001FA954 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		B4856F732965D6BD001FA954 /* SecondaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +86,7 @@
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
-				B4856F6429646837001FA954 /* CircleShadow.swift */,
+				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
@@ -95,13 +105,13 @@
 		B4856F56296334AE001FA954 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B4856F712965D5FF001FA954 /* Image */,
 				B4856F612963DDE4001FA954 /* LoginButton */,
-				B4856F5029633242001FA954 /* LogoImage.swift */,
+				B4856F702965D5D1001FA954 /* Text */,
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
 				B4856F542963346B001FA954 /* PasswordTextField.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
 				B4856F5929635578001FA954 /* LoginFailedText.swift */,
-				B4856F5B2963CF4F001FA954 /* BackgroundImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +124,35 @@
 				B4856F5F2963DD6A001FA954 /* LoginButton.swift */,
 			);
 			path = LoginButton;
+			sourceTree = "<group>";
+		};
+		B4856F702965D5D1001FA954 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				B4856F6A2965CE68001FA954 /* NameBoldText.swift */,
+				B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */,
+				B4856F732965D6BD001FA954 /* SecondaryText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		B4856F712965D5FF001FA954 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				B4856F5B2963CF4F001FA954 /* BackgroundImage.swift */,
+				B4856F5029633242001FA954 /* LogoImage.swift */,
+				B4856F722965D62F001FA954 /* Avatar */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		B4856F722965D62F001FA954 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				B4856F6E2965D353001FA954 /* Avatar.swift */,
+				B4856F6429646837001FA954 /* CircleShadow.swift */,
+			);
+			name = Avatar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,15 +225,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
+				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
+				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,
 				B4856F5129633242001FA954 /* LogoImage.swift in Sources */,
 				B4856F5A29635578001FA954 /* LoginFailedText.swift in Sources */,
 				B4856F5C2963CF4F001FA954 /* BackgroundImage.swift in Sources */,
 				B4856F5E2963DA00001FA954 /* LoginButtonStyle.swift in Sources */,
 				B4856F602963DD6A001FA954 /* LoginButton.swift in Sources */,
+				B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */,
 				B4856F5329633281001FA954 /* LoginTextField.swift in Sources */,
+				B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
