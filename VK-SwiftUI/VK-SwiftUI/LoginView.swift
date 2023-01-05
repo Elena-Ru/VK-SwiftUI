@@ -17,6 +17,7 @@ struct LoginView: View {
 @State private var password = ""
 @State var authenticationDidFail: Bool = false
 @State var authenticationDidSucceed: Bool = false
+@Binding var isUserLoggedIn: Bool
 
 private let keyboardIsOnPublisher = Publishers.Merge(
     NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
@@ -45,7 +46,8 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                         LoginButton(login: $login,
                                     password: $password,
                                     authenticationDidSucceed: $authenticationDidSucceed,
-                                    authenticationDidFail: $authenticationDidFail)
+                                    authenticationDidFail: $authenticationDidFail,
+                                    isLoggedIn: $isUserLoggedIn)
                     }
                     .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.5)
                 }
@@ -73,6 +75,7 @@ extension UIApplication {
         
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView( isUserLoggedIn: .constant(false))
     }
 }
+    

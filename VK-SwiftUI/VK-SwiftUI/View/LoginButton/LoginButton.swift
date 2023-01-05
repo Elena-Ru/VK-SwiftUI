@@ -13,12 +13,14 @@ struct LoginButton: View {
     @Binding var password: String
     @Binding var authenticationDidSucceed: Bool
     @Binding var authenticationDidFail: Bool
+    @Binding var isLoggedIn: Bool
    private var isDisabled: Bool { login.isEmpty || password.isEmpty }
     
     fileprivate func verifyLoginData() {
         if login == storedUsername
             && password == storedPassword {
-            authenticationDidSucceed.toggle()
+            isLoggedIn = true
+            //authenticationDidSucceed.toggle()
         } else {
             authenticationDidFail.toggle()
         }
@@ -48,7 +50,8 @@ struct LoginButton_Previews: PreviewProvider {
         LoginButton(login: .constant(""),
                     password: .constant(""),
                     authenticationDidSucceed: .constant(false),
-                    authenticationDidFail: .constant(false)
+                    authenticationDidFail: .constant(false),
+                    isLoggedIn: .constant(false)
         )
     }
 }
