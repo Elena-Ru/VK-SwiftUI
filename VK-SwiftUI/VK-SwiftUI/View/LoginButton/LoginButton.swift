@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertX
 
 struct LoginButton: View {
     @Binding var login: String
@@ -17,11 +18,9 @@ struct LoginButton: View {
     fileprivate func verifyLoginData() {
         if login == storedUsername
             && password == storedPassword {
-            authenticationDidSucceed = true
-            authenticationDidFail = false
+            authenticationDidSucceed.toggle()
         } else {
-            authenticationDidFail = true
-            authenticationDidSucceed = false
+            authenticationDidFail.toggle()
         }
     }
     
@@ -36,6 +35,11 @@ struct LoginButton: View {
         }
         .buttonStyle(LoginButtonStyle(disabled: self.isDisabled))
         .disabled(login.isEmpty || password.isEmpty)
+        .alertX(isPresented: $authenticationDidFail, content: {
+              AlertX(title: Text("Information not correct. Try again."),
+                     theme: .cherry(withTransparency: true, roundedCorners: true),
+                     animation: .fadeEffect())
+        })
     }
 }
 

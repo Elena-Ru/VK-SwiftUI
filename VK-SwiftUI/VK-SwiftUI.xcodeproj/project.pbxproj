@@ -26,6 +26,7 @@
 		B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */; };
 		B4856F6F2965D353001FA954 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6E2965D353001FA954 /* Avatar.swift */; };
 		B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F732965D6BD001FA954 /* SecondaryText.swift */; };
+		B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = B4B02BB72966B0A4002BA614 /* AlertX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +110,7 @@
 				B4856F702965D5D1001FA954 /* Text */,
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
 				B4856F542963346B001FA954 /* PasswordTextField.swift */,
+				B4856F6629652AC0001FA954 /* FavoriteButton.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
 			);
 			path = View;
@@ -117,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				B4856F5D2963DA00001FA954 /* LoginButtonStyle.swift */,
-				B4856F6629652AC0001FA954 /* FavoriteButton.swift */,
 				B4856F5F2963DD6A001FA954 /* LoginButton.swift */,
 			);
 			path = LoginButton;
@@ -168,6 +170,9 @@
 			dependencies = (
 			);
 			name = "VK-SwiftUI";
+			packageProductDependencies = (
+				B4B02BB72966B0A4002BA614 /* AlertX */,
+			);
 			productName = "VK-SwiftUI";
 			productReference = B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -196,6 +201,9 @@
 				Base,
 			);
 			mainGroup = B4856F362962AE04001FA954;
+			packageReferences = (
+				B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */,
+			);
 			productRefGroup = B4856F402962AE04001FA954 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -439,6 +447,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/neel-makhecha/AlertX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B4B02BB72966B0A4002BA614 /* AlertX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */;
+			productName = AlertX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B4856F372962AE04001FA954 /* Project object */;
 }

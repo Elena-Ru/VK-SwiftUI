@@ -52,11 +52,6 @@ private let keyboardIsOnPublisher = Publishers.Merge(
                 .onTapGesture {
                     UIApplication.shared.endEditing()
                 }
-                .alert(isPresented: $authenticationDidFail, content: {
-                    Alert(title: Text("Error"),
-                          message: Text("Information not correct. Try again.")
-                    )
-                })
                 if authenticationDidSucceed {
                     LoginSucceedView()
                 }
