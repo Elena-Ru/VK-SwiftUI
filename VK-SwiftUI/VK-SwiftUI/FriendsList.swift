@@ -18,17 +18,24 @@ struct FriendsList: View {
     
     var body: some View {
         NavigationView {
-            List(filteredFriends) { friend in
-                NavigationLink {
-                    FriendPhotos(friend: friend)
-                } label: {
-                    FriendsRow(friend: friend)
+            List {
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites only")
+                        .font(.subheadline)
                 }
-                
+                ForEach(filteredFriends) { friend in
+                    NavigationLink {
+                        FriendPhotos(friend: friend)
+                    } label: {
+                        FriendsRow(friend: friend)
+                    }
+                    
+                }
             }
             .navigationTitle("Friends")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .ignoresSafeArea()
     }
 }
 
