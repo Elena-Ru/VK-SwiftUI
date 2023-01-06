@@ -37,13 +37,7 @@ struct FriendsList: View {
                         .font(.subheadline)
                 }
                 ForEach(firstLetterArray, id: \.self) { letter in
-                    Section(header: Text(String(letter.uppercased()))
-                                        .foregroundColor(Color(hex: "#244469"))
-                                        .font(.headline)
-                                        .bold()
-                                        .offset(x: 30)
-                                        .padding(.bottom, 0)
-                                        .padding(.top, -20)) {
+                    Section(header: SectionTitle(title: letter)) {
                          ForEach(filteredFriends.filter({ friend in
                              friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
                              NavigationLink {
@@ -69,3 +63,5 @@ struct FriendsList_Previews: PreviewProvider {
             .environmentObject(ModelData())
     }
 }
+
+
