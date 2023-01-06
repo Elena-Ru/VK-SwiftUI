@@ -136,9 +136,9 @@
 				B4856F612963DDE4001FA954 /* LoginButton */,
 				B4856F702965D5D1001FA954 /* Text */,
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
-				B4856F542963346B001FA954 /* PasswordTextField.swift */,
-				B4856F6629652AC0001FA954 /* FavoriteButton.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
+				B4856F542963346B001FA954 /* PasswordTextField.swift */,
+				B4B02BD929680D4C002BA614 /* Controls */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +206,14 @@
 				B4B02BD12967CD5E002BA614 /* ModelData.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		B4B02BD929680D4C002BA614 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				B4856F6629652AC0001FA954 /* FavoriteButton.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
