@@ -8,29 +8,32 @@
 import SwiftUI
 
 struct FriendsRow: View {
-    @State var isFavorite = false
-    @State private var fullName = "Tom Cruise"
-    @State private var education = "Johnson State College"
-    @State private var friendAvatar = "tom"
+    @EnvironmentObject var modelData: ModelData
+    var friend: Friend
+    
+    var friendIndex: Int {
+           modelData.friends.firstIndex(where: { $0.id == friend.id })!
+       }
     
     var body: some View {
-        HStack (spacing: 30){
-            
-            Avatar(avatar: $friendAvatar)
+        HStack(){
+            Avatar(avatar: $modelData.friends[friendIndex].photo100)
             VStack (alignment: .leading) {
-                NameBoldText(name: $fullName)
-                Secondary2lineText(text: $education)
+                NameBoldText(name: $modelData.friends[friendIndex].fullName)
+                Secondary2lineText(text: $modelData.friends[friendIndex].education)
             }
+            .padding(.leading, 20)
             Spacer()
-            FavoriteButton(isSet: $isFavorite)
+            FavoriteButton(isSet: $modelData.friends[friendIndex].isFavorite)
         }
-        .padding()
     }
 }
 
 struct FriendsRow_Previews: PreviewProvider {
+    static var friends = ModelData().friends
     static var previews: some View {
-        FriendsRow()
+       FriendsRow(friend: friends[0])
+            .environmentObject(ModelData())
     }
 }
 

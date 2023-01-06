@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "alertx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/neel-makhecha/AlertX",
+      "state" : {
+        "revision" : "8a360e662b6347735140b3216ff4aa5fe97af681",
+        "version" : "1.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}
