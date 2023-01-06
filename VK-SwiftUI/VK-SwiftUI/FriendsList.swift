@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendsList: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var showFavoritesOnly = true
+    @State private var showFavoritesOnly = false
     
     var filteredFriends: [Friend] {
         modelData.friends.filter { friend in

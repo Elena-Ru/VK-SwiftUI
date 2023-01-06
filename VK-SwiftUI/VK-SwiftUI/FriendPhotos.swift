@@ -17,11 +17,17 @@ struct FriendPhotos: View {
             LazyVGrid(columns: columnLayout, alignment: .center, spacing: 6) {
                 
                 ForEach(modelData.photos.indices, id: \.self) { index in
-                    Image(modelData.photos[index].photoName)
-                         .resizable()
-                         .clipped()
-                         .aspectRatio(1, contentMode: .fill)
-                         .cornerRadius(12)
+                    
+                    VStack {
+                        Image(modelData.photos[index].photoName)
+                             .resizable()
+                             .clipped()
+                             .aspectRatio(1, contentMode: .fill)
+                             .cornerRadius(12)
+                        LikeControl( photo: modelData.photos[index])
+                            .padding(.top, -5)
+                            .padding(.trailing, -60)
+                    }
                 }
                 .frame(maxWidth: 300)
             }
