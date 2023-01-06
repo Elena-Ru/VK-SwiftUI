@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct FriendsList: View {
+    @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = true
     
     var filteredFriends: [Friend] {
-        friends.filter { friend in
+        modelData.friends.filter { friend in
             (!showFavoritesOnly || friend.isFavorite)
         }
     }
@@ -42,5 +43,6 @@ struct FriendsList: View {
 struct FriendsList_Previews: PreviewProvider {
     static var previews: some View {
         FriendsList()
+            .environmentObject(ModelData())
     }
 }

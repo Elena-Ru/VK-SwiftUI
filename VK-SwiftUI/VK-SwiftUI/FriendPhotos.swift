@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FriendPhotos: View {
-    
+    @EnvironmentObject var modelData: ModelData
     var friend: Friend
     let columnLayout = Array(repeating: GridItem(), count: 2)
     
@@ -16,8 +16,8 @@ struct FriendPhotos: View {
         ScrollView {
             LazyVGrid(columns: columnLayout) {
                 
-                ForEach(photos.indices, id: \.self) { index in
-                 Image(photos[index].photoName)
+                ForEach(modelData.photos.indices, id: \.self) { index in
+                    Image(modelData.photos[index].photoName)
                          .resizable()
                          .scaledToFit()
                          .cornerRadius(12)
@@ -32,6 +32,6 @@ struct FriendPhotos: View {
 
 struct FriendPhotos_Previews: PreviewProvider {
     static var previews: some View {
-        FriendPhotos(friend: friends[0])
+        FriendPhotos(friend: ModelData().friends[0])
     }
 }
