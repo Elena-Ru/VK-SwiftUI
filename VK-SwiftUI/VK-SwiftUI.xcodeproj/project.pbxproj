@@ -36,6 +36,7 @@
 		B4B02BD22967CD5E002BA614 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD12967CD5E002BA614 /* ModelData.swift */; };
 		B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD32967D329002BA614 /* FriendsList.swift */; };
 		B4B02BD62967E629002BA614 /* FriendPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD52967E629002BA614 /* FriendPhotos.swift */; };
+		B4B02BD82967EBFF002BA614 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD72967EBFF002BA614 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		B4B02BD12967CD5E002BA614 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		B4B02BD32967D329002BA614 /* FriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsList.swift; sourceTree = "<group>"; };
 		B4B02BD52967E629002BA614 /* FriendPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotos.swift; sourceTree = "<group>"; };
+		B4B02BD72967EBFF002BA614 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B02BCF2967C390002BA614 /* Friend.swift */,
+				B4B02BD72967EBFF002BA614 /* Photo.swift */,
 				B4B02BD12967CD5E002BA614 /* ModelData.swift */,
 			);
 			name = Model;
@@ -284,6 +287,7 @@
 				B4B02BBC2966C5AF002BA614 /* NewsRow.swift in Sources */,
 				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */,
+				B4B02BD82967EBFF002BA614 /* Photo.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
 				B4B02BD22967CD5E002BA614 /* ModelData.swift in Sources */,
