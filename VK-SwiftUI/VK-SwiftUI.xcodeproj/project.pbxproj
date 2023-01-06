@@ -38,6 +38,7 @@
 		B4B02BD62967E629002BA614 /* FriendPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD52967E629002BA614 /* FriendPhotos.swift */; };
 		B4B02BD82967EBFF002BA614 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD72967EBFF002BA614 /* Photo.swift */; };
 		B4B02BDC29682576002BA614 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDB29682576002BA614 /* LikeButton.swift */; };
+		B4B02BDE29682638002BA614 /* LikeQuantityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		B4B02BD52967E629002BA614 /* FriendPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotos.swift; sourceTree = "<group>"; };
 		B4B02BD72967EBFF002BA614 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B4B02BDB29682576002BA614 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuantityButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B02BDB29682576002BA614 /* LikeButton.swift */,
+				B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */,
 			);
 			path = LikeControl;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				B4B02BD62967E629002BA614 /* FriendPhotos.swift in Sources */,
 				B4B02BDC29682576002BA614 /* LikeButton.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
+				B4B02BDE29682638002BA614 /* LikeQuantityButton.swift in Sources */,
 				B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */,
 				B4B02BC52966F0AF002BA614 /* CustomTabBar.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
