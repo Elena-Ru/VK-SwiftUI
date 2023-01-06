@@ -21,7 +21,7 @@ struct MainView: View {
                 TabView(selection: $selection) {
                     switch selection {
                     case .friends :
-                        FriendsRow()
+                        FriendsRow(friend: friends[1])
                             .tag(Tab.friends)
                     case .groups:
                         GroupRow()

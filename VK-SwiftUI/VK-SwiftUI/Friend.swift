@@ -21,7 +21,7 @@ class Friend: Identifiable {
         Image(photo100)
     }
 
-    init(_ id:Int, _ firstName: String, _ lastName: String,_ education: String, _ photo100: String, _  isFavor: Bool){
+    init(_ id:Int, _ firstName: String, _ lastName: String, _ photo100: String,_ education: String, _  isFavor: Bool){
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

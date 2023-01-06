@@ -33,6 +33,8 @@
 		B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BC629671244002BA614 /* Extension+Color.swift */; };
 		B4B02BCB29672D6E002BA614 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BCA29672D6E002BA614 /* ContainerView.swift */; };
 		B4B02BD02967C390002BA614 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BCF2967C390002BA614 /* Friend.swift */; };
+		B4B02BD22967CD5E002BA614 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD12967CD5E002BA614 /* ModelData.swift */; };
+		B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BD32967D329002BA614 /* FriendsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		B4B02BC629671244002BA614 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		B4B02BCA29672D6E002BA614 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		B4B02BCF2967C390002BA614 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		B4B02BD12967CD5E002BA614 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		B4B02BD32967D329002BA614 /* FriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 				B4B02BCE2967C2DD002BA614 /* Model */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
+				B4B02BD32967D329002BA614 /* FriendsList.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
 				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
@@ -192,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B02BCF2967C390002BA614 /* Friend.swift */,
+				B4B02BD12967CD5E002BA614 /* ModelData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
+				B4B02BD22967CD5E002BA614 /* ModelData.swift in Sources */,
+				B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */,
 				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,
