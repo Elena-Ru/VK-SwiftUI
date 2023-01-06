@@ -9,8 +9,16 @@ import SwiftUI
 
 struct FriendsList: View {
     var body: some View {
-        List(friends, id: \.id) { friend in
-            FriendsRow(friend: friend)
+        NavigationView {
+            List(friends) { friend in
+                NavigationLink {
+                    FriendPhotos()
+                } label: {
+                    FriendsRow(friend: friend)
+                }
+                
+            }
+            .navigationTitle("Friends")
         }
     }
 }

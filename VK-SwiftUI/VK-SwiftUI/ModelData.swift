@@ -8,7 +8,7 @@
 import Foundation
 
 var friends: [Friend] = [ Friend(1, "Tom", "Cruise", "tom", "Johnson State College", false),
-                                     Friend(2, "Коля", "Иванов", "spiderman", "Some Unoversity", true),
+                                     Friend(2, "Коля", "Иванов", "spiderman", "Some University", true),
                                      Friend(3, "Brad", "Pitt", "brad", "Missouri School of Journalism", false)
 ]
 
