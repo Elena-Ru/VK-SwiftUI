@@ -19,11 +19,13 @@ struct FriendPhotos: View {
                 ForEach(modelData.photos.indices, id: \.self) { index in
                     
                     VStack {
-                        Image(modelData.photos[index].photoName)
-                             .resizable()
-                             .clipped()
-                             .aspectRatio(1, contentMode: .fill)
+                        NavigationLink(destination: PhotoView(currentIndex: index)) {
+                            Image(modelData.photos[index].photoName)
+                                 .resizable()
+                                 .clipped()
+                                 .aspectRatio(1, contentMode: .fill)
                              .cornerRadius(12)
+                        }
                         LikeControl( photo: modelData.photos[index])
                             .padding(.top, -5)
                             .padding(.trailing, -60)
