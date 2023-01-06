@@ -12,7 +12,7 @@ struct FriendsList: View {
         NavigationView {
             List(friends) { friend in
                 NavigationLink {
-                    FriendPhotos()
+                    FriendPhotos(friend: friend)
                 } label: {
                     FriendsRow(friend: friend)
                 }
