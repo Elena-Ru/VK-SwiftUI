@@ -40,6 +40,7 @@
 		B4B02BDC29682576002BA614 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDB29682576002BA614 /* LikeButton.swift */; };
 		B4B02BDE29682638002BA614 /* LikeQuantityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */; };
 		B4B02BE0296826C7002BA614 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDF296826C7002BA614 /* LikeControl.swift */; };
+		B4B02BE229682968002BA614 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BE129682968002BA614 /* PhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		B4B02BDB29682576002BA614 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuantityButton.swift; sourceTree = "<group>"; };
 		B4B02BDF296826C7002BA614 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		B4B02BE129682968002BA614 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
 				B4B02BD32967D329002BA614 /* FriendsList.swift */,
 				B4B02BD52967E629002BA614 /* FriendPhotos.swift */,
+				B4B02BE129682968002BA614 /* PhotoView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
 				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
@@ -336,6 +339,7 @@
 				B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */,
 				B4B02BC52966F0AF002BA614 /* CustomTabBar.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
+				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4B02BCB29672D6E002BA614 /* ContainerView.swift in Sources */,
 				B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */,
