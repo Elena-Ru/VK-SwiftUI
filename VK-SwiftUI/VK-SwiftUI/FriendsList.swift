@@ -15,6 +15,18 @@ struct FriendsList: View {
         modelData.friends.filter { friend in
             (!showFavoritesOnly || friend.isFavorite)
         }
+        .sorted { $0.lastName.first! < $1.lastName.first!}
+    }
+    
+    var firstLetterArray: [Character] {
+        var firstLetterAr : [Character] = []
+        for i in 0..<filteredFriends.count {
+            guard !firstLetterAr.contains(filteredFriends[i].lastName.first!) else {
+                continue
+            }
+            firstLetterAr.append(filteredFriends[i].lastName.first!)
+        }
+        return firstLetterAr
     }
     
     var body: some View {
@@ -24,14 +36,19 @@ struct FriendsList: View {
                     Text("Favorites only")
                         .font(.subheadline)
                 }
-                ForEach(filteredFriends) { friend in
-                    NavigationLink {
-                        FriendPhotos(friend: friend)
-                    } label: {
-                        FriendsRow(friend: friend)
-                    }
-                    
-                }
+                ForEach(firstLetterArray, id: \.self) { letter in
+                    Section(header: Text(String(letter.uppercased()))
+                        .foregroundColor(Color(hex: "#e84f37"))) {
+                         ForEach(filteredFriends.filter({ friend in
+                             friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
+                             NavigationLink {
+                                 FriendPhotos(friend: friend)
+                             } label: {
+                                FriendsRow(friend: friend)
+                            }
+                         }
+                     }
+                 }
             }
             .navigationTitle("Friends")
             .navigationBarTitleDisplayMode(.inline)

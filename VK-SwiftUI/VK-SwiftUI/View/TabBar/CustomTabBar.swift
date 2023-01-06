@@ -27,7 +27,7 @@ struct CustomTabBar: View {
                         if selectedTab == tab {
                             Image(systemName: fillImage)
                                 .padding()
-                                .background( Color(hex: "#e84f37"))
+                                .background(Color(hex: "#e84f37"))
                                 .clipShape(Circle())
                                 .overlay {
                                     Circle().stroke(.white, lineWidth: 3).shadow(radius: 7)
