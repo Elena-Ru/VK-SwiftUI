@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct FriendsList: View {
+    @State private var showFavoritesOnly = true
+    
+    var filteredFriends: [Friend] {
+        friends.filter { friend in
+            (!showFavoritesOnly || friend.isFavorite)
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            List(friends) { friend in
+            List(filteredFriends) { friend in
                 NavigationLink {
                     FriendPhotos(friend: friend)
                 } label: {
@@ -19,6 +27,7 @@ struct FriendsList: View {
                 
             }
             .navigationTitle("Friends")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

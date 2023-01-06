@@ -26,6 +26,7 @@ struct FriendPhotos: View {
            .padding()
         }
         .navigationTitle(friend.firstName)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
