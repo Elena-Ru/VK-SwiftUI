@@ -16,16 +16,16 @@ struct FriendsRow: View {
        }
     
     var body: some View {
-        HStack (spacing: 30){
+        HStack(){
             Avatar(avatar: $modelData.friends[friendIndex].photo100)
             VStack (alignment: .leading) {
                 NameBoldText(name: $modelData.friends[friendIndex].fullName)
                 Secondary2lineText(text: $modelData.friends[friendIndex].education)
             }
+            .padding(.leading, 20)
             Spacer()
             FavoriteButton(isSet: $modelData.friends[friendIndex].isFavorite)
         }
-        .padding()
     }
 }
 

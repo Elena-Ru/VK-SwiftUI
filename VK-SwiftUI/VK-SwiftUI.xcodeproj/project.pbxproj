@@ -131,6 +131,7 @@
 		B4856F56296334AE001FA954 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B4B02BD929680D4C002BA614 /* Controls */,
 				B4B02BC929671450002BA614 /* TabBar */,
 				B4856F712965D5FF001FA954 /* Image */,
 				B4856F612963DDE4001FA954 /* LoginButton */,
@@ -138,7 +139,6 @@
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
 				B4856F542963346B001FA954 /* PasswordTextField.swift */,
-				B4B02BD929680D4C002BA614 /* Controls */,
 			);
 			path = View;
 			sourceTree = "<group>";
