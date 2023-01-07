@@ -15,7 +15,7 @@ struct GroupsList: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(modelData.groups) { group in
                     GroupRow( group: group)
@@ -24,6 +24,13 @@ struct GroupsList: View {
             }
             .navigationTitle("My Groups")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    NavigationLink(destination: NewsRow(), label: {
+                        AddButton()
+                    })
+                })
+            }
         }
         .ignoresSafeArea()
     }
@@ -35,3 +42,5 @@ struct GroupsList_Previews: PreviewProvider {
             .environmentObject(ModelData())
     }
 }
+
+
