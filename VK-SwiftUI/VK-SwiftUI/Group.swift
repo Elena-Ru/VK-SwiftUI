@@ -13,12 +13,14 @@ class Group: Identifiable {
     var groupName: String
     var subscribersQty: Int
     var imageLogo: String
+    var groupCategory: String
     
-    init(id: Int, groupName: String, subscribersQty: Int, imageLogo: String) {
+    init(id: Int, groupName: String, subscribersQty: Int, imageLogo: String, groupCategory: String) {
         self.id = id
         self.groupName = groupName
         self.subscribersQty = subscribersQty
         self.imageLogo = imageLogo
+        self.groupCategory = groupCategory
     }
 
 }

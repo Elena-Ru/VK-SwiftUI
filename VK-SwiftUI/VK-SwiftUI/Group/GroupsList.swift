@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct GroupsList: View {
+    @EnvironmentObject var modelData: ModelData
+    
     var body: some View {
         NavigationView {
             List {
-                GroupRow()
+                ForEach(modelData.groups) { group in
+                    GroupRow( group: group)
+                 }
             }
             .navigationTitle("My Groups")
             .navigationBarTitleDisplayMode(.inline)
@@ -23,5 +27,6 @@ struct GroupsList: View {
 struct GroupsList_Previews: PreviewProvider {
     static var previews: some View {
         GroupsList()
+            .environmentObject(ModelData())
     }
 }
