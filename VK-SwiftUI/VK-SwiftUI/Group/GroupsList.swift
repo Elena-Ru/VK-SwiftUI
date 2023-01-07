@@ -26,7 +26,7 @@ struct GroupsList: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing, content: {
-                    NavigationLink(destination: NewsRow(), label: {
+                    NavigationLink(destination: AllGroupsList(), label: {
                         AddButton()
                     })
                 })

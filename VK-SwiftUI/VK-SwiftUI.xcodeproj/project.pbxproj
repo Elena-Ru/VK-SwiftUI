@@ -11,6 +11,8 @@
 		B484FEA8296916960034AABD /* GroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA7296916960034AABD /* GroupsList.swift */; };
 		B484FEAA2969194C0034AABD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA92969194C0034AABD /* Group.swift */; };
 		B484FEAD296960670034AABD /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEAC296960660034AABD /* AddButton.swift */; };
+		B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEAE2969613D0034AABD /* AllGroupsList.swift */; };
+		B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB02969631A0034AABD /* AllGroupRow.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		B484FEA7296916960034AABD /* GroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsList.swift; sourceTree = "<group>"; };
 		B484FEA92969194C0034AABD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		B484FEAC296960660034AABD /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		B484FEAE2969613D0034AABD /* AllGroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsList.swift; sourceTree = "<group>"; };
+		B484FEB02969631A0034AABD /* AllGroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupRow.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			children = (
 				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B484FEA7296916960034AABD /* GroupsList.swift */,
+				B484FEAE2969613D0034AABD /* AllGroupsList.swift */,
+				B484FEB02969631A0034AABD /* AllGroupRow.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -366,11 +372,13 @@
 				B4B02BD62967E629002BA614 /* FriendPhotos.swift in Sources */,
 				B4B02BDC29682576002BA614 /* LikeButton.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
+				B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */,
 				B4B02BE0296826C7002BA614 /* LikeControl.swift in Sources */,
 				B4B02BDE29682638002BA614 /* LikeQuantityButton.swift in Sources */,
 				B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */,
 				B4B02BC52966F0AF002BA614 /* CustomTabBar.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
+				B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4B02BCB29672D6E002BA614 /* ContainerView.swift in Sources */,
