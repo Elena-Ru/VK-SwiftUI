@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 
 class Friend: Identifiable {
+    
     var id: Int
     var firstName: String
-    var lastName: String
+    var lastName: String = ""
     var fullName: String = ""
     var isFavorite: Bool
     var education: String
