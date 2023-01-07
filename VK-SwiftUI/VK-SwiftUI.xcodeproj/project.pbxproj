@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B484FEA5296887690034AABD /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA4296887690034AABD /* SectionTitle.swift */; };
+		B484FEA8296916960034AABD /* GroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA7296916960034AABD /* GroupsList.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		B484FEA4296887690034AABD /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		B484FEA7296916960034AABD /* GroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsList.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B484FEA6296916500034AABD /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
+				B4B02BD32967D329002BA614 /* FriendsList.swift */,
+				B4B02BD52967E629002BA614 /* FriendPhotos.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		B4856F362962AE04001FA954 = {
 			isa = PBXGroup;
 			children = (
@@ -117,12 +129,11 @@
 				B4B02BC8296713F8002BA614 /* Extensions */,
 				B4B02BCE2967C2DD002BA614 /* Model */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
-				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
-				B4B02BD32967D329002BA614 /* FriendsList.swift */,
-				B4B02BD52967E629002BA614 /* FriendPhotos.swift */,
+				B484FEA6296916500034AABD /* Friend */,
 				B4B02BE129682968002BA614 /* PhotoView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
 				B4856F68296535F4001FA954 /* GroupRow.swift */,
+				B484FEA7296916960034AABD /* GroupsList.swift */,
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
@@ -319,6 +330,7 @@
 				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */,
 				B4B02BD82967EBFF002BA614 /* Photo.swift in Sources */,
+				B484FEA8296916960034AABD /* GroupsList.swift in Sources */,
 				B484FEA5296887690034AABD /* SectionTitle.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
