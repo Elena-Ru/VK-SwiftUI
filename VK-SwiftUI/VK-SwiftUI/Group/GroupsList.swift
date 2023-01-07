@@ -10,12 +10,17 @@ import SwiftUI
 struct GroupsList: View {
     @EnvironmentObject var modelData: ModelData
     
+    fileprivate func delete(_ index: IndexSet) {
+        modelData.groups.remove(atOffsets: index)
+    }
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(modelData.groups) { group in
                     GroupRow( group: group)
                  }
+                .onDelete(perform: delete)
             }
             .navigationTitle("My Groups")
             .navigationBarTitleDisplayMode(.inline)

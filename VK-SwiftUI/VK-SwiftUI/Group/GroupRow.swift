@@ -10,22 +10,24 @@ import SwiftUI
 struct GroupRow: View {
     @EnvironmentObject var modelData: ModelData
     var group: Group
-    var groupIndex: Int {
-           modelData.groups.firstIndex(where: { $0.id == group.id })!
+    var groupIndex: Int? {
+           modelData.groups.firstIndex(where: { $0.id == group.id }) ?? nil
        }
     
     var body: some View {
-        HStack (spacing: 30) {
-            Avatar(avatar: $modelData.groups[groupIndex].imageLogo)
-            VStack (alignment: .leading) {
-                NameBoldText(name: $modelData.groups[groupIndex].groupName)
-                Secondary2lineText(text: $modelData.groups[groupIndex].groupCategory)
-                Text("\(modelData.groups[groupIndex].subscribersQty) subscribers")
-                    .modifier(SecondaryText())
+        if let index = groupIndex{
+            HStack (spacing: 30) {
+                Avatar(avatar: $modelData.groups[index].imageLogo)
+                VStack (alignment: .leading) {
+                    NameBoldText(name: $modelData.groups[index].groupName)
+                    Secondary2lineText(text: $modelData.groups[index].groupCategory)
+                    Text("\(modelData.groups[index].subscribersQty) subscribers")
+                        .modifier(SecondaryText())
+                }
+                Spacer()
             }
-            Spacer()
+            .padding()
         }
-        .padding()
     }
 }
 
