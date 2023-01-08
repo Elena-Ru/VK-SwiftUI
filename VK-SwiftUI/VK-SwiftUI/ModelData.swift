@@ -22,6 +22,18 @@ final class ModelData: ObservableObject {
                             Photo(5, "group", 32, false),
                             Photo(6, "vkLogo", 28, false),
     ]
+    
+    @Published var groups: [Group] = [ Group(id: 1, groupName: "Swift", subscribersQty: 431213, imageLogo: "group", groupCategory: "Codding"),
+                                       Group(id: 2, groupName: "Running", subscribersQty: 12567779, imageLogo: "run", groupCategory: "Heath"),
+                                       Group(id: 3, groupName: "Chess", subscribersQty: 23790, imageLogo: "chess", groupCategory: "Game")
+    ]
+    
+    @Published var allGroups: [Group] = [ Group(id: 1, groupName: "Swift", subscribersQty: 431213, imageLogo: "group", groupCategory: "Codding"),
+                                        Group(id: 2, groupName: "Running", subscribersQty: 12567779, imageLogo: "run", groupCategory: "Heath"),
+                                        Group(id: 3, groupName: "Chess", subscribersQty: 23790, imageLogo: "chess", groupCategory: "Game"),
+                                        Group(id: 4, groupName: "Famous", subscribersQty: 7779, imageLogo: "brad", groupCategory: "People"),
+                                        Group(id: 5, groupName: "Cod", subscribersQty: 4213, imageLogo: "vkLogo", groupCategory: "Codding")
+    ]
 
 }
 

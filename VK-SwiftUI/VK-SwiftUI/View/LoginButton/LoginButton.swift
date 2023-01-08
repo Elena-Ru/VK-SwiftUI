@@ -20,7 +20,6 @@ struct LoginButton: View {
         if login == storedUsername
             && password == storedPassword {
             isLoggedIn = true
-            //authenticationDidSucceed.toggle()
         } else {
             authenticationDidFail.toggle()
         }

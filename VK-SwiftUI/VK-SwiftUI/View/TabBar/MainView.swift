@@ -24,7 +24,7 @@ struct MainView: View {
                         FriendsList()
                             .tag(Tab.friends)
                     case .groups:
-                        GroupRow()
+                        GroupsList()
                             .tag(Tab.groups)
                     case .news:
                         NewsRow()
