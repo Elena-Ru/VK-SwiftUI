@@ -110,6 +110,7 @@
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
 				B4B02BD32967D329002BA614 /* FriendsList.swift */,
 				B4B02BD52967E629002BA614 /* FriendPhotos.swift */,
+				B4B02BE129682968002BA614 /* PhotoView.swift */,
 			);
 			path = Friend;
 			sourceTree = "<group>";
@@ -150,7 +151,6 @@
 				B484FEA6296916500034AABD /* Friend */,
 				B484FEAB2969263C0034AABD /* Group */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
-				B4B02BE129682968002BA614 /* PhotoView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
 				B4856F56296334AE001FA954 /* View */,

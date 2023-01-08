@@ -15,6 +15,7 @@ struct GroupsList: View {
     }
     
     var body: some View {
+
         NavigationStack {
             List {
                 ForEach(modelData.groups) { group in
@@ -29,6 +30,7 @@ struct GroupsList: View {
                     NavigationLink(destination: AllGroupsList(), label: {
                         AddButton()
                     })
+                    .isDetailLink(false)
                 })
             }
         }
