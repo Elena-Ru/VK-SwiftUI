@@ -34,6 +34,11 @@ final class ModelData: ObservableObject {
                                         Group(id: 4, groupName: "Famous", subscribersQty: 7779, imageLogo: "brad", groupCategory: "People"),
                                         Group(id: 5, groupName: "Cod", subscribersQty: 4213, imageLogo: "vkLogo", groupCategory: "Codding")
     ]
+    
+    @Published var news: [News] = [ News(id: 1, ownerName: "Brad Pitt", date: 237790, ownerAvatar: "brad", text: "first new", attachments: "brad", comments: 23, likes: 123, reposts: 2, views: 345),
+                                    News(id: 2, ownerName: "Tom Cruise", date: 233790, ownerAvatar: "tom", text: "Second new", attachments: "tom", comments: 0, likes: 0, reposts: 0, views: 0),
+                                    News(id: 3, ownerName: "Chess", date: 237793, ownerAvatar: "chess", text: "Third new", attachments: "chees", comments: 3, likes: 3, reposts: 0, views: 35)
+    ]
 
 }
 
