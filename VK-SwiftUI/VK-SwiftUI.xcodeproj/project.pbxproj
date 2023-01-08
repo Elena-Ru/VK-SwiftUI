@@ -13,6 +13,7 @@
 		B484FEAD296960670034AABD /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEAC296960660034AABD /* AddButton.swift */; };
 		B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEAE2969613D0034AABD /* AllGroupsList.swift */; };
 		B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB02969631A0034AABD /* AllGroupRow.swift */; };
+		B484FEB6296AD5F80034AABD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB5296AD5F80034AABD /* News.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		B484FEAC296960660034AABD /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		B484FEAE2969613D0034AABD /* AllGroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsList.swift; sourceTree = "<group>"; };
 		B484FEB02969631A0034AABD /* AllGroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupRow.swift; sourceTree = "<group>"; };
+		B484FEB5296AD5F80034AABD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -118,12 +120,36 @@
 		B484FEAB2969263C0034AABD /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				B484FEB2296AD4060034AABD /* FavouriteGroups */,
+				B484FEB3296AD4240034AABD /* AllGroups */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		B484FEB2296AD4060034AABD /* FavouriteGroups */ = {
+			isa = PBXGroup;
+			children = (
 				B4856F68296535F4001FA954 /* GroupRow.swift */,
 				B484FEA7296916960034AABD /* GroupsList.swift */,
+			);
+			path = FavouriteGroups;
+			sourceTree = "<group>";
+		};
+		B484FEB3296AD4240034AABD /* AllGroups */ = {
+			isa = PBXGroup;
+			children = (
 				B484FEAE2969613D0034AABD /* AllGroupsList.swift */,
 				B484FEB02969631A0034AABD /* AllGroupRow.swift */,
 			);
-			path = Group;
+			path = AllGroups;
+			sourceTree = "<group>";
+		};
+		B484FEB4296AD4630034AABD /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		B4856F362962AE04001FA954 = {
@@ -152,7 +178,7 @@
 				B484FEAB2969263C0034AABD /* Group */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
-				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
+				B484FEB4296AD4630034AABD /* News */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
@@ -245,6 +271,7 @@
 				B4B02BCF2967C390002BA614 /* Friend.swift */,
 				B4B02BD72967EBFF002BA614 /* Photo.swift */,
 				B484FEA92969194C0034AABD /* Group.swift */,
+				B484FEB5296AD5F80034AABD /* News.swift */,
 				B4B02BD12967CD5E002BA614 /* ModelData.swift */,
 			);
 			name = Model;
@@ -352,6 +379,7 @@
 				B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */,
 				B4B02BD82967EBFF002BA614 /* Photo.swift in Sources */,
 				B484FEA8296916960034AABD /* GroupsList.swift in Sources */,
+				B484FEB6296AD5F80034AABD /* News.swift in Sources */,
 				B484FEA5296887690034AABD /* SectionTitle.swift in Sources */,
 				B4856F552963346B001FA954 /* PasswordTextField.swift in Sources */,
 				B484FEAD296960670034AABD /* AddButton.swift in Sources */,
