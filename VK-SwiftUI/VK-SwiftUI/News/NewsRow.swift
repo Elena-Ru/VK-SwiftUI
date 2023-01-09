@@ -10,6 +10,7 @@ import SwiftUI
 struct NewsRow: View {
     
     @EnvironmentObject var modelData: ModelData
+   //@ScaledMetric(relativeTo: .caption2) var paddingWidth = 7
     var newsItem: News
     var newsIndex: Int {
         modelData.news.firstIndex(where: { $0.id == newsItem.id })!
@@ -31,10 +32,44 @@ struct NewsRow: View {
                 .resizable()
                 .scaledToFit()
             HStack{
-                Text("likes")
-                Text("Comments")
-                Text("shared")
-                Text("view")
+                    Button {
+                        print("like button tapped")
+                    } label: {
+                        Label("\(modelData.news[newsIndex].likes)", systemImage: "heart")
+                            .font(.caption)
+                            .foregroundColor(Color(hex: "#244469"))
+                            .padding(7)
+                            .background(.thinMaterial, in: Capsule())
+                            .labelStyle(.titleAndIcon)
+                            
+                    }
+                    Button {
+                        print("Comment button tapped")
+                    } label: {
+                        Label("\(modelData.news[newsIndex].comments)", systemImage: "bubble.left")
+                            .font(.caption)
+                            .foregroundColor(Color(hex: "#244469"))
+                            .padding(7)
+                            .background(.thinMaterial, in: Capsule())
+                            .labelStyle(.titleAndIcon)
+                    }
+                    Button {
+                        print("Shared button tapped")
+                    } label: {
+                        Label("\(modelData.news[newsIndex].reposts)", systemImage: "arrowshape.turn.up.right")
+                            .font(.caption)
+                            .foregroundColor(Color(hex: "#244469"))
+                            .padding(7)
+                            .background(.thinMaterial, in: Capsule())
+                            .labelStyle(.titleAndIcon)
+                    }
+                Spacer()
+                Label("\(modelData.news[newsIndex].reposts)", systemImage: "eye")
+                    .font(.caption)
+                    .foregroundColor(Color(hex: "#244469"))
+                    .padding(7)
+                    .background(.thinMaterial, in: Capsule())
+                    .labelStyle(.titleAndIcon)
             }
         }
         
