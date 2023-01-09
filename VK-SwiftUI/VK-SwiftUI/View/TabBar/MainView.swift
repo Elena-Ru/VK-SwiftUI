@@ -27,7 +27,7 @@ struct MainView: View {
                         GroupsList()
                             .tag(Tab.groups)
                     case .news:
-                        NewsRow()
+                        NewsList()
                             .tag(Tab.news)
                     }
                 }
