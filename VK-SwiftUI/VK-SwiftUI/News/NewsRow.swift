@@ -36,8 +36,7 @@ struct NewsRow: View {
                 CommentControl( newsItem: newsItem)
                 SharedControl( newsItem: newsItem)
                 Spacer()
-                Label("\(modelData.news[newsIndex].reposts)", systemImage: "eye")
-                    .modifier(CapsuleControl())
+                ViewsControl(newsItem: newsItem)
             }
             
         }
@@ -52,6 +51,7 @@ struct NewsRow_Previews: PreviewProvider {
             .environmentObject(ModelData())
     }
 }
+
 
 
 
