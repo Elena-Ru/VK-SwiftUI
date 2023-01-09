@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CapsuleControl: ViewModifier {
+    
     func body(content: Content) -> some View {
         content
             .font(.caption)

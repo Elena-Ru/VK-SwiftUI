@@ -17,7 +17,7 @@ struct LikeQuantityButton: View {
             isUserLike.toggle()
             likeQty = isUserLike ? likeQty + 1 : likeQty - 1
         }
-        .foregroundColor(isUserLike ? .blue : .gray)
+        .foregroundColor(isUserLike ? .blue : Color(hex: "#244469"))
     }
 }
 

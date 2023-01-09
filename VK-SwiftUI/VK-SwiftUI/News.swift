@@ -15,12 +15,13 @@ class News: Identifiable {
     var ownerAvatar: String
     let text: String
     let attachments: String
-    let comments: Int
-    let likes: Int
-    let reposts: Int
-    let views: Int
+    var comments: Int
+    var likes: Int
+    var isUserLike: Bool
+    var reposts: Int
+    var views: Int
    
-    init(id: Int, ownerName: String, date: String, ownerAvatar: String, text: String, attachments: String, comments: Int, likes: Int, reposts: Int, views: Int) {
+    init(id: Int, ownerName: String, date: String, ownerAvatar: String, text: String, attachments: String, comments: Int, likes: Int,isUserLike: Bool, reposts: Int, views: Int) {
         self.id = id
         self.ownerName = ownerName
         self.date = date
@@ -29,6 +30,7 @@ class News: Identifiable {
         self.attachments = attachments
         self.comments = comments
         self.likes = likes
+        self.isUserLike = isUserLike
         self.reposts = reposts
         self.views = views
     }

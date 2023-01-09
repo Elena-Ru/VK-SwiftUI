@@ -16,6 +16,7 @@
 		B484FEB6296AD5F80034AABD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB5296AD5F80034AABD /* News.swift */; };
 		B484FEB8296B076F0034AABD /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB7296B076F0034AABD /* NewsList.swift */; };
 		B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB9296C07F50034AABD /* CapsuleControl.swift */; };
+		B484FEBC296C0F2A0034AABD /* LikeNewsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEBB296C0F2A0034AABD /* LikeNewsControl.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		B484FEB5296AD5F80034AABD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B484FEB7296B076F0034AABD /* NewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
 		B484FEB9296C07F50034AABD /* CapsuleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleControl.swift; sourceTree = "<group>"; };
+		B484FEBB296C0F2A0034AABD /* LikeNewsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeNewsControl.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				B4B02BDB29682576002BA614 /* LikeButton.swift */,
 				B4B02BDF296826C7002BA614 /* LikeControl.swift */,
+				B484FEBB296C0F2A0034AABD /* LikeNewsControl.swift */,
 				B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */,
 			);
 			path = LikeControl;
@@ -415,6 +418,7 @@
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
 				B484FEB8296B076F0034AABD /* NewsList.swift in Sources */,
 				B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */,
+				B484FEBC296C0F2A0034AABD /* LikeNewsControl.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4B02BCB29672D6E002BA614 /* ContainerView.swift in Sources */,

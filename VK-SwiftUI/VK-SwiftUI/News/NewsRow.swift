@@ -31,13 +31,9 @@ struct NewsRow: View {
             Image(modelData.news[newsIndex].attachments)
                 .resizable()
                 .scaledToFit()
-            HStack{
-                    Button {
-                        print("like button tapped")
-                    } label: {
-                        Label("\(modelData.news[newsIndex].likes)", systemImage: "heart")
-                            .modifier(CapsuleControl())
-                    }
+            HStack {
+                LikeNewsControl(newsItem: newsItem)
+                    .modifier(CapsuleControl())
                     Button {
                         print("Comment button tapped")
                     } label: {
@@ -54,6 +50,7 @@ struct NewsRow: View {
                 Label("\(modelData.news[newsIndex].reposts)", systemImage: "eye")
                     .modifier(CapsuleControl())
             }
+            
         }
         
     }
@@ -66,3 +63,5 @@ struct NewsRow_Previews: PreviewProvider {
             .environmentObject(ModelData())
     }
 }
+
+
