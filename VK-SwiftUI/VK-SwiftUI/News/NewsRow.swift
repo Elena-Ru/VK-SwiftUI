@@ -10,7 +10,6 @@ import SwiftUI
 struct NewsRow: View {
     
     @EnvironmentObject var modelData: ModelData
-   //@ScaledMetric(relativeTo: .caption2) var paddingWidth = 7
     var newsItem: News
     var newsIndex: Int {
         modelData.news.firstIndex(where: { $0.id == newsItem.id })!
@@ -34,12 +33,7 @@ struct NewsRow: View {
             HStack {
                 LikeNewsControl(newsItem: newsItem)
                     .modifier(CapsuleControl())
-                    Button {
-                        print("Comment button tapped")
-                    } label: {
-                        Label("\(modelData.news[newsIndex].comments)", systemImage: "bubble.left")
-                            .modifier(CapsuleControl())
-                    }
+                CommentControl( newsItem: newsItem)
                     Button {
                         print("Shared button tapped")
                     } label: {
@@ -63,5 +57,7 @@ struct NewsRow_Previews: PreviewProvider {
             .environmentObject(ModelData())
     }
 }
+
+
 
 
