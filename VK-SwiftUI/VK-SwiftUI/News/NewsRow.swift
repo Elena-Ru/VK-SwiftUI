@@ -34,12 +34,7 @@ struct NewsRow: View {
                 LikeNewsControl(newsItem: newsItem)
                     .modifier(CapsuleControl())
                 CommentControl( newsItem: newsItem)
-                    Button {
-                        print("Shared button tapped")
-                    } label: {
-                        Label("\(modelData.news[newsIndex].reposts)", systemImage: "arrowshape.turn.up.right")
-                            .modifier(CapsuleControl())
-                    }
+                SharedControl( newsItem: newsItem)
                 Spacer()
                 Label("\(modelData.news[newsIndex].reposts)", systemImage: "eye")
                     .modifier(CapsuleControl())
@@ -57,6 +52,8 @@ struct NewsRow_Previews: PreviewProvider {
             .environmentObject(ModelData())
     }
 }
+
+
 
 
 
