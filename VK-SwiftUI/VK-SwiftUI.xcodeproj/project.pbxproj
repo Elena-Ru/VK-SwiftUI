@@ -15,6 +15,7 @@
 		B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB02969631A0034AABD /* AllGroupRow.swift */; };
 		B484FEB6296AD5F80034AABD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB5296AD5F80034AABD /* News.swift */; };
 		B484FEB8296B076F0034AABD /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB7296B076F0034AABD /* NewsList.swift */; };
+		B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB9296C07F50034AABD /* CapsuleControl.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		B484FEB02969631A0034AABD /* AllGroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupRow.swift; sourceTree = "<group>"; };
 		B484FEB5296AD5F80034AABD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B484FEB7296B076F0034AABD /* NewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
+		B484FEB9296C07F50034AABD /* CapsuleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleControl.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			children = (
 				B4856F6629652AC0001FA954 /* FavoriteButton.swift */,
 				B484FEAC296960660034AABD /* AddButton.swift */,
+				B484FEB9296C07F50034AABD /* CapsuleControl.swift */,
 				B4B02BDA29682560002BA614 /* LikeControl */,
 			);
 			path = Controls;
@@ -389,6 +392,7 @@
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
 				B4B02BD22967CD5E002BA614 /* ModelData.swift in Sources */,
 				B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */,
+				B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */,
 				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,

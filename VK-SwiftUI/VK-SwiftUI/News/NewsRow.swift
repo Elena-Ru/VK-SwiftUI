@@ -36,40 +36,23 @@ struct NewsRow: View {
                         print("like button tapped")
                     } label: {
                         Label("\(modelData.news[newsIndex].likes)", systemImage: "heart")
-                            .font(.caption)
-                            .foregroundColor(Color(hex: "#244469"))
-                            .padding(7)
-                            .background(.thinMaterial, in: Capsule())
-                            .labelStyle(.titleAndIcon)
-                            
+                            .modifier(CapsuleControl())
                     }
                     Button {
                         print("Comment button tapped")
                     } label: {
                         Label("\(modelData.news[newsIndex].comments)", systemImage: "bubble.left")
-                            .font(.caption)
-                            .foregroundColor(Color(hex: "#244469"))
-                            .padding(7)
-                            .background(.thinMaterial, in: Capsule())
-                            .labelStyle(.titleAndIcon)
+                            .modifier(CapsuleControl())
                     }
                     Button {
                         print("Shared button tapped")
                     } label: {
                         Label("\(modelData.news[newsIndex].reposts)", systemImage: "arrowshape.turn.up.right")
-                            .font(.caption)
-                            .foregroundColor(Color(hex: "#244469"))
-                            .padding(7)
-                            .background(.thinMaterial, in: Capsule())
-                            .labelStyle(.titleAndIcon)
+                            .modifier(CapsuleControl())
                     }
                 Spacer()
                 Label("\(modelData.news[newsIndex].reposts)", systemImage: "eye")
-                    .font(.caption)
-                    .foregroundColor(Color(hex: "#244469"))
-                    .padding(7)
-                    .background(.thinMaterial, in: Capsule())
-                    .labelStyle(.titleAndIcon)
+                    .modifier(CapsuleControl())
             }
         }
         
