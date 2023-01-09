@@ -14,6 +14,7 @@
 		B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEAE2969613D0034AABD /* AllGroupsList.swift */; };
 		B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB02969631A0034AABD /* AllGroupRow.swift */; };
 		B484FEB6296AD5F80034AABD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB5296AD5F80034AABD /* News.swift */; };
+		B484FEB8296B076F0034AABD /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEB7296B076F0034AABD /* NewsList.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		B484FEAE2969613D0034AABD /* AllGroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsList.swift; sourceTree = "<group>"; };
 		B484FEB02969631A0034AABD /* AllGroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupRow.swift; sourceTree = "<group>"; };
 		B484FEB5296AD5F80034AABD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		B484FEB7296B076F0034AABD /* NewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
+				B484FEB7296B076F0034AABD /* NewsList.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -176,9 +179,9 @@
 				B4B02BCE2967C2DD002BA614 /* Model */,
 				B484FEA6296916500034AABD /* Friend */,
 				B484FEAB2969263C0034AABD /* Group */,
+				B484FEB4296AD4630034AABD /* News */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
-				B484FEB4296AD4630034AABD /* News */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
@@ -406,6 +409,7 @@
 				B4B02BC729671244002BA614 /* Extension+Color.swift in Sources */,
 				B4B02BC52966F0AF002BA614 /* CustomTabBar.swift in Sources */,
 				B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */,
+				B484FEB8296B076F0034AABD /* NewsList.swift in Sources */,
 				B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,

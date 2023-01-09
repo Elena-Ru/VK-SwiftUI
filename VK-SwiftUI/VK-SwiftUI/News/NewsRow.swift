@@ -8,13 +8,43 @@
 import SwiftUI
 
 struct NewsRow: View {
+    
+    @EnvironmentObject var modelData: ModelData
+    var newsItem: News
+    var newsIndex: Int {
+        modelData.news.firstIndex(where: { $0.id == newsItem.id })!
+       }
+    
     var body: some View {
-        Text("News will be soon")
+        VStack {
+            HStack(){
+                Avatar(avatar: $modelData.news[newsIndex].ownerAvatar)
+                VStack (alignment: .leading) {
+                    NameBoldText(name: $modelData.news[newsIndex].ownerName)
+                    Secondary2lineText(text: $modelData.news[newsIndex].date)
+                }
+                .padding(.leading, 20)
+                Spacer()
+            }
+            Text(modelData.news[newsIndex].text)
+            Image(modelData.news[newsIndex].attachments)
+                .resizable()
+                .scaledToFit()
+            HStack{
+                Text("likes")
+                Text("Comments")
+                Text("shared")
+                Text("view")
+            }
+        }
+        
     }
 }
 
 struct NewsRow_Previews: PreviewProvider {
+    static var news = ModelData().news
     static var previews: some View {
-        NewsRow()
+        NewsRow( newsItem: news[2])
+            .environmentObject(ModelData())
     }
 }
