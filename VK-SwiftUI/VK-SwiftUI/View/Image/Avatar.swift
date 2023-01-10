@@ -13,6 +13,7 @@ struct Avatar: View {
     var body: some View {
         Image(avatar)
             .resizable()
+            .scaledToFill()
             .modifier(CircleShadow())
     }
 }

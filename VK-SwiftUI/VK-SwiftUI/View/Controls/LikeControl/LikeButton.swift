@@ -18,7 +18,7 @@ struct LikeButton: View {
         } label: {
             Label("Toggle Favorite", systemImage: isUserLike ? "heart.fill" : "heart")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isUserLike ? .red : .gray)
+                .foregroundColor(isUserLike ? Color(hex: "#e84f37") : Color(hex: "#244469"))
         }
     }
 }
