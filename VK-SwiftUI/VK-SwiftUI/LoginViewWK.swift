@@ -23,6 +23,7 @@ struct LoginViewWK: View {
             MainView()
         } else {
             LoginWebView(showLoading: $showLoading, isLogin: $modelData.loggedIn)
+                .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
         }
     }
 }
