@@ -13,7 +13,8 @@ struct VK_SwiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContainerView()
+            LoginViewWK()
+           // ContainerView()
                 .environmentObject(modelData)
         }
     }

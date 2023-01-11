@@ -21,6 +21,10 @@
 		B484FEBE296C34100034AABD /* CommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEBD296C34100034AABD /* CommentControl.swift */; };
 		B484FEC0296C35DE0034AABD /* SharedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEBF296C35DE0034AABD /* SharedControl.swift */; };
 		B484FEC2296C36D50034AABD /* ViewsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC1296C36D50034AABD /* ViewsControl.swift */; };
+		B484FEC8296D6BB50034AABD /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC7296D6BB50034AABD /* LoginWebView.swift */; };
+		B484FECA296D6C580034AABD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC9296D6C580034AABD /* APIManager.swift */; };
+		B484FECC296D6CD50034AABD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FECB296D6CD50034AABD /* Session.swift */; };
+		B484FECE296D6D5B0034AABD /* LoginViewWK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FECD296D6D5B0034AABD /* LoginViewWK.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -74,6 +78,10 @@
 		B484FEBD296C34100034AABD /* CommentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControl.swift; sourceTree = "<group>"; };
 		B484FEBF296C35DE0034AABD /* SharedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedControl.swift; sourceTree = "<group>"; };
 		B484FEC1296C36D50034AABD /* ViewsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsControl.swift; sourceTree = "<group>"; };
+		B484FEC7296D6BB50034AABD /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
+		B484FEC9296D6C580034AABD /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		B484FECB296D6CD50034AABD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		B484FECD296D6D5B0034AABD /* LoginViewWK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewWK.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -178,6 +186,15 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		B484FED1296EC8800034AABD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B484FEC9296D6C580034AABD /* APIManager.swift */,
+				B484FECB296D6CD50034AABD /* Session.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B4856F362962AE04001FA954 = {
 			isa = PBXGroup;
 			children = (
@@ -201,12 +218,15 @@
 			children = (
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
 				B4B02BC8296713F8002BA614 /* Extensions */,
+				B484FED1296EC8800034AABD /* Service */,
 				B4B02BCE2967C2DD002BA614 /* Model */,
 				B484FEA6296916500034AABD /* Friend */,
 				B484FEAB2969263C0034AABD /* Group */,
 				B484FEB4296AD4630034AABD /* News */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
+				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
+				B484FECD296D6D5B0034AABD /* LoginViewWK.swift */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
@@ -336,7 +356,6 @@
 				94ECE2C276E31F10E59C56D6 /* Pods-VK-SwiftUI.debug.xcconfig */,
 				5D5A9F0D6F43B8EFC0DE35A0 /* Pods-VK-SwiftUI.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -461,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B02BBC2966C5AF002BA614 /* NewsRow.swift in Sources */,
+				B484FEC8296D6BB50034AABD /* LoginWebView.swift in Sources */,
 				B484FEAA2969194C0034AABD /* Group.swift in Sources */,
 				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */,
@@ -477,8 +497,10 @@
 				B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */,
 				B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */,
 				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
+				B484FECE296D6D5B0034AABD /* LoginViewWK.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,
+				B484FECA296D6C580034AABD /* APIManager.swift in Sources */,
 				B4856F5129633242001FA954 /* LogoImage.swift in Sources */,
 				B4856F5C2963CF4F001FA954 /* BackgroundImage.swift in Sources */,
 				B4856F5E2963DA00001FA954 /* LoginButtonStyle.swift in Sources */,
@@ -501,6 +523,7 @@
 				B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */,
 				B484FEBC296C0F2A0034AABD /* LikeNewsControl.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
+				B484FECC296D6CD50034AABD /* Session.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4B02BCB29672D6E002BA614 /* ContainerView.swift in Sources */,
 				B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */,
