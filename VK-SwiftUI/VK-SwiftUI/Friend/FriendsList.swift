@@ -53,6 +53,7 @@ struct FriendsList: View {
             .navigationTitle("Friends")
             .navigationBarTitleDisplayMode(.inline)
         }
+            
         .ignoresSafeArea()
     }
 }

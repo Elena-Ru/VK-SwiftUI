@@ -6,6 +6,7 @@ target 'VK-SwiftUI' do
   use_frameworks!
 
 pod 'Alamofire'
+pod 'RealmSwift'
   # Pods for VK-SwiftUI
 
 end

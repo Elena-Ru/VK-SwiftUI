@@ -10,6 +10,9 @@ import Combine
 
 final class ModelData: ObservableObject {
     
+    let apiManager = APIManager()
+    let session = Session.shared
+    
     @Published var loggedIn = false
     
     @Published var friends: [Friend] = [ Friend(1, "Tom", "Cruise", "tom", "Johnson State College", false),
@@ -41,6 +44,10 @@ final class ModelData: ObservableObject {
                                     News(id: 1, ownerName: "Tom Cruise", date: "237790", ownerAvatar: "tom", text: "The second new", attachments: "tom", comments: 0, likes: 0, isUserLike: false, reposts: 0, views: 0),
                                     News(id: 2, ownerName: "Chess", date: "237790", ownerAvatar: "chess", text: "The third new", attachments: "chess", comments: 3, likes: 3, isUserLike: false, reposts: 0, views: 35)
     ]
+  
+    public func fetchFriends() {
+        apiManager.getFriendsList(token: session.token, id: session.userID)
+    }
 
 }
 
