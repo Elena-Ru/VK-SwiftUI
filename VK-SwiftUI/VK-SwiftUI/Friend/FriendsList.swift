@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct FriendsList: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var modelData:  ModelData
+    @ObservedObject var friendsViewModel = FriendsViewModel()
     @State private var showFavoritesOnly = false
-    
-    var filteredFriends: [Friend] {
-        modelData.friends.filter { friend in
-            (!showFavoritesOnly || friend.isFavorite)
-        }
-        .sorted { $0.lastName.first! < $1.lastName.first!}
-    }
+    @State var filteredFriends = [Friend]()
+    let session = Session.shared
     
     var firstLetterArray: [Character] {
         var firstLetterAr : [Character] = []
@@ -52,9 +48,26 @@ struct FriendsList: View {
             }
             .navigationTitle("Friends")
             .navigationBarTitleDisplayMode(.inline)
-        }
+        
             
+        }
+        .onAppear{
+            friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+                filteredFriends = items.filter { friend in
+                    (!showFavoritesOnly || friend.isFavorite)
+                }
+                .sorted { $0.lastName.first! < $1.lastName.first!}
+                modelData.friends = items
+                print(filteredFriends)
+            }
+            
+            print(session.token)
+            print(session.userID)
+            print(1)
+        }
+        
         .ignoresSafeArea()
+        
     }
 }
 

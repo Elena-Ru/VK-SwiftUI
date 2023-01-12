@@ -15,12 +15,13 @@ extension View {
 }
 
 struct LoginViewWK: View {
-    @EnvironmentObject var modelData: ModelData
+    @ObservedObject var modelData =  ModelData()
     @State private var showLoading = false
     
     var body: some View {
         if modelData.loggedIn{
             MainView()
+                .environmentObject(modelData)
         } else {
             LoginWebView(showLoading: $showLoading, isLogin: $modelData.loggedIn)
                 .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())

@@ -105,8 +105,6 @@ class WebViewCoordinator: NSObject, WKNavigationDelegate {
         didLogin()
         session.token = token
         session.userID = userID
-        // //перенести во вью френдс лист
-      //  apiManager.getFriendsList(token: session.token, id: session.userID)
 
         decisionHandler(.cancel)
         }

@@ -16,11 +16,11 @@ struct FriendsRow: View {
        }
     
     var body: some View {
-        HStack(){
+        HStack{
             Avatar(avatar: $modelData.friends[friendIndex].photo100)
             VStack (alignment: .leading) {
                 NameBoldText(name: $modelData.friends[friendIndex].fullName)
-                Secondary2lineText(text: $modelData.friends[friendIndex].education)
+                //Secondary2lineText(text: $modelData.friends[friendIndex].universityName)
             }
             .padding(.leading, 20)
             Spacer()
