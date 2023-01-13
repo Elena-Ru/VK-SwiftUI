@@ -23,7 +23,6 @@ class Friend: Object, Decodable, Identifiable {
     @Persisted var photo100: String = ""
     @Persisted var firstName: String = ""
     @Persisted var lastName: String = ""
-   // @Persisted var universityName: String = ""
     @Persisted var fullName: String = ""
     @Persisted var isRealm: Bool = false
     @Persisted var isFavorite: Bool = false
@@ -31,10 +30,9 @@ class Friend: Object, Decodable, Identifiable {
 //    @Persisted var photos = List<Photo>()
 //    @Persisted var owner: MainUser?
 //    @Persisted var owners = LinkingObjects(fromType: MainUser.self, property: "friends")
-
+    
     enum CodingKeys: String, CodingKey {
         case id
-       // case universityName = "university_name"
         case photo100 = "photo_100"
         case firstName = "first_name"
         case lastName = "last_name"
@@ -47,7 +45,6 @@ class Friend: Object, Decodable, Identifiable {
         self.photo100 = try values.decode(String.self, forKey: .photo100)
         self.firstName = try values.decode(String.self, forKey: .firstName)
         self.lastName = try values.decode(String.self, forKey: .lastName)
-       // self.universityName = try values.decode(String.self, forKey: .universityName)
         self.fullName = self.firstName + " " + self.lastName
     }
     
@@ -55,4 +52,5 @@ class Friend: Object, Decodable, Identifiable {
         return "id"
     }
 }
+
 

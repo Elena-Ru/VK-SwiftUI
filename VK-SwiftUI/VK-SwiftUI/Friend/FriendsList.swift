@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FriendsList: View {
     @EnvironmentObject var modelData:  ModelData
-    @ObservedObject var friendsViewModel = FriendsViewModel()
+    @ObservedObject var friendsViewModel = FriendsViewModel()    
     @State private var showFavoritesOnly = false
-    @State var filteredFriends = [Friend]()
+    @State var filteredFriends : [Friend] = []
     let session = Session.shared
     
     var firstLetterArray: [Character] {
@@ -50,11 +50,10 @@ struct FriendsList: View {
         }
         .onAppear{
             friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
-                filteredFriends = items.filter { friend in
+                self.filteredFriends = items.filter { friend in
                     (!showFavoritesOnly || friend.isFavorite)
                 }
                 .sorted { $0.lastName.first! < $1.lastName.first!}
-                modelData.friends = items
                 print(filteredFriends)
             }
         }
@@ -65,7 +64,7 @@ struct FriendsList: View {
 struct FriendsList_Previews: PreviewProvider {
     static var previews: some View {
         FriendsList()
-            .environmentObject(ModelData())
+            .environmentObject(FriendsViewModel())
     }
 }
 
