@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct FriendsRow: View {
     @EnvironmentObject var modelData: ModelData

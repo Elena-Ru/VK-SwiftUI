@@ -59,6 +59,8 @@
 		B4B02BE0296826C7002BA614 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDF296826C7002BA614 /* LikeControl.swift */; };
 		B4B02BE229682968002BA614 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BE129682968002BA614 /* PhotoView.swift */; };
 		B4BC201D29706561002C1CF2 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */; };
+		B4BC2021297108B8002C1CF2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2020297108B8002C1CF2 /* SDWebImage */; };
+		B4BC2024297108F7002C1CF2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BC2024297108F7002C1CF2 /* SDWebImageSwiftUI in Frameworks */,
+				B4BC2021297108B8002C1CF2 /* SDWebImage in Frameworks */,
 				B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */,
 				7A648599F6E9797012E3F2F1 /* Pods_VK_SwiftUI.framework in Frameworks */,
 			);
@@ -387,6 +391,8 @@
 			name = "VK-SwiftUI";
 			packageProductDependencies = (
 				B4B02BB72966B0A4002BA614 /* AlertX */,
+				B4BC2020297108B8002C1CF2 /* SDWebImage */,
+				B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */,
 			);
 			productName = "VK-SwiftUI";
 			productReference = B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */;
@@ -418,6 +424,8 @@
 			mainGroup = B4856F362962AE04001FA954;
 			packageReferences = (
 				B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */,
+				B4BC201F297108B8002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B4BC2022297108F7002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B4856F402962AE04001FA954 /* Products */;
 			projectDirPath = "";
@@ -747,6 +755,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		B4BC201F297108B8002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B4BC2022297108F7002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -754,6 +778,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */;
 			productName = AlertX;
+		};
+		B4BC2020297108B8002C1CF2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4BC201F297108B8002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4BC2022297108F7002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

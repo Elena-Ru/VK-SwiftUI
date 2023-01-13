@@ -43,13 +43,10 @@ struct FriendsList: View {
                             }
                          }
                      }
-                        
                  }
             }
             .navigationTitle("Friends")
             .navigationBarTitleDisplayMode(.inline)
-        
-            
         }
         .onAppear{
             friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
@@ -60,14 +57,8 @@ struct FriendsList: View {
                 modelData.friends = items
                 print(filteredFriends)
             }
-            
-            print(session.token)
-            print(session.userID)
-            print(1)
         }
-        
         .ignoresSafeArea()
-        
     }
 }
 
