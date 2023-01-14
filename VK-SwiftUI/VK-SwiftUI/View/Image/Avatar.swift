@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct Avatar: View {
     @Binding var avatar: String
 
     var body: some View {
-        Image(avatar)
+        WebImage(url: URL(string: avatar))
             .resizable()
             .scaledToFill()
             .modifier(CircleShadow())

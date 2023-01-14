@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A648599F6E9797012E3F2F1 /* Pods_VK_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE7DC56284E9CF6A3766FBB /* Pods_VK_SwiftUI.framework */; };
 		B484FEA5296887690034AABD /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA4296887690034AABD /* SectionTitle.swift */; };
 		B484FEA8296916960034AABD /* GroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA7296916960034AABD /* GroupsList.swift */; };
 		B484FEAA2969194C0034AABD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEA92969194C0034AABD /* Group.swift */; };
@@ -20,6 +21,9 @@
 		B484FEBE296C34100034AABD /* CommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEBD296C34100034AABD /* CommentControl.swift */; };
 		B484FEC0296C35DE0034AABD /* SharedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEBF296C35DE0034AABD /* SharedControl.swift */; };
 		B484FEC2296C36D50034AABD /* ViewsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC1296C36D50034AABD /* ViewsControl.swift */; };
+		B484FEC8296D6BB50034AABD /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC7296D6BB50034AABD /* LoginWebView.swift */; };
+		B484FECC296D6CD50034AABD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FECB296D6CD50034AABD /* Session.swift */; };
+		B484FECE296D6D5B0034AABD /* LoginViewWK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FECD296D6D5B0034AABD /* LoginViewWK.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
 		B4856F472962AE06001FA954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4856F462962AE06001FA954 /* Assets.xcassets */; };
@@ -54,9 +58,15 @@
 		B4B02BDE29682638002BA614 /* LikeQuantityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */; };
 		B4B02BE0296826C7002BA614 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDF296826C7002BA614 /* LikeControl.swift */; };
 		B4B02BE229682968002BA614 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BE129682968002BA614 /* PhotoView.swift */; };
+		B4BC201D29706561002C1CF2 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */; };
+		B4BC2021297108B8002C1CF2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2020297108B8002C1CF2 /* SDWebImage */; };
+		B4BC2024297108F7002C1CF2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AE7DC56284E9CF6A3766FBB /* Pods_VK_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D5A9F0D6F43B8EFC0DE35A0 /* Pods-VK-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-VK-SwiftUI/Pods-VK-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		94ECE2C276E31F10E59C56D6 /* Pods-VK-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-VK-SwiftUI/Pods-VK-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		B484FEA4296887690034AABD /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		B484FEA7296916960034AABD /* GroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsList.swift; sourceTree = "<group>"; };
 		B484FEA92969194C0034AABD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -70,6 +80,9 @@
 		B484FEBD296C34100034AABD /* CommentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControl.swift; sourceTree = "<group>"; };
 		B484FEBF296C35DE0034AABD /* SharedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedControl.swift; sourceTree = "<group>"; };
 		B484FEC1296C36D50034AABD /* ViewsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsControl.swift; sourceTree = "<group>"; };
+		B484FEC7296D6BB50034AABD /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
+		B484FECB296D6CD50034AABD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		B484FECD296D6D5B0034AABD /* LoginViewWK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewWK.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		B4856F442962AE04001FA954 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -104,6 +117,7 @@
 		B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuantityButton.swift; sourceTree = "<group>"; };
 		B4B02BDF296826C7002BA614 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		B4B02BE129682968002BA614 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +125,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BC2024297108F7002C1CF2 /* SDWebImageSwiftUI in Frameworks */,
+				B4BC2021297108B8002C1CF2 /* SDWebImage in Frameworks */,
 				B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */,
+				7A648599F6E9797012E3F2F1 /* Pods_VK_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65F11D56A2E115D8647199B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AE7DC56284E9CF6A3766FBB /* Pods_VK_SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B484FEA6296916500034AABD /* Friend */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,11 +190,21 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		B484FED1296EC8800034AABD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B484FECB296D6CD50034AABD /* Session.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B4856F362962AE04001FA954 = {
 			isa = PBXGroup;
 			children = (
 				B4856F412962AE04001FA954 /* VK-SwiftUI */,
 				B4856F402962AE04001FA954 /* Products */,
+				F8FC77AEBEA7148228900AE0 /* Pods */,
+				65F11D56A2E115D8647199B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,12 +221,16 @@
 			children = (
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
 				B4B02BC8296713F8002BA614 /* Extensions */,
+				B484FED1296EC8800034AABD /* Service */,
+				B4BC201E29707968002C1CF2 /* ViewModel */,
 				B4B02BCE2967C2DD002BA614 /* Model */,
 				B484FEA6296916500034AABD /* Friend */,
 				B484FEAB2969263C0034AABD /* Group */,
 				B484FEB4296AD4630034AABD /* News */,
 				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B4B02BCA29672D6E002BA614 /* ContainerView.swift */,
+				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
+				B484FECD296D6D5B0034AABD /* LoginViewWK.swift */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
@@ -315,6 +354,23 @@
 			path = LikeControl;
 			sourceTree = "<group>";
 		};
+		B4BC201E29707968002C1CF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F8FC77AEBEA7148228900AE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94ECE2C276E31F10E59C56D6 /* Pods-VK-SwiftUI.debug.xcconfig */,
+				5D5A9F0D6F43B8EFC0DE35A0 /* Pods-VK-SwiftUI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4856F4D2962AE06001FA954 /* Build configuration list for PBXNativeTarget "VK-SwiftUI" */;
 			buildPhases = (
+				316896422156436D66A7A83D /* [CP] Check Pods Manifest.lock */,
 				B4856F3B2962AE04001FA954 /* Sources */,
 				B4856F3C2962AE04001FA954 /* Frameworks */,
 				B4856F3D2962AE04001FA954 /* Resources */,
+				2D874DC58F70D18AAE4A81C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,6 +391,8 @@
 			name = "VK-SwiftUI";
 			packageProductDependencies = (
 				B4B02BB72966B0A4002BA614 /* AlertX */,
+				B4BC2020297108B8002C1CF2 /* SDWebImage */,
+				B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */,
 			);
 			productName = "VK-SwiftUI";
 			productReference = B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */;
@@ -364,6 +424,8 @@
 			mainGroup = B4856F362962AE04001FA954;
 			packageReferences = (
 				B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */,
+				B4BC201F297108B8002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B4BC2022297108F7002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B4856F402962AE04001FA954 /* Products */;
 			projectDirPath = "";
@@ -386,12 +448,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D874DC58F70D18AAE4A81C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK-SwiftUI/Pods-VK-SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK-SwiftUI/Pods-VK-SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VK-SwiftUI/Pods-VK-SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		316896422156436D66A7A83D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VK-SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B4856F3B2962AE04001FA954 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B4B02BBC2966C5AF002BA614 /* NewsRow.swift in Sources */,
+				B484FEC8296D6BB50034AABD /* LoginWebView.swift in Sources */,
 				B484FEAA2969194C0034AABD /* Group.swift in Sources */,
 				B4856F6B2965CE68001FA954 /* NameBoldText.swift in Sources */,
 				B4B02BBA2966C4F5002BA614 /* MainView.swift in Sources */,
@@ -408,6 +513,7 @@
 				B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */,
 				B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */,
 				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
+				B484FECE296D6D5B0034AABD /* LoginViewWK.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
 				B4856F6329645F8B001FA954 /* Friend'sRow.swift in Sources */,
 				B4856F5129633242001FA954 /* LogoImage.swift in Sources */,
@@ -420,6 +526,7 @@
 				B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */,
 				B4B02BD62967E629002BA614 /* FriendPhotos.swift in Sources */,
 				B4B02BDC29682576002BA614 /* LikeButton.swift in Sources */,
+				B4BC201D29706561002C1CF2 /* FriendsViewModel.swift in Sources */,
 				B484FEBE296C34100034AABD /* CommentControl.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
 				B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */,
@@ -432,6 +539,7 @@
 				B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */,
 				B484FEBC296C0F2A0034AABD /* LikeNewsControl.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
+				B484FECC296D6CD50034AABD /* Session.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4B02BCB29672D6E002BA614 /* ContainerView.swift in Sources */,
 				B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */,
@@ -557,6 +665,7 @@
 		};
 		B4856F4E2962AE06001FA954 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94ECE2C276E31F10E59C56D6 /* Pods-VK-SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -586,6 +695,7 @@
 		};
 		B4856F4F2962AE06001FA954 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D5A9F0D6F43B8EFC0DE35A0 /* Pods-VK-SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -645,6 +755,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		B4BC201F297108B8002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B4BC2022297108F7002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -652,6 +778,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B4B02BB62966B0A4002BA614 /* XCRemoteSwiftPackageReference "AlertX" */;
 			productName = AlertX;
+		};
+		B4BC2020297108B8002C1CF2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4BC201F297108B8002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4BC2022297108F7002C1CF2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
