@@ -9,24 +9,27 @@ import SwiftUI
 
 struct FavoriteButton: View {
  
-    @Binding var isSet: Bool 
+    @EnvironmentObject var friendsVM : FriendsViewModel
+     var friend: Friend
     
     var body: some View {
         
         Button {
-            isSet.toggle()
+            friendsVM.isFavorite(friend: friend)
         } label: {
-            Label("Toggle Favorite", systemImage: isSet ? "star.fill" : "star")
+            Label("Toggle Favorite", systemImage: friend.isFavorite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isSet ? .yellow : .gray)
+                .foregroundColor(friend.isFavorite ? .yellow : .gray)
                 .padding(10)
         }
         .buttonStyle(.borderless)
     }
 }
 
+
 struct FavoriteButton_Previews: PreviewProvider {
+    static var friends = FriendsViewModel().friends
     static var previews: some View {
-        FavoriteButton(isSet: .constant(true))
+        FavoriteButton(friend: friends[0])
     }
 }

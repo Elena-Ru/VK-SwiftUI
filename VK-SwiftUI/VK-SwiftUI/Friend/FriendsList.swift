@@ -39,7 +39,7 @@ struct FriendsList: View {
                              NavigationLink {
                                  FriendPhotos(friend: friend)
                              } label: {
-                                FriendsRow(friend: friend)
+                                 FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
                             }
                          }
                      }

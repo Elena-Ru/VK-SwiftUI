@@ -9,19 +9,23 @@ import SwiftUI
 
 
 struct FriendsRow: View {
-    @ObservedObject var friendsViewModel = FriendsViewModel()
-    @State var friend: Friend
+    @StateObject var friendsViewModel:  FriendsViewModel
+    var friend: Friend
+    var friendIndex: Int {
+        print(friendsViewModel.friends)
+        return friendsViewModel.friends.firstIndex(of: friend)!
+          }
     
     var body: some View {
         HStack{
-            Avatar(avatar: $friend.photo100)
+            Avatar(avatar: $friendsViewModel.friends[friendIndex].photo100)
             VStack (alignment: .leading) {
-                NameBoldText(name: $friend.fullName)
+                NameBoldText(name: $friendsViewModel.friends[friendIndex].fullName)
                 //Secondary2lineText(text: $modelData.friends[friendIndex].universityName)
             }
             .padding(.leading, 20)
             Spacer()
-            FavoriteButton(isSet: $friend.isFavorite)
+            FavoriteButton(friend: friend)
         }
     }
 }
@@ -29,7 +33,7 @@ struct FriendsRow: View {
 struct FriendsRow_Previews: PreviewProvider {
     static var friends = FriendsViewModel().friends
     static var previews: some View {
-       FriendsRow(friend: friends[0])
+        FriendsRow(friendsViewModel: FriendsViewModel(), friend: friends[0])
             .environmentObject(FriendsViewModel())
     }
 }
