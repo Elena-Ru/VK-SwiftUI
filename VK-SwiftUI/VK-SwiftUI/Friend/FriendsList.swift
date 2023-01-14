@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendsList: View {
     @EnvironmentObject var modelData:  ModelData
-    @ObservedObject var friendsViewModel = FriendsViewModel()    
+    @ObservedObject var friendsViewModel = FriendsViewModel()
     @State private var showFavoritesOnly = false
     @State var filteredFriends : [Friend] = []
     let session = Session.shared
@@ -25,6 +25,7 @@ struct FriendsList: View {
         return firstLetterAr
     }
     
+    
     var body: some View {
         NavigationView {
             List {
@@ -32,6 +33,14 @@ struct FriendsList: View {
                     Text("Favorites only")
                         .font(.subheadline)
                 }
+                .onChange(of: showFavoritesOnly) { value in
+                    friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+                            self.filteredFriends = items.filter { friend in
+                                (!showFavoritesOnly || friend.isFavorite)
+                            }
+                            .sorted { $0.lastName.first! < $1.lastName.first!}
+                        }
+                    }
                 ForEach(firstLetterArray, id: \.self) { letter in
                     Section(header: SectionTitle(title: letter)) {
                          ForEach(filteredFriends.filter({ friend in
@@ -50,11 +59,7 @@ struct FriendsList: View {
         }
         .onAppear{
             friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
-                self.filteredFriends = items.filter { friend in
-                    (!showFavoritesOnly || friend.isFavorite)
-                }
-                .sorted { $0.lastName.first! < $1.lastName.first!}
-                print(filteredFriends)
+                self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
             }
         }
         .ignoresSafeArea()

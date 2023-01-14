@@ -15,7 +15,7 @@ class FriendsViewModel: ObservableObject{
     @Published var friends: [Friend] = []
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
-    let clientId = "51477716" //id_приложения
+    let clientId = "51525791" //id_приложения 51477716
     
     func getFriendsList(token: String, id: Int, completion: @escaping ([Friend]) -> ()){
         
