@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct GroupsList: View {
-    @EnvironmentObject var modelData: ModelData
+   // @EnvironmentObject var modelData: ModelData
     @ObservedObject var groupsViewModel = GroupViewModel()
     @State var groups : [Group] = []
     let session = Session.shared
     
     fileprivate func delete(_ index: IndexSet) {
-        modelData.groups.remove(atOffsets: index)
+        groupsViewModel.groups.remove(atOffsets: index)
     }
     
     var body: some View {
@@ -22,19 +22,25 @@ struct GroupsList: View {
         NavigationStack {
             List {
                 ForEach(groups, id: \.self) { group in
-                    GroupRow( group: group)
+                    GroupRow( groupsViewModel: groupsViewModel, group: group)
                  }
                 .onDelete(perform: delete)
             }
             .navigationTitle("My Groups")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing, content: {
-                    NavigationLink(destination: AllGroupsList(), label: {
-                        AddButton()
-                    })
-                    .isDetailLink(false)
-                })
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing, content: {
+//                    NavigationLink(destination: AllGroupsList(), label: {
+//                        AddButton()
+//                    })
+//                    .isDetailLink(false)
+//                })
+//            }
+        }
+        .onAppear{
+            groupsViewModel.getUserGroups(token: session.token, id: session.userID) { items in
+                self.groups = items
+                print(self.groups)
             }
         }
         .ignoresSafeArea()

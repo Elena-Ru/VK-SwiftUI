@@ -34,8 +34,11 @@ class GroupViewModel: ObservableObject{
             guard let data = response.value  else { return}
             let groups = try! JSONDecoder().decode( GroupResponse.self, from: data).response.items
     
-           self.saveData(groups)
-            completion(groups)
+            DispatchQueue.main.async {
+                self.groups = groups
+                self.saveData(groups)
+                completion(groups)
+            }
         }
     }
     
