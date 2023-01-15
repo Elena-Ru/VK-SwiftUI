@@ -9,6 +9,9 @@ import SwiftUI
 
 struct GroupsList: View {
     @EnvironmentObject var modelData: ModelData
+    @ObservedObject var groupsViewModel = GroupViewModel()
+    @State var groups : [Group] = []
+    let session = Session.shared
     
     fileprivate func delete(_ index: IndexSet) {
         modelData.groups.remove(atOffsets: index)
@@ -18,7 +21,7 @@ struct GroupsList: View {
 
         NavigationStack {
             List {
-                ForEach(modelData.groups) { group in
+                ForEach(groups, id: \.self) { group in
                     GroupRow( group: group)
                  }
                 .onDelete(perform: delete)
