@@ -6,23 +6,33 @@
 //
 
 import Foundation
-import SwiftUI
+import RealmSwift
 
-class Group: Identifiable {
-    var id: Int
-    var groupName: String
-    var subscribersQty: Int
-    var imageLogo: String
-    var groupCategory: String
-    
-    init(id: Int, groupName: String, subscribersQty: Int, imageLogo: String, groupCategory: String) {
-        self.id = id
-        self.groupName = groupName
-        self.subscribersQty = subscribersQty
-        self.imageLogo = imageLogo
-        self.groupCategory = groupCategory
-    }
-
+class GroupResponse: Decodable {
+    let response: Groups
 }
+
+class Groups: Decodable{
+    let items: [Group]
+}
+
+class Group: Object, Decodable{
+    @Persisted var id: Int = 0
+    @Persisted var name: String = ""
+    @Persisted var photoGroup: String = ""
+    @Persisted var membersCount: Int = 0
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case photoGroup = "photo_50"
+        case membersCount = "members_count"
+        case id = "id"
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
 
 
