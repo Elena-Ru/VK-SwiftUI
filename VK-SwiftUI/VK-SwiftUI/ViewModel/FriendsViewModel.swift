@@ -22,7 +22,6 @@ class FriendsViewModel: ObservableObject{
         let friendsRealmAr = Array(realm.objects(Friend.self))
         if !friendsRealmAr.isEmpty {
             self.friends = friendsRealmAr
-            print(self.friends)
             completion(friends)
         } else {
             let path = "/method/friends.get"
@@ -69,7 +68,6 @@ class FriendsViewModel: ObservableObject{
         let friend = realm.objects(Friend.self).where{$0.id == friend.id}
         
         do {
-            print(realm.configuration.fileURL as Any)
             realm.beginWrite()
             if friend[0].isFavorite {
                 friend.setValue(false, forKey: "isFavorite")

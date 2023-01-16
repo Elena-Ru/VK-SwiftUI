@@ -6,42 +6,44 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct GroupsList: View {
-   // @EnvironmentObject var modelData: ModelData
+    
     @ObservedObject var groupsViewModel = GroupViewModel()
-    @State var groups : [Group] = []
     let session = Session.shared
     
     fileprivate func delete(_ index: IndexSet) {
-        groupsViewModel.groups.remove(atOffsets: index)
+        guard let index = index.first else { return }
+        let selectedGroup = groupsViewModel.groups[index]
+        groupsViewModel.deleteFromFavorite(groupToDelete: selectedGroup)
     }
     
     var body: some View {
 
         NavigationStack {
-            List {
-                ForEach(groups, id: \.self) { group in
-                    GroupRow( groupsViewModel: groupsViewModel, group: group)
-                 }
-                .onDelete(perform: delete)
+            if let groups = groupsViewModel.groups{
+                List {
+                    ForEach(groups) { group in
+                        GroupRow( groupsViewModel: groupsViewModel, group: group)
+                            
+                    }
+                    .onDelete(perform: delete)
+                }
+                .navigationTitle("My Groups")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing, content: {
+                        NavigationLink(destination: AllGroupsList(), label: {
+                            AddButton()
+                        })
+                        .isDetailLink(false)
+                    })
+                }
             }
-            .navigationTitle("My Groups")
-            .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing, content: {
-//                    NavigationLink(destination: AllGroupsList(), label: {
-//                        AddButton()
-//                    })
-//                    .isDetailLink(false)
-//                })
-//            }
         }
         .onAppear{
-            groupsViewModel.getUserGroups(token: session.token, id: session.userID) { items in
-                self.groups = items
-                print(self.groups)
-            }
+            groupsViewModel.getUserGroups(token: session.token, id: session.userID)
         }
         .ignoresSafeArea()
     }
@@ -50,7 +52,7 @@ struct GroupsList: View {
 struct GroupsList_Previews: PreviewProvider {
     static var previews: some View {
         GroupsList()
-            .environmentObject(ModelData())
+            .environmentObject(GroupViewModel())
     }
 }
 
