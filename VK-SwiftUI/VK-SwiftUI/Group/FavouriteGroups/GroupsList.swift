@@ -13,9 +13,11 @@ struct GroupsList: View {
     @ObservedObject var groupsViewModel = GroupViewModel()
     let session = Session.shared
     
-//    fileprivate func delete(_ index: IndexSet) {
-//        groupsViewModel.groups.remove(atOffsets: index)
-//    }
+    fileprivate func delete(_ index: IndexSet) {
+        guard let index = index.first else { return }
+        let selectedGroup = groupsViewModel.groups[index]
+        groupsViewModel.deleteFromFavorite(groupToDelete: selectedGroup)
+    }
     
     var body: some View {
 
@@ -24,8 +26,9 @@ struct GroupsList: View {
                 List {
                     ForEach(groups) { group in
                         GroupRow( groupsViewModel: groupsViewModel, group: group)
+                            
                     }
-                    //.onDelete(perform: delete)
+                    .onDelete(perform: delete)
                 }
                 .navigationTitle("My Groups")
                 .navigationBarTitleDisplayMode(.inline)
@@ -40,9 +43,7 @@ struct GroupsList: View {
             }
         }
         .onAppear{
-            groupsViewModel.getUserGroups(token: session.token, id: session.userID) { items in
-                print(items)
-            }
+            groupsViewModel.getUserGroups(token: session.token, id: session.userID)
         }
         .ignoresSafeArea()
     }

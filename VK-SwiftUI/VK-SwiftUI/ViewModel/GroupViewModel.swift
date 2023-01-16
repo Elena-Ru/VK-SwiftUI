@@ -36,14 +36,12 @@ class GroupViewModel: ObservableObject {
         }
     }
     
-    
-    func getUserGroups(token: String, id: Int, completion: @escaping ([Group]) -> Void){
+    func getUserGroups(token: String, id: Int){
         
         let groupsRealmAr = Array(realm.objects(Group.self))
         if !groupsRealmAr.isEmpty {
-           // self.groups = groupsRealmAr
-            completion(groups)
-        } else {
+            return
+        }
             let path = "/method/groups.get"
             let parameters: Parameters = [
                 "access_token" : token,
@@ -61,11 +59,8 @@ class GroupViewModel: ObservableObject {
                 let groups = try! JSONDecoder().decode( GroupResponse.self, from: data).response.items
                 
                 DispatchQueue.main.async {
-                  //  self.groups = groups
                     self.saveData(groups)
-                    completion(groups)
                 }
-            }
         }
     }
     
@@ -96,10 +91,23 @@ class GroupViewModel: ObservableObject {
         }
     }
     
+    func deleteFromFavorite(groupToDelete: Group){
+        do {
+            let realm = try Realm()
+            if let  groupRealm = realm.object(ofType: Group.self, forPrimaryKey: groupToDelete.id){
+                realm.beginWrite()
+                realm.delete(groupRealm)
+            }
+                try realm.commitWrite()
+            } catch {
+                print(error)
+            }
+        
+    }
+    
     func addToFavorite(newGroup: Group){
         do {
            let realm = try Realm()
-            print(realm.configuration.fileURL as Any)
             realm.beginWrite()
             realm.add(newGroup, update: .all)
             try realm.commitWrite()
