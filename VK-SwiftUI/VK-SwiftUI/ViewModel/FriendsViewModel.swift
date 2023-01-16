@@ -22,7 +22,6 @@ class FriendsViewModel: ObservableObject{
         let friendsRealmAr = Array(realm.objects(Friend.self))
         if !friendsRealmAr.isEmpty {
             self.friends = friendsRealmAr
-            print(self.friends)
             completion(friends)
         } else {
             let path = "/method/friends.get"

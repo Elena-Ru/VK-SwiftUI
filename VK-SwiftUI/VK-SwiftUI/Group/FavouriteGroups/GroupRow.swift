@@ -6,22 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct GroupRow: View {
     @StateObject var groupsViewModel:  GroupViewModel
-    var group: Group
-    var groupIndex: Int {
-        print(groupsViewModel.groups)
-        return groupsViewModel.groups.firstIndex(of: group)!
-       }
-
+    @ObservedRealmObject var group: Group
     
     var body: some View {
             HStack (spacing: 30) {
-                Avatar(avatar: $groupsViewModel.groups[groupIndex].photoGroup)
+                Avatar(avatar: $group.photoGroup)
                 VStack (alignment: .leading) {
-                    NameBoldText(name: $groupsViewModel.groups[groupIndex].name)
-                    Text(groupsViewModel.groups[groupIndex].screenName)
+                    NameBoldText(name: $group.name)
+                    Text(group.screenName)
                         .modifier(SecondaryText())
                 }
                 Spacer()

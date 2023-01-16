@@ -27,7 +27,7 @@ struct AllGroupsList: View {
                                 isAlreadyExist = true
                                 print("Already contains")
                             } else {
-                                groupsViewModel.groups.append(group)
+                                groupsViewModel.addToFavorite(newGroup: group)
                                 self.presentation.wrappedValue.dismiss()
                             }
                         }
