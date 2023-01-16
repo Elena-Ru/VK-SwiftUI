@@ -69,7 +69,6 @@ class FriendsViewModel: ObservableObject{
         let friend = realm.objects(Friend.self).where{$0.id == friend.id}
         
         do {
-            print(realm.configuration.fileURL as Any)
             realm.beginWrite()
             if friend[0].isFavorite {
                 friend.setValue(false, forKey: "isFavorite")

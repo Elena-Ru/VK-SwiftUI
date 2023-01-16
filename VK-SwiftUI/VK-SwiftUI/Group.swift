@@ -16,16 +16,18 @@ class Groups: Decodable{
     let items: [Group]
 }
 
-class Group: Object, Decodable{
+class Group: Object, Decodable, Identifiable{
     @Persisted var id: Int = 0
     @Persisted var name: String = ""
     @Persisted var photoGroup: String = ""
-    @Persisted var membersCount: Int = 0
+    //@Persisted var membersCount: Int = 0
+    @Persisted var screenName: String = ""
     
     enum CodingKeys: String, CodingKey {
         case name
         case photoGroup = "photo_50"
-        case membersCount = "members_count"
+        case screenName = "screen_name"
+      //  case membersCount = "members_count"
         case id = "id"
     }
     

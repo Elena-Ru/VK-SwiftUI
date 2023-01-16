@@ -1,40 +1,40 @@
-////
-////  AllGropuRow.swift
-////  VK-SwiftUI
-////
-////  Created by Елена Русских on 07.01.2023.
-////
 //
-//import SwiftUI
+//  AllGropuRow.swift
+//  VK-SwiftUI
 //
-//struct AllGroupRow: View {
-//    @EnvironmentObject var modelData: ModelData
-//    var group: Group
-//    var groupIndex: Int? {
-//           modelData.allGroups.firstIndex(where: { $0.id == group.id }) ?? nil
-//       }
-//    
-//    var body: some View {
-//        if let index = groupIndex{
-//            HStack (spacing: 30) {
-//                Avatar(avatar: $modelData.allGroups[index].imageLogo)
-//                VStack (alignment: .leading) {
-//                    NameBoldText(name: $modelData.allGroups[index].groupName)
-//                    Secondary2lineText(text: $modelData.allGroups[index].groupCategory)
-//                    Text("\(modelData.allGroups[index].subscribersQty) subscribers")
-//                        .modifier(SecondaryText())
-//                }
-//                Spacer()
-//            }
-//            .padding()
-//        }
-//    }
-//}
+//  Created by Елена Русских on 07.01.2023.
 //
-//struct AllGropuRow_Previews: PreviewProvider {
-//    static var groups = ModelData().allGroups
-//    static var previews: some View {
-//        AllGroupRow(group: groups[4])
-//            .environmentObject(ModelData())
-//    }
-//}
+
+import SwiftUI
+
+struct AllGroupRow: View {
+    
+    @StateObject var groupsViewModel:  GroupViewModel
+    var group: Group
+    var groupIndex: Int? {
+        groupsViewModel.allGroups.firstIndex(of: group)!
+       }
+    
+    var body: some View {
+        if let index = groupIndex{
+            HStack (spacing: 30) {
+                Avatar(avatar: $groupsViewModel.allGroups[index].photoGroup)
+                VStack (alignment: .leading) {
+                    NameBoldText(name: $groupsViewModel.allGroups[index].name)
+                    Text(groupsViewModel.allGroups[index].screenName)
+                        .modifier(SecondaryText())
+                }
+                Spacer()
+            }
+            .padding()
+        }
+    }
+}
+
+struct AllGropuRow_Previews: PreviewProvider {
+    static var groups = GroupViewModel().allGroups
+    static var previews: some View {
+        AllGroupRow(groupsViewModel: GroupViewModel(), group: groups[4])
+            .environmentObject(GroupViewModel())
+    }
+}

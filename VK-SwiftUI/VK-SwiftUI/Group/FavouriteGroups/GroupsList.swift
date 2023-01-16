@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupsList: View {
-   // @EnvironmentObject var modelData: ModelData
+    
     @ObservedObject var groupsViewModel = GroupViewModel()
     @State var groups : [Group] = []
     let session = Session.shared
@@ -21,21 +21,21 @@ struct GroupsList: View {
 
         NavigationStack {
             List {
-                ForEach(groups, id: \.self) { group in
+                ForEach(groups) { group in
                     GroupRow( groupsViewModel: groupsViewModel, group: group)
                  }
                 .onDelete(perform: delete)
             }
             .navigationTitle("My Groups")
             .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing, content: {
-//                    NavigationLink(destination: AllGroupsList(), label: {
-//                        AddButton()
-//                    })
-//                    .isDetailLink(false)
-//                })
-//            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    NavigationLink(destination: AllGroupsList(), label: {
+                        AddButton()
+                    })
+                    .isDetailLink(false)
+                })
+            }
         }
         .onAppear{
             groupsViewModel.getUserGroups(token: session.token, id: session.userID) { items in
@@ -50,7 +50,7 @@ struct GroupsList: View {
 struct GroupsList_Previews: PreviewProvider {
     static var previews: some View {
         GroupsList()
-            .environmentObject(ModelData())
+            .environmentObject(GroupViewModel())
     }
 }
 

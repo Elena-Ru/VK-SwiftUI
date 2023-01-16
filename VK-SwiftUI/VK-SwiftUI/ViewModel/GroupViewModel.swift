@@ -11,6 +11,7 @@ import Alamofire
 
 class GroupViewModel: ObservableObject{
     @Published var groups: [Group] = []
+    @Published var allGroups: [Group] = []
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51525791" //id_приложения
@@ -37,6 +38,33 @@ class GroupViewModel: ObservableObject{
             DispatchQueue.main.async {
                 self.groups = groups
                 self.saveData(groups)
+                completion(groups)
+            }
+        }
+    }
+    
+    func getGroupsAll(token: String, completion: @escaping ([Group]) -> Void){
+        
+        let path = "/method/groups.search"
+        
+        let parameters: Parameters = [
+            "q": "group",
+            "type": "group",
+            "count": "100",
+            "sort": 6,
+            "access_token" : token,
+            "client_id": clientId,
+            "v": "5.131"
+        ]
+        
+        let url = baseUrl+path
+        
+        AF.request(url, parameters: parameters).responseData { response in
+            guard let data = response.value  else { return}
+            
+            let groups = try! JSONDecoder().decode( GroupResponse.self, from: data).response.items
+            DispatchQueue.main.async {
+                self.allGroups = groups
                 completion(groups)
             }
         }
