@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct NewsList: View {
-    @EnvironmentObject var modelData: ModelData
+    @ObservedObject var newsViewModel = NewsViewModel()
+    @State var news : [Item] = []
+    let session = Session.shared
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(modelData.news) { newsItem in
+                ForEach(newsViewModel.news) { newsItem in
                     Section {
-                        NewsRow(newsItem: newsItem)
+                        NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
                     }
                 }
             }
             .navigationTitle("News")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear{
+            newsViewModel.getNewsPost(token: session.token, id: session.userID) { response in
+                self.news = response.items ?? []
+            }
         }
     }
 }
@@ -28,6 +35,6 @@ struct NewsList: View {
 struct NewsList_Previews: PreviewProvider {
     static var previews: some View {
         NewsList()
-            .environmentObject(ModelData())
+            .environmentObject(NewsViewModel())
     }
 }

@@ -105,7 +105,8 @@ class WebViewCoordinator: NSObject, WKNavigationDelegate {
         didLogin()
         session.token = token
         session.userID = userID
-
+        print(session.userID)
+        print(session.token)
         decisionHandler(.cancel)
         }
 

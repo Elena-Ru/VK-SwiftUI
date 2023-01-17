@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct PhotoView: View {
-    @EnvironmentObject var modelData: ModelData
+    @StateObject var photoViewModel: PhotoViewModel
     @State var currentIndex: Int
     
     var body: some View {
             TabView(selection: $currentIndex) {
-                ForEach(modelData.photos.indices, id: \.self){ index in
-                    Image(modelData.photos[index].photoName)
+                ForEach(photoViewModel.photos.indices, id: \.self){ index in
+                    WebImage(url: URL(string: (photoViewModel.photos[index].url)))
                             .resizable()
                             .scaledToFit()
                             .tag(index)
@@ -25,11 +27,3 @@ struct PhotoView: View {
     }
 }
 
-struct PhotoView_Previews: PreviewProvider {
-    static let modelData = ModelData()
-    
-    static var previews: some View {
-        PhotoView(currentIndex: 0)
-            .environmentObject(modelData)
-    }
-}

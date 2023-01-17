@@ -8,23 +8,16 @@
 import SwiftUI
 
 struct ViewsControl: View {
-    @EnvironmentObject var modelData: ModelData
-    var newsItem: News
-    var index: Int {
-        modelData.news.firstIndex(where: { $0.id == newsItem.id
-        })!
-    }
+    var count: Int
     var body: some View {
-        Label("\(modelData.news[index].reposts)", systemImage: "eye")
+        Label("\(count)", systemImage: "eye")
             .modifier(CapsuleControl())
     }
 }
 
 
 struct ViewsControl_Previews: PreviewProvider {
-    static var news = ModelData().news
     static var previews: some View {
-        ViewsControl(newsItem: news[0])
-            .environmentObject(ModelData())
+        ViewsControl(count: 2)
     }
 }

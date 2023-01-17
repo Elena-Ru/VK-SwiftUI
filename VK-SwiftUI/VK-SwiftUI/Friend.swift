@@ -27,9 +27,7 @@ class Friend: Object, Decodable, Identifiable {
     @Persisted var isRealm: Bool = false
     @Persisted var isFavorite: Bool = false
     
-//    @Persisted var photos = List<Photo>()
-//    @Persisted var owner: MainUser?
-//    @Persisted var owners = LinkingObjects(fromType: MainUser.self, property: "friends")
+    @Persisted var photos = RealmSwift.List<Photo>()
     
     enum CodingKeys: String, CodingKey {
         case id
