@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Secondary2lineText: View {
-    @Binding var text: String
+    var text: String
     var body: some View {
         Text(text)
             .lineLimit(2)
@@ -19,6 +19,6 @@ struct Secondary2lineText: View {
 
 struct Secondary2lineText_Previews: PreviewProvider {
     static var previews: some View {
-        Secondary2lineText(text: .constant("University name"))
+        Secondary2lineText(text: "")
     }
 }

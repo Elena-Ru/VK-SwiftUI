@@ -8,28 +8,15 @@
 import SwiftUI
 
 struct LikeControl: View {
-    @EnvironmentObject var modelData: ModelData
-    
-    var photo: Photo
-    
-    var friendIndex: Int {
-        modelData.photos.firstIndex(where: { $0.id == photo.id
-        })!
-    }
-    
+    @State var isLike: Int
+    @State var qty: Int
+
     var body: some View {
         HStack{
-            LikeButton(isUserLike: $modelData.photos[friendIndex].isPhotoLike, likeQty: $modelData.photos[friendIndex].likeQty)
-            LikeQuantityButton(likeQty: $modelData.photos[friendIndex].likeQty, isUserLike: $modelData.photos[friendIndex].isPhotoLike)
+            LikeButton(isUserLike: $isLike, likeQty: $qty)
+            LikeQuantityButton(likeQty: $qty, isUserLike: $isLike)
         }
     }
 }
 
-struct LikeControl_Previews: PreviewProvider {
-    static var photos = ModelData().photos
-    
-    static var previews: some View {
-        LikeControl( photo: photos[0])
-            .environmentObject(ModelData())
-    }
-}
+

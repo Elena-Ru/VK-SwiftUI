@@ -12,7 +12,6 @@ struct FriendsRow: View {
     @StateObject var friendsViewModel:  FriendsViewModel
     var friend: Friend
     var friendIndex: Int {
-        print(friendsViewModel.friends)
         return friendsViewModel.friends.firstIndex(of: friend)!
           }
     

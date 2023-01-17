@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct LikeButton: View {
-    @Binding var isUserLike: Bool
+    @Binding var isUserLike: Int
     @Binding var likeQty: Int
     
     var body: some View {
         Button {
-            isUserLike.toggle()
-            likeQty = isUserLike ? likeQty + 1 : likeQty - 1
+            isUserLike = isUserLike == 1 ? 0 : 1
+            likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
         } label: {
-            Label("Toggle Favorite", systemImage: isUserLike ? "heart.fill" : "heart")
+            Label("Toggle Favorite", systemImage: isUserLike == 1 ? "heart.fill" : "heart")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isUserLike ? Color(hex: "#e84f37") : Color(hex: "#244469"))
+                .foregroundColor(isUserLike == 1 ? Color(hex: "#e84f37") : Color(hex: "#244469"))
         }
     }
 }
 
 struct LikeButton_Previews: PreviewProvider {
     static var previews: some View {
-        LikeButton(isUserLike: .constant(false), likeQty: .constant(0))
+        LikeButton(isUserLike: .constant(1), likeQty: .constant(0))
     }
 }
