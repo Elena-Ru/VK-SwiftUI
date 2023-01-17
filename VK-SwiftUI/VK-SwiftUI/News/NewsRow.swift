@@ -6,49 +6,70 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct NewsRow: View {
     
-    @EnvironmentObject var modelData: ModelData
-    var newsItem: News
-    var newsIndex: Int {
-        modelData.news.firstIndex(where: { $0.id == newsItem.id })!
-       }
+    @StateObject var newsViewModel:  NewsViewModel
+    var newsItem: Item
+    var index: Int {
+        var index = 0
+        if newsItem.sourceID < 0 {
+            let sourceId = newsItem.sourceID * ( -1)
+            index = newsViewModel.newsGroups.firstIndex { $0.id == sourceId}!
+        }
+        return index
+    }
+    
+    var date: String {
+        let timeResult = Double(newsItem.date)
+        let date = Date(timeIntervalSince1970: timeResult)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeZone = .current
+        return dateFormatter.string(from: date)
+    }
     
     var body: some View {
         VStack {
-            HStack(){
-                Avatar(avatar: $modelData.news[newsIndex].ownerAvatar)
+            HStack() {
+                Avatar(avatar: $newsViewModel.newsGroups[index].photo50)
                 VStack (alignment: .leading) {
-                    NameBoldText(name: $modelData.news[newsIndex].ownerName)
-                    Secondary2lineText(text: $modelData.news[newsIndex].date)
+                    NameBoldText(name: $newsViewModel.newsGroups[index].name)
+                    Secondary2lineText(text: date)
                 }
                 .padding(.leading, 20)
                 Spacer()
             }
-            Text(modelData.news[newsIndex].text)
-            Image(modelData.news[newsIndex].attachments)
-                .resizable()
-                .scaledToFit()
-            HStack {
-                LikeNewsControl(newsItem: newsItem)
-                    .modifier(CapsuleControl())
-                CommentControl( newsItem: newsItem)
-                SharedControl( newsItem: newsItem)
-                Spacer()
-                ViewsControl(newsItem: newsItem)
+            if let text = newsItem.text {
+                Text(text)
             }
-            
+            if let attachments = newsItem.attachments {
+                if let photo = attachments.first?.photo {
+                    WebImage(url: URL(string: (photo.sizes?.last?.url)!))
+                     .resizable()
+                    .scaledToFit()
+                }
+            }
+            HStack {
+                LikeNewsControl(isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0)
+                    .modifier(CapsuleControl())
+                CommentControl( count: newsItem.comments?.count ?? 0)
+                SharedControl( count : newsItem.reposts?.count ?? 0)
+                Spacer()
+                ViewsControl(count: newsItem.views?.count ?? 0)
+            }
         }
-        
     }
 }
 
 struct NewsRow_Previews: PreviewProvider {
-    static var news = ModelData().news
+    static var news = NewsViewModel().news
     static var previews: some View {
-        NewsRow( newsItem: news[2])
-            .environmentObject(ModelData())
+        NewsRow( newsViewModel: NewsViewModel(), newsItem: news[0])
+            .environmentObject(NewsViewModel())
     }
 }
 

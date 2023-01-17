@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct AllGroupRow: View {
-    @EnvironmentObject var modelData: ModelData
+    
+    @StateObject var groupsViewModel:  GroupViewModel
     var group: Group
     var groupIndex: Int? {
-           modelData.allGroups.firstIndex(where: { $0.id == group.id }) ?? nil
+        groupsViewModel.allGroups.firstIndex(of: group)!
        }
     
     var body: some View {
         if let index = groupIndex{
             HStack (spacing: 30) {
-                Avatar(avatar: $modelData.allGroups[index].imageLogo)
+                Avatar(avatar: $groupsViewModel.allGroups[index].photoGroup)
                 VStack (alignment: .leading) {
-                    NameBoldText(name: $modelData.allGroups[index].groupName)
-                    Secondary2lineText(text: $modelData.allGroups[index].groupCategory)
-                    Text("\(modelData.allGroups[index].subscribersQty) subscribers")
+                    NameBoldText(name: $groupsViewModel.allGroups[index].name)
+                    Text(groupsViewModel.allGroups[index].screenName)
                         .modifier(SecondaryText())
                 }
                 Spacer()
@@ -32,9 +32,9 @@ struct AllGroupRow: View {
 }
 
 struct AllGropuRow_Previews: PreviewProvider {
-    static var groups = ModelData().allGroups
+    static var groups = GroupViewModel().allGroups
     static var previews: some View {
-        AllGroupRow(group: groups[4])
-            .environmentObject(ModelData())
+        AllGroupRow(groupsViewModel: GroupViewModel(), group: groups[4])
+            .environmentObject(GroupViewModel())
     }
 }

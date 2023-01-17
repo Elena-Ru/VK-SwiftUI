@@ -9,23 +9,25 @@ import SwiftUI
 import AlertX
 
 struct AllGroupsList: View {
-    @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentation
+    @ObservedObject var groupsViewModel = GroupViewModel()
+    @State var allGroups : [Group] = []
+    let session = Session.shared
     @State var isAlreadyExist: Bool = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(modelData.allGroups) { group in
+                ForEach(allGroups) { group in
                     
-                    AllGroupRow( group: group)
+                    AllGroupRow( groupsViewModel: groupsViewModel, group: group)
                         .onTapGesture {
-                            if (modelData.groups.first(where: { $0.id == group.id
+                            if (groupsViewModel.groups.first(where: { $0.id == group.id
                             }) != nil) {
                                 isAlreadyExist = true
                                 print("Already contains")
                             } else {
-                                modelData.groups.append(group)
+                                groupsViewModel.addToFavorite(newGroup: group)
                                 self.presentation.wrappedValue.dismiss()
                             }
                         }
@@ -39,6 +41,11 @@ struct AllGroupsList: View {
             .navigationBarTitleDisplayMode(.inline)
             
         }
+        .onAppear{
+            groupsViewModel.getGroupsAll(token: session.token) { items in
+                self.allGroups = items
+            }
+        }
         .ignoresSafeArea()
     }
        
@@ -48,6 +55,6 @@ struct AllGroupsList: View {
 struct AllGroupsList_Previews: PreviewProvider {
     static var previews: some View {
         AllGroupsList()
-            .environmentObject(ModelData())
+            .environmentObject(GroupViewModel())
     }
 }

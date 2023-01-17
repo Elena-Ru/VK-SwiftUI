@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct FriendsList: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var modelData:  ModelData
+    @ObservedObject var friendsViewModel = FriendsViewModel()
     @State private var showFavoritesOnly = false
-    
-    var filteredFriends: [Friend] {
-        modelData.friends.filter { friend in
-            (!showFavoritesOnly || friend.isFavorite)
-        }
-        .sorted { $0.lastName.first! < $1.lastName.first!}
-    }
+    @State var filteredFriends : [Friend] = []
+    let session = Session.shared
     
     var firstLetterArray: [Character] {
         var firstLetterAr : [Character] = []
@@ -29,6 +25,7 @@ struct FriendsList: View {
         return firstLetterAr
     }
     
+    
     var body: some View {
         NavigationView {
             List {
@@ -36,6 +33,14 @@ struct FriendsList: View {
                     Text("Favorites only")
                         .font(.subheadline)
                 }
+                .onChange(of: showFavoritesOnly) { value in
+                    friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+                            self.filteredFriends = items.filter { friend in
+                                (!showFavoritesOnly || friend.isFavorite)
+                            }
+                            .sorted { $0.lastName.first! < $1.lastName.first!}
+                        }
+                    }
                 ForEach(firstLetterArray, id: \.self) { letter in
                     Section(header: SectionTitle(title: letter)) {
                          ForEach(filteredFriends.filter({ friend in
@@ -43,15 +48,19 @@ struct FriendsList: View {
                              NavigationLink {
                                  FriendPhotos(friend: friend)
                              } label: {
-                                FriendsRow(friend: friend)
+                                 FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
                             }
                          }
                      }
-                        
                  }
             }
             .navigationTitle("Friends")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear{
+            friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+                self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
+            }
         }
         .ignoresSafeArea()
     }
@@ -60,7 +69,7 @@ struct FriendsList: View {
 struct FriendsList_Previews: PreviewProvider {
     static var previews: some View {
         FriendsList()
-            .environmentObject(ModelData())
+            .environmentObject(FriendsViewModel())
     }
 }
 

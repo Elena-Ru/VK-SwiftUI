@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "alertx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/neel-makhecha/AlertX",
+      "state" : {
+        "revision" : "8a360e662b6347735140b3216ff4aa5fe97af681",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage",
+      "state" : {
+        "revision" : "4178d12a44691182c2eb79c70281b14cb73f4cbf",
+        "version" : "5.14.3"
+      }
+    },
+    {
+      "identity" : "sdwebimageswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI",
+      "state" : {
+        "revision" : "61fefe9c284fd41ddef77d02749e88f00c305196",
+        "version" : "2.2.2"
+      }
+    }
+  ],
+  "version" : 2
+}
