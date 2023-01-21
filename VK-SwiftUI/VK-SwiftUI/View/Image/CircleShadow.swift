@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct CircleShadow: ViewModifier {
-
+    
     func body(content: Content) -> some View {
         content
             .frame(width: 70, height: 70)
