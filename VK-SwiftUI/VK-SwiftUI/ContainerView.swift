@@ -1,10 +1,11 @@
+
+
 //
 //  ContainerView.swift
 //  VK-SwiftUI
 //
 //  Created by Елена Русских on 05.01.2023.
 //
-
 import SwiftUI
 
 struct ContainerView: View {
@@ -21,9 +22,3 @@ struct ContainerView: View {
     }
 }
 
-struct ContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContainerView()
-            .environmentObject(ModelData())
-    }
-}

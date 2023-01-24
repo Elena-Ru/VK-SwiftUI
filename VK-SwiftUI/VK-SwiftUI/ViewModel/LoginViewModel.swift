@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class ModelData: ObservableObject {
+final class LoginViewModel: ObservableObject {
     
     @Published var loggedIn = false
 

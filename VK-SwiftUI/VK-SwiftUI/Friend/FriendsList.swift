@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FriendsList: View {
-    @EnvironmentObject var modelData:  ModelData
+    @EnvironmentObject var modelData:  LoginViewModel
     @ObservedObject var friendsViewModel = FriendsViewModel()
     @State private var showFavoritesOnly = false
     @State var filteredFriends : [Friend] = []
