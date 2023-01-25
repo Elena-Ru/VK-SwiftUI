@@ -15,6 +15,7 @@ class PhotoViewModel: ObservableObject{
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51525791" //id_приложения
+    let session = Session.shared
     
     func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([Photo]) -> Void){
         
@@ -54,4 +55,23 @@ class PhotoViewModel: ObservableObject{
             print(error)
         }
       }
+    
+    func postLike( isLike: inout Int, owner: Int, item: Int ) {
+        
+        let path = isLike == 1 ? "/method/likes.add" : "/method/likes.delete"
+        let url = baseUrl+path
+        
+        let parameters: Parameters = [
+                "access_token" : session.token,
+                "type": "photo",
+                "owner_id": owner,
+                "item_id": item,
+                "v": "5.131"
+            ]
+        
+         AF.request(url, method: .get, parameters: parameters).responseData { response in
+             guard response.value != nil  else { return}
+             print("Done")
+         }
+    }
 }

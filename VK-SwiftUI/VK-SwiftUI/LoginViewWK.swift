@@ -15,7 +15,7 @@ extension View {
 }
 
 struct LoginViewWK: View {
-    @ObservedObject var modelData =  ModelData()
+    @ObservedObject var modelData =  LoginViewModel()
     @State private var showLoading = false
     
     var body: some View {
@@ -32,6 +32,6 @@ struct LoginViewWK: View {
 struct LoginViewWK_Previews: PreviewProvider {
     static var previews: some View {
         LoginViewWK()
-            .environmentObject(ModelData())
+            .environmentObject(LoginViewModel())
     }
 }
