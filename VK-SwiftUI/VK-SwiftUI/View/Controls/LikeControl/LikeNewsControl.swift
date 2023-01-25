@@ -14,7 +14,7 @@ struct LikeNewsControl: View {
    
     var body: some View {
         HStack{
-            LikeButton(isUserLike: $isLike ,likeQty: $qty)
+            LikeButtonNews(isUserLike: $isLike ,likeQty: $qty)
             LikeQuantityButton(likeQty: $qty, isUserLike: $isLike)
         }
         .buttonStyle(BorderlessButtonStyle())
