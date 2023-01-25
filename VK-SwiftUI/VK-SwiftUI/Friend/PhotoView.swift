@@ -18,7 +18,7 @@ struct PhotoView: View {
                 ForEach(photoViewModel.photos.indices, id: \.self){ index in
                     WebImage(url: URL(string: (photoViewModel.photos[index].url)))
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                             .tag(index)
                             .padding()
                     }

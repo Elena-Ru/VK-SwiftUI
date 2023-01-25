@@ -14,39 +14,41 @@ struct FriendPhotos: View {
     var friend: Friend
     @State var photos : [Photo] = []
     let session = Session.shared
-    let columnLayout = Array(repeating: GridItem(), count: 2)
+    let columnLayout = Array(repeating: GridItem(.flexible(minimum: 50, maximum: .infinity)), count: 2)
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columnLayout, alignment: .center, spacing: 6) {
-                
-                ForEach(photoVieModel.photos.indices, id: \.self) { index in
-                    
-                    VStack {
-                        NavigationLink(destination: PhotoView(photoViewModel: photoVieModel, currentIndex: index)) {
-                            WebImage(url: URL(string: (photoVieModel.photos[index].url)))
-                                .resizable()
-                                .clipped()
-                                .aspectRatio(1, contentMode: .fit)
-                                .cornerRadius(12)
+        GeometryReader { geometry in
+            ScrollView {
+                LazyVGrid(columns: columnLayout, alignment: .center, spacing: 6) {
+                    if let photos = photoVieModel.photos{
+                        ForEach(photos.indices, id: \.self) { index in
+                            VStack {
+                                NavigationLink(destination: PhotoView(photoViewModel: photoVieModel, currentIndex: index)) {
+                                    WebImage(url: URL(string: (photoVieModel.photos[index].url)))
+                                        .resizable()
+                                        .clipped()
+                                        .aspectRatio(1, contentMode: .fit)
+                                        .cornerRadius(12)
+                                }
+                         
+                                LikeControl(isLike: photoVieModel.photos[index].userLikes, qty: photoVieModel.photos[index].count, owner: friend.id, item: photoVieModel.photos[index].id )
+                                    .padding(.top, -5)
+                                    .padding(.trailing, -60)
+                            }
                         }
-                        LikeControl(isLike: photoVieModel.photos[index].userLikes, qty: photoVieModel.photos[index].count, owner: friend.id, item: photoVieModel.photos[index].id )
-                                                    .padding(.top, -5)
-                                                    .padding(.trailing, -60)
+                        .frame(height: geometry.size.width/2)
                     }
+                    
                 }
-                .frame(maxWidth: 300)
+                .padding()
             }
-            .padding()
+            .navigationTitle(friend.firstName)
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear{
+                photoVieModel.getUserPhotos(token: session.token, idFriend: friend.id) { items in
+                    self.photos = items
+                }
         }
-        .navigationTitle(friend.firstName)
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear{
-            photoVieModel.getUserPhotos(token: session.token, idFriend: friend.id) { items in
-                self.photos = items
-            }
         }
     }
 }
-
-              
