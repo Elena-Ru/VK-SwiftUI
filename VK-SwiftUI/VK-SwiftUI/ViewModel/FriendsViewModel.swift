@@ -10,8 +10,8 @@ import Alamofire
 import RealmSwift
 
 
-class FriendsViewModel: ObservableObject{
- 
+class FriendsViewModel: ObservableObject {
+    
     @Published var friends: [Friend] = []
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"

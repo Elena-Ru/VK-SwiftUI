@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class NewsViewModel: ObservableObject{
-    
+
     @Published var news: [Item] = []
     @Published var newsGroups: [NewsGroup] = []
    
