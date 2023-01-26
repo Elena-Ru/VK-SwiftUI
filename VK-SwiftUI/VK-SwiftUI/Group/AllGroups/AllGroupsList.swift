@@ -16,7 +16,7 @@ struct AllGroupsList: View {
     @State var isAlreadyExist: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationView { 
             List {
                 ForEach(allGroups) { group in
                     
