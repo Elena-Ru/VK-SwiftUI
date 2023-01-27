@@ -37,6 +37,7 @@ struct AllGroupsList: View {
                   AlertX(title: Text("This group is already in your favorites."),
                          theme: .cherry(withTransparency: true, roundedCorners: true))
             })
+            .background(Color(uiColor: .systemBackground))
             .navigationTitle("All Groups")
             .navigationBarTitleDisplayMode(.inline)
             

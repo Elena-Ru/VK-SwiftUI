@@ -34,7 +34,7 @@ struct LikeButton: View {
         } label: {
             Label("Toggle Favorite", systemImage: isUserLike == 1 ? "heart.fill" : "heart")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isUserLike == 1 ? Color(hex: "#e84f37") : Color(hex: "#244469"))
+                .foregroundColor(isUserLike == 1 ? Color("CustomControlColor") : Color("RegularControlColor"))
                 .scaleEffect(isScaled ? 1.5 : 1)
                 .scaleEffect((isUserLike == 1  && !isScaled) ? 1.5 : 1)
                 .overlay {
