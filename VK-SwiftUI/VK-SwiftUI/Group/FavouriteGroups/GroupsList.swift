@@ -26,10 +26,10 @@ struct GroupsList: View {
                 List {
                     ForEach(groups) { group in
                         GroupRow( groupsViewModel: groupsViewModel, group: group)
-                            
                     }
                     .onDelete(perform: delete)
                 }
+                .background(Color(uiColor: .systemBackground))
                 .navigationTitle("My Groups")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -46,6 +46,7 @@ struct GroupsList: View {
             groupsViewModel.getUserGroups(token: session.token, id: session.userID)
         }
         .ignoresSafeArea()
+        .background(Color(uiColor: .systemBackground))
     }
 }
 

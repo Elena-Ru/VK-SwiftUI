@@ -27,7 +27,7 @@ struct CustomTabBar: View {
                         if selectedTab == tab {
                             Image(systemName: fillImage)
                                 .padding()
-                                .background(Color(hex: "#e84f37"))
+                                .background(Color("CustomControlColor"))
                                 .clipShape(Circle())
                                 .overlay {
                                     Circle().stroke(.white, lineWidth: 3).shadow(radius: 7)
@@ -42,7 +42,7 @@ struct CustomTabBar: View {
                             
                             Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
                                 .offset(y: -10)
-                                .foregroundColor(Color(hex: "#244469"))
+                                .foregroundColor(Color("RegularControlColor"))
                                 .bold()
                         } else {
                             Image(systemName:  tab.rawValue)
@@ -56,7 +56,7 @@ struct CustomTabBar: View {
                                 .hidden()
                         }
                     }
-                  .foregroundColor(selectedTab == tab ? .white: Color(hex: "#244469"))
+                    .foregroundColor(selectedTab == tab ? .white: Color("RegularControlColor"))
                     Spacer()
                 }
             }

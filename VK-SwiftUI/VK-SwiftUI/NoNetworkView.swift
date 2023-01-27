@@ -15,7 +15,7 @@ struct NoNetworkView: View {
                 .scaledToFill()
                 .frame(width: 160, height: 160)
                 .font(.title)
-                .foregroundColor(Color(hex: "#e84f37"))
+                .foregroundColor(Color("CustomControlColor"))
             Text("Please, check your connection activity")
         }
     }

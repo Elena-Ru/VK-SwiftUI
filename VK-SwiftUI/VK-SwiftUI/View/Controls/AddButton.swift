@@ -11,7 +11,7 @@ struct AddButton: View {
     var body: some View {
         Image(systemName: "plus.circle.fill")
             .font(.title)
-            .foregroundColor(Color(hex: "#e84f37"))
+            .foregroundColor(Color("CustomControlColor"))
     }
 }
 

@@ -13,7 +13,7 @@ struct CapsuleControl: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.caption)
-            .foregroundColor(Color(hex: "#244469"))
+            .foregroundColor(Color("RegularControlColor"))
             .padding(7)
             .background(.thinMaterial, in: Capsule())
             .labelStyle(.titleAndIcon)
