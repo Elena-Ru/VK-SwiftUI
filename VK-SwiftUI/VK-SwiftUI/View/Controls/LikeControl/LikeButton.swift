@@ -18,7 +18,7 @@ struct LikeButton: View {
     
     var body: some View {
         Button {
-          buttonPressed()
+          likeButtonPressed()
         } label: {
             Label("Toggle Favorite", systemImage: isUserLike == 1 ? "heart.fill" : "heart")
                 .labelStyle(.iconOnly)
@@ -37,7 +37,7 @@ struct LikeButton: View {
         }
     }
     
-    func buttonPressed() {
+    func likeButtonPressed() {
         isUserLike = isUserLike == 1 ? 0 : 1
         likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
         
