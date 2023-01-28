@@ -13,11 +13,14 @@ struct LikeQuantityButton: View {
     
     var body: some View {
         Button(String(likeQty)) {
-            
-            isUserLike = isUserLike == 1 ? 0 : 1
-            likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
+            buttonPressed()
         }
         .foregroundColor(isUserLike == 1 ? .blue : Color(hex: "#244469"))
+    }
+    
+    func buttonPressed(){
+        isUserLike = isUserLike == 1 ? 0 : 1
+        likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
     }
 }
 
