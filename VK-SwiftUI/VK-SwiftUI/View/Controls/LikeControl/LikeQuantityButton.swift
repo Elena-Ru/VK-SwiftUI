@@ -17,12 +17,12 @@ struct LikeQuantityButton: View {
             isUserLike = isUserLike == 1 ? 0 : 1
             likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
         }
-        .foregroundColor(isUserLike == 1 ? .blue : Color(hex: "#244469"))
+        .foregroundColor(isUserLike == 1 ? .blue : Color("RegularControlColor"))
     }
 }
 
 struct LikeQuantityButton_Previews: PreviewProvider {
     static var previews: some View {
-        LikeQuantityButton( likeQty: .constant(0), isUserLike: .constant(1) )
+        LikeQuantityButton( likeQty: .constant(0), isUserLike: .constant(0) )
     }
 }

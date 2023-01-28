@@ -16,7 +16,7 @@ struct AllGroupsList: View {
     @State var isAlreadyExist: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationView { 
             List {
                 ForEach(allGroups) { group in
                     
@@ -37,6 +37,7 @@ struct AllGroupsList: View {
                   AlertX(title: Text("This group is already in your favorites."),
                          theme: .cherry(withTransparency: true, roundedCorners: true))
             })
+            .background(Color(uiColor: .systemBackground))
             .navigationTitle("All Groups")
             .navigationBarTitleDisplayMode(.inline)
             

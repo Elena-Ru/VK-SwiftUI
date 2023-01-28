@@ -29,6 +29,7 @@ struct NewsList: View {
                 self.news = response.items ?? []
             }
         }
+        .background(Color(uiColor: .systemBackground))
     }
 }
 
