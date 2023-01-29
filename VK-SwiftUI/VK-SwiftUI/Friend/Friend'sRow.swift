@@ -16,6 +16,10 @@ struct FriendsRow: View {
           }
     
     var body: some View {
+        contentView
+    }
+    
+    var contentView: some View {
         HStack{
             Avatar(avatar: $friendsViewModel.friends[friendIndex].photo100)
             VStack (alignment: .leading) {

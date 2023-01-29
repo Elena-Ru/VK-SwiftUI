@@ -17,6 +17,10 @@ struct FriendPhotos: View {
     let columnLayout = Array(repeating: GridItem(.flexible(minimum: 50, maximum: .infinity)), count: 2)
     
     var body: some View {
+        contentView
+    }
+    
+    var contentView: some View {
         GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: columnLayout, alignment: .center, spacing: 6) {
@@ -38,7 +42,6 @@ struct FriendPhotos: View {
                         }
                         .frame(height: geometry.size.width/2)
                     }
-                    
                 }
                 .padding()
             }
@@ -52,3 +55,5 @@ struct FriendPhotos: View {
         }
     }
 }
+
+

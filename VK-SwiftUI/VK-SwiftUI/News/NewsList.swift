@@ -13,23 +13,31 @@ struct NewsList: View {
     let session = Session.shared
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(newsViewModel.news) { newsItem in
-                    Section {
-                        NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
-                    }
-                }
-            }
-            .navigationTitle("News")
-            .navigationBarTitleDisplayMode(.inline)
-        }
+       contentView
         .onAppear{
             newsViewModel.getNewsPost(token: session.token, id: session.userID) { response in
                 self.news = response.items ?? []
             }
         }
         .background(Color(uiColor: .systemBackground))
+    }
+    
+    var contentView: some View {
+        NavigationStack {
+          listOfNews
+            .navigationTitle("News")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+    
+    var listOfNews: some View {
+        List {
+            ForEach(newsViewModel.news) { newsItem in
+                Section {
+                    NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
+                }
+            }
+        }
     }
 }
 
