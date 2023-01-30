@@ -16,7 +16,17 @@ struct AllGroupsList: View {
     @State var isAlreadyExist: Bool = false
     
     var body: some View {
-        NavigationView { 
+    contentView
+        .onAppear{
+            groupsViewModel.getGroupsAll(token: session.token) { items in
+                self.allGroups = items
+            }
+        }
+        .ignoresSafeArea()
+    }
+    
+    var contentView: some View {
+        NavigationView {
             List {
                 ForEach(allGroups) { group in
                     
@@ -42,12 +52,6 @@ struct AllGroupsList: View {
             .navigationBarTitleDisplayMode(.inline)
             
         }
-        .onAppear{
-            groupsViewModel.getGroupsAll(token: session.token) { items in
-                self.allGroups = items
-            }
-        }
-        .ignoresSafeArea()
     }
        
 }

@@ -27,42 +27,61 @@ struct FriendsList: View {
     
     
     var body: some View {
+        contentView
+    }
+    var contentView: some View {
         NavigationView {
-            List {
-                Toggle(isOn: $showFavoritesOnly) {
-                    Text("Favorites only")
-                        .font(.subheadline)
-                }
-                .onChange(of: showFavoritesOnly) { value in
-                    friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
-                            self.filteredFriends = items.filter { friend in
-                                (!showFavoritesOnly || friend.isFavorite)
-                            }
-                            .sorted { $0.lastName.first! < $1.lastName.first!}
-                        }
-                    }
-                ForEach(firstLetterArray, id: \.self) { letter in
-                    Section(header: SectionTitle(title: letter)) {
-                         ForEach(filteredFriends.filter({ friend in
-                             friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
-                             NavigationLink {
-                                 FriendPhotos(friend: friend)
-                             } label: {
-                                 FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
-                            }
-                         }
-                     }
-                 }
-            }
-            .navigationTitle("Friends")
-            .navigationBarTitleDisplayMode(.inline)
+            listView
         }
         .onAppear{
-            friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
-                self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
-            }
+           getFriends()
         }
         .ignoresSafeArea()
+    }
+    
+    var listView: some View {
+        List {
+            toggle
+            ForEach(firstLetterArray, id: \.self) { letter in
+                Section(header: SectionTitle(title: letter)) {
+                     ForEach(filteredFriends.filter({ friend in
+                         friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
+                         NavigationLink {
+                             FriendPhotos(friend: friend)
+                         } label: {
+                             FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
+                        }
+                     }
+                 }
+             }
+        }
+        .navigationTitle("Friends")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    var toggle: some View {
+        Toggle(isOn: $showFavoritesOnly) {
+            Text("Favorites only")
+                .font(.subheadline)
+        }
+        .onChange(of: showFavoritesOnly) { value in
+            updateFriends()
+            }
+    }
+    
+    private func getFriends() {
+        friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+            self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
+        }
+    }
+    
+    private func updateFriends() {
+        friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+                self.filteredFriends = items.filter { friend in
+                    (!showFavoritesOnly || friend.isFavorite)
+                }
+                .sorted { $0.lastName.first! < $1.lastName.first!}
+            }
     }
 }
 
