@@ -10,24 +10,26 @@ import SwiftUI
 
 struct GroupsList: View {
     
-    @ObservedObject var groupsViewModel = GroupViewModel()
+    @StateObject var groupsViewModel = GroupViewModel()
     let session = Session.shared
 
     var body: some View {
         contentView
         .ignoresSafeArea()
         .background(Color(uiColor: .systemBackground))
+       
     }
     
     private var contentView: some View {
         NavigationStack {
             if let groups = groupsViewModel.groups{
-                ListOfGroups( groups: groups)
+                ListOfGroups(groups: groups)
             }
         }
         .onAppear{
             groupsViewModel.getUserGroups(token: session.token, id: session.userID)
         }
+        .environmentObject(groupsViewModel) 
     }
 }
 

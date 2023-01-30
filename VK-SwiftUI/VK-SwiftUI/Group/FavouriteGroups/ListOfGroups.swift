@@ -9,28 +9,22 @@ import SwiftUI
 import RealmSwift
 
 struct ListOfGroups: View {
-    @ObservedObject var groupsViewModel = GroupViewModel()
+    @EnvironmentObject var groupsViewModel : GroupViewModel
     var groups: [Group]
-    
-    fileprivate func delete(_ index: IndexSet) {
-        guard let index = index.first else { return }
-        let selectedGroup = groupsViewModel.groups[index]
-        groupsViewModel.deleteFromFavorite(groupToDelete: selectedGroup)
-    }
     
     var body: some View {
         List {
             ForEach(groups) { group in
-                GroupRow( groupsViewModel: groupsViewModel, group: group)
+                GroupRow( group: group)
             }
-            .onDelete(perform: delete)
+            .onDelete(perform: groupsViewModel.delete)
         }
         .background(Color(uiColor: .systemBackground))
         .navigationTitle("My Groups")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing, content: {
-                NavigationLink(destination: AllGroupsList(), label: {
+                NavigationLink(destination: AllGroupsList( groupsViewModel: _groupsViewModel), label: {
                     AddButton()
                 })
                 .isDetailLink(false)
