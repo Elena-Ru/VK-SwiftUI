@@ -25,6 +25,9 @@ struct AddButton: View {
 
 struct AddButton_Previews: PreviewProvider {
     static var previews: some View {
-        AddButton()
+            AddButton()
+                .preferredColorScheme(.dark)
+            AddButton()
+                .preferredColorScheme(.light)
     }
 }

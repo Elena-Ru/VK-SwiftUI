@@ -34,9 +34,7 @@ struct FriendsList: View {
             listView
         }
         .onAppear{
-            friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
-                self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
-            }
+           getFriends()
         }
         .ignoresSafeArea()
     }
@@ -67,12 +65,22 @@ struct FriendsList: View {
                 .font(.subheadline)
         }
         .onChange(of: showFavoritesOnly) { value in
-            friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
-                    self.filteredFriends = items.filter { friend in
-                        (!showFavoritesOnly || friend.isFavorite)
-                    }
-                    .sorted { $0.lastName.first! < $1.lastName.first!}
+            updateFriends()
+            }
+    }
+    
+    private func getFriends() {
+        friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+            self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
+        }
+    }
+    
+    private func updateFriends() {
+        friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
+                self.filteredFriends = items.filter { friend in
+                    (!showFavoritesOnly || friend.isFavorite)
                 }
+                .sorted { $0.lastName.first! < $1.lastName.first!}
             }
     }
 }

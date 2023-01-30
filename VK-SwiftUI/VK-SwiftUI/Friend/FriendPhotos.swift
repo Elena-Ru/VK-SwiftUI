@@ -34,7 +34,7 @@ struct FriendPhotos: View {
                                         .aspectRatio(1, contentMode: .fit)
                                         .cornerRadius(12)
                                 }
-                         
+                                
                                 LikeControl(isLike: photoVieModel.photos[index].userLikes, qty: photoVieModel.photos[index].count, owner: friend.id, item: photoVieModel.photos[index].id )
                                     .padding(.top, -5)
                                     .padding(.trailing, -60)
@@ -48,12 +48,15 @@ struct FriendPhotos: View {
             .navigationTitle(friend.firstName)
             .navigationBarTitleDisplayMode(.inline)
             .onAppear{
-                photoVieModel.getUserPhotos(token: session.token, idFriend: friend.id) { items in
-                    self.photos = items
-                }
-        }
+                getPhotos()
+            }
         }
     }
-}
+        private func getPhotos() {
+            photoVieModel.getUserPhotos(token: session.token, idFriend: friend.id) { items in
+                self.photos = items
+            }
+        }
+    }
 
 

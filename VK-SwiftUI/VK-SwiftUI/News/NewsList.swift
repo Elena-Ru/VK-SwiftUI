@@ -15,9 +15,7 @@ struct NewsList: View {
     var body: some View {
        contentView
         .onAppear{
-            newsViewModel.getNewsPost(token: session.token, id: session.userID) { response in
-                self.news = response.items ?? []
-            }
+           getNews()
         }
         .background(Color(uiColor: .systemBackground))
     }
@@ -37,6 +35,12 @@ struct NewsList: View {
                     NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
                 }
             }
+        }
+    }
+    
+    private func getNews() {
+        newsViewModel.getNewsPost(token: session.token, id: session.userID) { response in
+            self.news = response.items ?? []
         }
     }
 }
