@@ -8,23 +8,26 @@
 import SwiftUI
 
 struct NewsList: View {
-    @ObservedObject var newsViewModel = NewsViewModel()
-    @State var news : [Item] = []
-    let session = Session.shared
+    @StateObject var newsViewModel = NewsViewModel()
     
     var body: some View {
        contentView
-        .onAppear{
-           getNews()
-        }
         .background(Color(uiColor: .systemBackground))
     }
     
     var contentView: some View {
         NavigationStack {
-          listOfNews
-            .navigationTitle("News")
-            .navigationBarTitleDisplayMode(.inline)
+            ZStack {
+                listOfNews
+                    .onAppear{
+                        newsViewModel.getNews()
+                    }
+                    .navigationTitle("News")
+                    .navigationBarTitleDisplayMode(.inline)
+                if newsViewModel.isLoading {
+                    ProgressView("LOADING...")
+                }
+            }
         }
     }
     
@@ -35,12 +38,6 @@ struct NewsList: View {
                     NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
                 }
             }
-        }
-    }
-    
-    private func getNews() {
-        newsViewModel.getNewsPost(token: session.token, id: session.userID) { response in
-            self.news = response.items ?? []
         }
     }
 }
