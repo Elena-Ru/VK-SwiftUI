@@ -34,6 +34,7 @@ struct FriendsList: View {
             ZStack {
                 if filteredFriends.isEmpty {
                     EmptyFriendsListView()
+                        .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {
                     listView
                 }
