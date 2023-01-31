@@ -47,10 +47,13 @@ struct FriendsList: View {
                      ForEach(filteredFriends.filter({ friend in
                          friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
                          NavigationLink {
-                             FriendPhotos(friend: friend)
-                         } label: {
+                                 FriendPhotos(friend: friend)
+                         }
+                         label: {
                              FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
                         }
+                         .disabled(friend.photo100 == "https://vk.com/images/camera_100.png")
+                         
                      }
                  }
              }

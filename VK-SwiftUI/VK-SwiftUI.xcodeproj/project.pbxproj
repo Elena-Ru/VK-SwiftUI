@@ -239,14 +239,6 @@
 				B484FED1296EC8800034AABD /* Service */,
 				B4BC201E29707968002C1CF2 /* ViewModel */,
 				B4B02BCE2967C2DD002BA614 /* Model */,
-				B484FEA6296916500034AABD /* Friend */,
-				B484FEAB2969263C0034AABD /* Group */,
-				B484FEB4296AD4630034AABD /* News */,
-				B4856F442962AE04001FA954 /* LoginView.swift */,
-				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
-				B484FECD296D6D5B0034AABD /* LoginViewWK.swift */,
-				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
-				B40BFAC529827C1D0011CCF0 /* NoNetworkView.swift */,
 				B4856F56296334AE001FA954 /* View */,
 				B4856F462962AE06001FA954 /* Assets.xcassets */,
 				B4856F482962AE06001FA954 /* Preview Content */,
@@ -265,6 +257,9 @@
 		B4856F56296334AE001FA954 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B484FEA6296916500034AABD /* Friend */,
+				B484FEAB2969263C0034AABD /* Group */,
+				B484FEB4296AD4630034AABD /* News */,
 				B4B02BD929680D4C002BA614 /* Controls */,
 				B4B02BC929671450002BA614 /* TabBar */,
 				B4856F712965D5FF001FA954 /* Image */,
@@ -273,6 +268,11 @@
 				B4856F5229633281001FA954 /* LoginTextField.swift */,
 				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
 				B4856F542963346B001FA954 /* PasswordTextField.swift */,
+				B40BFAC529827C1D0011CCF0 /* NoNetworkView.swift */,
+				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
+				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
+				B484FECD296D6D5B0034AABD /* LoginViewWK.swift */,
+				B4856F442962AE04001FA954 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
