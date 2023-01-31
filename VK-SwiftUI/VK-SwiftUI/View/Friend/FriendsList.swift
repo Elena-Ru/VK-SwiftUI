@@ -12,6 +12,7 @@ struct FriendsList: View {
     @ObservedObject var friendsViewModel = FriendsViewModel()
     @State private var showFavoritesOnly = false
     @State var filteredFriends : [Friend] = []
+    @State var isListEmpty = false
     let session = Session.shared
     
     var firstLetterArray: [Character] {
@@ -32,7 +33,7 @@ struct FriendsList: View {
     var contentView: some View {
         NavigationView {
             ZStack {
-                if filteredFriends.isEmpty {
+                if isListEmpty {
                     EmptyFriendsListView()
                         .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {
@@ -41,7 +42,7 @@ struct FriendsList: View {
             }
         }
         .onAppear{
-           getFriends()
+            getFriends()
         }
         .ignoresSafeArea()
     }
@@ -82,6 +83,9 @@ struct FriendsList: View {
     private func getFriends() {
         friendsViewModel.getFriendsList(token: session.token, id: session.userID) { items in
             self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
+            if self.filteredFriends.isEmpty {
+                isListEmpty = true
+            }
         }
     }
     
@@ -101,5 +105,6 @@ struct FriendsList_Previews: PreviewProvider {
             .environmentObject(FriendsViewModel())
     }
 }
+
 
 

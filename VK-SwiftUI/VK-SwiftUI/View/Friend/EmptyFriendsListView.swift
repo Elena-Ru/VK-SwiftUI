@@ -9,11 +9,12 @@ import SwiftUI
 
 struct EmptyFriendsListView: View {
     var body: some View {
-        ZStack{
-            Text("Your friends list is empty right now \n😢")
+        VStack{
+            Text("Your friends list is empty right now")
                 .font(.title2)
                 .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
+            Text("🥲")
+                .font(.largeTitle)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundImage())

@@ -31,7 +31,7 @@ struct FriendPhotos: View {
                                     WebImage(url: URL(string: (photoVieModel.photos[index].url)))
                                         .resizable()
                                         .clipped()
-                                        .aspectRatio(1, contentMode: .fit)
+                                        .aspectRatio(1, contentMode: .fill)
                                         .cornerRadius(12)
                                 }
                                 
