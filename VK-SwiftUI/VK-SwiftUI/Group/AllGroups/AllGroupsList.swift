@@ -10,17 +10,27 @@ import AlertX
 
 struct AllGroupsList: View {
     @Environment(\.presentationMode) var presentation
-    @ObservedObject var groupsViewModel = GroupViewModel()
+    @EnvironmentObject var groupsViewModel : GroupViewModel
     @State var allGroups : [Group] = []
     let session = Session.shared
     @State var isAlreadyExist: Bool = false
     
     var body: some View {
-        NavigationView { 
+    contentView
+        .onAppear{
+            groupsViewModel.getGroupsAll(token: session.token) { items in
+                self.allGroups = items
+            }
+        }
+        .ignoresSafeArea()
+    }
+    
+    var contentView: some View {
+        NavigationView {
             List {
                 ForEach(allGroups) { group in
                     
-                    AllGroupRow( groupsViewModel: groupsViewModel, group: group)
+                    AllGroupRow(group: group)
                         .onTapGesture {
                             if (groupsViewModel.groups.first(where: { $0.id == group.id
                             }) != nil) {
@@ -42,20 +52,14 @@ struct AllGroupsList: View {
             .navigationBarTitleDisplayMode(.inline)
             
         }
-        .onAppear{
-            groupsViewModel.getGroupsAll(token: session.token) { items in
-                self.allGroups = items
-            }
-        }
-        .ignoresSafeArea()
     }
        
 }
 
 
-struct AllGroupsList_Previews: PreviewProvider {
-    static var previews: some View {
-        AllGroupsList()
-            .environmentObject(GroupViewModel())
-    }
-}
+//struct AllGroupsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AllGroupsList( groupsViewModel: GroupViewModel())
+//            .environmentObject(GroupViewModel())
+//    }
+//}

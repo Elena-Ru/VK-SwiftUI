@@ -129,4 +129,10 @@ class GroupViewModel: ObservableObject {
             print(error)
         }
       }
+    
+    func delete(_ index: IndexSet) {
+        guard let index = index.first else { return }
+        let selectedGroup = groups[index]
+        deleteFromFavorite(groupToDelete: selectedGroup)
+    }
 }

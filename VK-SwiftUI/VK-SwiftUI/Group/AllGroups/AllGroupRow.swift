@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AllGroupRow: View {
-    
-    @StateObject var groupsViewModel:  GroupViewModel
+    @EnvironmentObject var groupsViewModel : GroupViewModel
     var group: Group
     var groupIndex: Int? {
         groupsViewModel.allGroups.firstIndex(of: group)!
@@ -34,7 +33,7 @@ struct AllGroupRow: View {
 struct AllGropuRow_Previews: PreviewProvider {
     static var groups = GroupViewModel().allGroups
     static var previews: some View {
-        AllGroupRow(groupsViewModel: GroupViewModel(), group: groups[4])
+        AllGroupRow(group: groups[4])
             .environmentObject(GroupViewModel())
     }
 }

@@ -12,7 +12,8 @@ class NewsViewModel: ObservableObject{
 
     @Published var news: [Item] = []
     @Published var newsGroups: [NewsGroup] = []
-   
+    @Published var  isLoading = false
+    let session = Session.shared
     let baseUrl = "https://api.vk.com"
     let clientId = "51525791" //id_приложения
     
@@ -39,4 +40,12 @@ class NewsViewModel: ObservableObject{
             
         }
     }
+    
+    func getNews() {
+          isLoading = true
+          getNewsPost(token: session.token, id: session.userID) { response in
+             // self.news = response.items ?? []
+              self.isLoading = false
+          }
+      }
 }

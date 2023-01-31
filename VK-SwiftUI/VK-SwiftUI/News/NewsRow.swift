@@ -33,16 +33,12 @@ struct NewsRow: View {
     }
     
     var body: some View {
+        contentView
+    }
+    
+    var contentView: some View {
         VStack {
-            HStack() {
-                Avatar(avatar: $newsViewModel.newsGroups[index].photo50)
-                VStack (alignment: .leading) {
-                    NameBoldText(name: $newsViewModel.newsGroups[index].name)
-                    Secondary2lineText(text: date)
-                }
-                .padding(.leading, 20)
-                Spacer()
-            }
+          authorInfo
             if let text = newsItem.text {
                 Text(text)
             }
@@ -53,14 +49,29 @@ struct NewsRow: View {
                     .scaledToFit()
                 }
             }
-            HStack {
-                LikeNewsControl(isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0)
-                    .modifier(CapsuleControl())
-                CommentControl( count: newsItem.comments?.count ?? 0)
-                SharedControl( count : newsItem.reposts?.count ?? 0)
-                Spacer()
-                ViewsControl(count: newsItem.views?.count ?? 0)
+          controlsArea
+        }
+    }
+    
+    var authorInfo: some View {
+        HStack() {
+            Avatar(avatar: $newsViewModel.newsGroups[index].photo50)
+            VStack (alignment: .leading) {
+                NameBoldText(name: $newsViewModel.newsGroups[index].name)
+                Secondary2lineText(text: date)
             }
+            .padding(.leading, 20)
+            Spacer()
+        }
+    }
+    var controlsArea: some View {
+        HStack {
+            LikeNewsControl(isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0)
+                .modifier(CapsuleControl())
+            CommentControl( count: newsItem.comments?.count ?? 0)
+            SharedControl( count : newsItem.reposts?.count ?? 0)
+            Spacer()
+            ViewsControl(count: newsItem.views?.count ?? 0)
         }
     }
 }

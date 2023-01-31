@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct NewsList: View {
-    @ObservedObject var newsViewModel = NewsViewModel()
-    @State var news : [Item] = []
-    let session = Session.shared
+    @StateObject var newsViewModel = NewsViewModel()
     
     var body: some View {
+       contentView
+        .background(Color(uiColor: .systemBackground))
+    }
+    
+    var contentView: some View {
         NavigationStack {
-            List {
-                ForEach(newsViewModel.news) { newsItem in
-                    Section {
-                        NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
+            ZStack {
+                listOfNews
+                    .onAppear{
+                        newsViewModel.getNews()
                     }
+                    .navigationTitle("News")
+                    .navigationBarTitleDisplayMode(.inline)
+                if newsViewModel.isLoading {
+                    ProgressView("LOADING...")
                 }
             }
-            .navigationTitle("News")
-            .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear{
-            newsViewModel.getNewsPost(token: session.token, id: session.userID) { response in
-                self.news = response.items ?? []
+    }
+    
+    var listOfNews: some View {
+        List {
+            ForEach(newsViewModel.news) { newsItem in
+                Section {
+                    NewsRow(newsViewModel: newsViewModel, newsItem: newsItem)
+                }
             }
         }
-        .background(Color(uiColor: .systemBackground))
     }
 }
 

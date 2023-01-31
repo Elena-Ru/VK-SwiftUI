@@ -6,47 +6,30 @@
 //
 
 import SwiftUI
-import RealmSwift
+
 
 struct GroupsList: View {
     
-    @ObservedObject var groupsViewModel = GroupViewModel()
+    @StateObject var groupsViewModel = GroupViewModel()
     let session = Session.shared
-    
-    fileprivate func delete(_ index: IndexSet) {
-        guard let index = index.first else { return }
-        let selectedGroup = groupsViewModel.groups[index]
-        groupsViewModel.deleteFromFavorite(groupToDelete: selectedGroup)
+
+    var body: some View {
+        contentView
+        .ignoresSafeArea()
+        .background(Color(uiColor: .systemBackground))
+       
     }
     
-    var body: some View {
-
+    private var contentView: some View {
         NavigationStack {
             if let groups = groupsViewModel.groups{
-                List {
-                    ForEach(groups) { group in
-                        GroupRow( groupsViewModel: groupsViewModel, group: group)
-                    }
-                    .onDelete(perform: delete)
-                }
-                .background(Color(uiColor: .systemBackground))
-                .navigationTitle("My Groups")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing, content: {
-                        NavigationLink(destination: AllGroupsList(), label: {
-                            AddButton()
-                        })
-                        .isDetailLink(false)
-                    })
-                }
+                ListOfGroups(groups: groups)
             }
         }
         .onAppear{
             groupsViewModel.getUserGroups(token: session.token, id: session.userID)
         }
-        .ignoresSafeArea()
-        .background(Color(uiColor: .systemBackground))
+        .environmentObject(groupsViewModel) 
     }
 }
 
@@ -56,5 +39,4 @@ struct GroupsList_Previews: PreviewProvider {
             .environmentObject(GroupViewModel())
     }
 }
-
 

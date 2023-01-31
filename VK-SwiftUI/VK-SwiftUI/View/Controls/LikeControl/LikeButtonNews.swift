@@ -17,18 +17,7 @@ struct LikeButtonNews: View {
     
     var body: some View {
         Button {
-            isUserLike = isUserLike == 1 ? 0 : 1
-            likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
-            
-            
-            withAnimation(.interactiveSpring(response: 0.2, dampingFraction: 0.9, blendDuration: 0.5)){
-                isScaled.toggle()
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.9, blendDuration: 0.9)){
-                    innerHeart.toggle()
-                }
-            }
+      buttonPressed()
         } label: {
             Label("Toggle Favorite", systemImage: isUserLike == 1 ? "heart.fill" : "heart")
                 .labelStyle(.iconOnly)
@@ -41,6 +30,20 @@ struct LikeButtonNews: View {
                 .rotationEffect(.degrees(innerHeart ? 360 : 0))
         }
        
+    }
+    func buttonPressed(){
+        isUserLike = isUserLike == 1 ? 0 : 1
+        likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
+        
+        
+        withAnimation(.interactiveSpring(response: 0.2, dampingFraction: 0.9, blendDuration: 0.5)){
+            isScaled.toggle()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.9, blendDuration: 0.9)){
+                innerHeart.toggle()
+            }
+        }
     }
 }
 

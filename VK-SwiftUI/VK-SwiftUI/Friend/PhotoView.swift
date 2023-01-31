@@ -14,16 +14,20 @@ struct PhotoView: View {
     @State var currentIndex: Int
     
     var body: some View {
-            TabView(selection: $currentIndex) {
-                ForEach(photoViewModel.photos.indices, id: \.self){ index in
-                    WebImage(url: URL(string: (photoViewModel.photos[index].url)))
-                            .resizable()
-                            .scaledToFill()
-                            .tag(index)
-                            .padding()
-                    }
-            }
-            .tabViewStyle(.page(indexDisplayMode: .always))
+      contentView
+    }
+    
+    var contentView: some View {
+        TabView(selection: $currentIndex) {
+            ForEach(photoViewModel.photos.indices, id: \.self){ index in
+                WebImage(url: URL(string: (photoViewModel.photos[index].url)))
+                        .resizable()
+                        .scaledToFill()
+                        .tag(index)
+                        .padding()
+                }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .always))
     }
 }
 
