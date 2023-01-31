@@ -5,10 +5,10 @@ To login the app you shoud enter your VK-acount information. If there is no inte
 
 ![ll](https://user-images.githubusercontent.com/10026372/215652200-e5db5ba8-d0b2-4340-91d8-5dbab0e6f1de.jpg)
 
-There is a list of friends on the first TabView. Friends are divived into sections by the first letter of the last name and sorted in alphabet order.
+If user has no friends yet, the empty view will be shown on the first TabView. In other case there will be a list of friends. Friends are divived into sections by the first letter of the last name and sorted in alphabet order.
 You can manage them by adding to Favorites. You have opportunity to watch only Favorites. Just press toogle on the top of the view.
 
-![friendsList](https://user-images.githubusercontent.com/10026372/215654262-1a1c647c-c554-451e-81e4-2c8fb88c9100.jpg)
+![friendsList](https://user-images.githubusercontent.com/10026372/215741882-2a395889-0fc3-4eae-8231-2a10628965c7.jpg)
 
 You can watch photos of your friends. You shoud press on the row and photo gallery will be showned. 
 All photos structured into 2 columns. Below every photo you can see Like control. It shows total quantity of likes and is the user liked already this photo. You can tap on this control and set like or remove own like on it. Your actions will be send in post-request to server.
