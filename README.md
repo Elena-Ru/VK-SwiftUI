@@ -24,3 +24,13 @@ You can add new group to your list by pressing Add button on the right top of th
 You also can manage you favourite groups by deleting them from this list.
 
 ![deleteGroup](https://user-images.githubusercontent.com/10026372/215692448-66728872-b261-4afb-9a96-eb7265d3da3b.jpg)
+
+There is a list news on the third TabView. Here you can see the news from your groups. You can like news post, by tapping on like control below the news content.
+
+![news](https://user-images.githubusercontent.com/10026372/215693949-3315c7c8-b700-4578-80de-150d3228858c.jpg)
+
+Application uses:
+ - Realm for storing data;
+ - Alamofire for requests;
+ - SDWebImage for images;
+ - AlertX for custom alert views.
