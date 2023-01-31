@@ -31,7 +31,13 @@ struct FriendsList: View {
     }
     var contentView: some View {
         NavigationView {
-            listView
+            ZStack {
+                if filteredFriends.isEmpty {
+                    EmptyFriendsListView()
+                } else {
+                    listView
+                }
+            }
         }
         .onAppear{
            getFriends()
