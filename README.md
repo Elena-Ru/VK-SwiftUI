@@ -15,6 +15,10 @@ Also you can see photo in full-size format and leaf through all of them.
 
 ![photo](https://user-images.githubusercontent.com/10026372/216007229-535953b5-3570-4193-8554-b75730cd4fa5.jpg)
 
+You can zoom photo, if ypu need.
+
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/10026372/216052914-6b100b4e-3d63-4099-9bd9-a0ad56562797.gif)
+
 There is a list of your groups on the second TabView. 
 You can add new group to your list by pressing Add button on the right top of the view. After you have pressed this button,  the view with list of all groups will apperead. If you tap on group, it will be added to your favorite list and current view will be changed to MyGoups. But if if you tap on group, wich already exsist in your favorite list, alert view will appered.
 ![addGroup](https://user-images.githubusercontent.com/10026372/216011223-de6729f8-8756-49db-a5fa-e6d5627d3aa4.jpg)
