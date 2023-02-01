@@ -14,7 +14,7 @@ You can watch photos of your friends. You shoud press on the row and photo galle
 All photos structured into 2 columns. Below every photo you can see Like control. It shows total quantity of likes and is the user liked already this photo. You can tap on this control and set like or remove own like on it. Your actions will be send in post-request to server.
 Also you can see photo in full-size format and leaf through all of them.
 
-![friendsPhotos](https://user-images.githubusercontent.com/10026372/215656732-e01560e5-ceeb-4587-afe4-5897f6ae922a.jpg)
+![photo](https://user-images.githubusercontent.com/10026372/216007229-535953b5-3570-4193-8554-b75730cd4fa5.jpg)
 
 There is a list of your groups on the second TabView. 
 You can add new group to your list by pressing Add button on the right top of the view. After you have pressed this button,  the view with list of all groups will apperead. If you tap on group, it will be added to your favorite list and current view will be changed to MyGoups. But if if you tap on group, wich already exsist in your favorite list, alert view will appered.
