@@ -166,8 +166,6 @@
 			children = (
 				B4856F6229645F8B001FA954 /* Friend'sRow.swift */,
 				B4B02BD32967D329002BA614 /* FriendsList.swift */,
-				B4B02BD52967E629002BA614 /* FriendPhotos.swift */,
-				B4B02BE129682968002BA614 /* PhotoView.swift */,
 				B45EB49E298921DF0039E6BD /* EmptyFriendsListView.swift */,
 			);
 			path = Friend;
@@ -263,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				B484FEA6296916500034AABD /* Friend */,
+				B4B3C784298A8C47001F3BCA /* Photo */,
 				B484FEAB2969263C0034AABD /* Group */,
 				B484FEB4296AD4630034AABD /* News */,
 				B4B02BD929680D4C002BA614 /* Controls */,
@@ -270,14 +269,8 @@
 				B4856F712965D5FF001FA954 /* Image */,
 				B4856F612963DDE4001FA954 /* LoginButton */,
 				B4856F702965D5D1001FA954 /* Text */,
-				B4856F5229633281001FA954 /* LoginTextField.swift */,
-				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
-				B4856F542963346B001FA954 /* PasswordTextField.swift */,
 				B40BFAC529827C1D0011CCF0 /* NoNetworkView.swift */,
-				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
-				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
 				B484FECD296D6D5B0034AABD /* LoginViewWK.swift */,
-				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B45EB4A2298951910039E6BD /* Launch Screen.storyboard */,
 			);
 			path = View;
@@ -359,6 +352,10 @@
 				B484FEC1296C36D50034AABD /* ViewsControl.swift */,
 				B484FEBF296C35DE0034AABD /* SharedControl.swift */,
 				B484FEBD296C34100034AABD /* CommentControl.swift */,
+				B4856F5229633281001FA954 /* LoginTextField.swift */,
+				B4856F542963346B001FA954 /* PasswordTextField.swift */,
+				B4856F572963550B001FA954 /* LoginSucceedView.swift */,
+				B4856F442962AE04001FA954 /* LoginView.swift */,
 				B484FEB9296C07F50034AABD /* CapsuleControl.swift */,
 				B4B02BDA29682560002BA614 /* LikeControl */,
 			);
@@ -377,6 +374,15 @@
 			path = LikeControl;
 			sourceTree = "<group>";
 		};
+		B4B3C784298A8C47001F3BCA /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				B4B02BD52967E629002BA614 /* FriendPhotos.swift */,
+				B4B02BE129682968002BA614 /* PhotoView.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 		B4BC201E29707968002C1CF2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +391,8 @@
 				B433A2C72975702900037C80 /* NewsViewModel.swift */,
 				B4B02BD12967CD5E002BA614 /* LoginViewModel.swift */,
 				B41046012976B92E000A6932 /* PhotoViewModel.swift */,
+				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
+				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
