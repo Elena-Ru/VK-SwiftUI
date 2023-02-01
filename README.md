@@ -2,8 +2,7 @@
 Application for working in the social network, in which it is possible to manage groups, friends, view news and photos of the news feed, store your data locally on the device and on a remote server.
 
 To login the app you shoud enter your VK-acount information. If there is no internet connection the screen with warning will be shown.
-
-![ll](https://user-images.githubusercontent.com/10026372/215652200-e5db5ba8-d0b2-4340-91d8-5dbab0e6f1de.jpg)
+![login](https://user-images.githubusercontent.com/10026372/216045036-7639dfbc-9978-45a5-812b-cb6bc9d8cd9b.jpg)
 
 If user has no friends yet, the empty view will be shown on the first TabView. In other case there will be a list of friends. Friends are divived into sections by the first letter of the last name and sorted in alphabet order.
 You can manage them by adding to Favorites. You have opportunity to watch only Favorites. Just press toogle on the top of the view.
