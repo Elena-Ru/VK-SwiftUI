@@ -18,16 +18,15 @@ Also you can see photo in full-size format and leaf through all of them.
 
 There is a list of your groups on the second TabView. 
 You can add new group to your list by pressing Add button on the right top of the view. After you have pressed this button,  the view with list of all groups will apperead. If you tap on group, it will be added to your favorite list and current view will be changed to MyGoups. But if if you tap on group, wich already exsist in your favorite list, alert view will appered.
-
-![addGroup](https://user-images.githubusercontent.com/10026372/215689596-5a749454-5777-4692-8e66-0ee118b505f3.jpg)
+![addGroup](https://user-images.githubusercontent.com/10026372/216011223-de6729f8-8756-49db-a5fa-e6d5627d3aa4.jpg)
 
 You also can manage you favourite groups by deleting them from this list.
 
-![deleteGroup](https://user-images.githubusercontent.com/10026372/215692448-66728872-b261-4afb-9a96-eb7265d3da3b.jpg)
+![deleteGroup](https://user-images.githubusercontent.com/10026372/216012298-e9b52159-6817-4738-b65d-921866cd6c5b.jpg)
 
 There is a list news on the third TabView. Here you can see the news from your groups. You can like news post, by tapping on like control below the news content.
 
-![news](https://user-images.githubusercontent.com/10026372/215693949-3315c7c8-b700-4578-80de-150d3228858c.jpg)
+![news](https://user-images.githubusercontent.com/10026372/216014281-fa626ccb-2843-410f-bb9f-290a600698f0.jpg)
 
 Application uses:
  - Realm for storing data;
