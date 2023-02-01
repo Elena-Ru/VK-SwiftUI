@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct PhotoView: View {
     @StateObject var photoViewModel: PhotoViewModel
     @State var currentIndex: Int
+    @State var currentAmount: CGFloat = 0
     
     var body: some View {
       contentView
@@ -22,9 +23,21 @@ struct PhotoView: View {
             ForEach(photoViewModel.photos.indices, id: \.self){ index in
                 WebImage(url: URL(string: (photoViewModel.photos[index].url)))
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
                         .tag(index)
                         .padding()
+                        .scaleEffect(1 + currentAmount)
+                        .gesture(
+                            MagnificationGesture()
+                                .onChanged{ value in
+                                    currentAmount = value - 1
+                                }
+                                .onEnded{ value in
+                                    withAnimation(.spring()) {
+                                        currentAmount = 0
+                                    }
+                                }
+                        )
                 }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
