@@ -13,9 +13,44 @@ import RealmSwift
 class FriendsViewModel: ObservableObject {
     
     @Published var friends: [Friend] = []
+    @Published var showFavoritesOnly = false
+    @Published var filteredFriends : [Friend] = []
+    @Published var isListEmpty = false
+    @Published var firstLetterArray: [Character] = []
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
-    let clientId = "51525791" //id_приложения 51477716
+    let clientId = "51525791" //id_приложения 
+    let session = Session.shared
+    
+    func getFriends() {
+     getFriendsList(token: session.token, id: session.userID) { items in
+            self.friends = items.sorted { $0.lastName.first! < $1.lastName.first!}
+            self.filteredFriends = self.friends
+            if self.filteredFriends.isEmpty {
+                self.isListEmpty = true
+            }
+         self.firstLetterArray = self.setFirstLetterArray()
+        }
+    }
+    
+    func setFirstLetterArray() -> [Character] {
+        var firstLetterAr : [Character] = []
+        for i in 0..<filteredFriends.count {
+            guard !firstLetterAr.contains(filteredFriends[i].lastName.first!) else {
+                continue
+            }
+            firstLetterAr.append(filteredFriends[i].lastName.first!)
+        }
+        return firstLetterAr
+    }
+    
+    func updateFriends() {
+                self.filteredFriends = friends.filter { friend in
+                    (!self.showFavoritesOnly || friend.isFavorite)
+                }
+                .sorted { $0.lastName.first! < $1.lastName.first!}
+            firstLetterArray = setFirstLetterArray()
+    }
     
     func getFriendsList(token: String, id: Int, completion: @escaping ([Friend]) -> ()){
         
