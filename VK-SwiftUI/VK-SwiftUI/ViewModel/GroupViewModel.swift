@@ -23,7 +23,7 @@ class GroupViewModel: ObservableObject {
     private var token: NotificationToken?
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
-    let clientId = "51525791" //id_приложения
+    let clientId = "51542327" //id_приложения
     
     init() {
         setupObserver()
