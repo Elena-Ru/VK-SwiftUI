@@ -26,7 +26,7 @@ struct LoginViewWK: View {
                     .environmentObject(modelData)
             } else {
                 LoginWebView(showLoading: $showLoading, isLogin: $modelData.loggedIn)
-                    .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
+                    //.overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
             }
         } else {
             NoNetworkView()

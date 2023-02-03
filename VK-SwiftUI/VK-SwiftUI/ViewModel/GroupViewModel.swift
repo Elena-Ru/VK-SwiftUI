@@ -13,6 +13,8 @@ class GroupViewModel: ObservableObject {
   
     @Published var groupsResults : Results<Group>?
     @Published var allGroups: [Group] = []
+    @Published var isListEmpty = false
+    
     var groups: [Group] {
         if let groups = groupsResults {
             return Array(groups)
