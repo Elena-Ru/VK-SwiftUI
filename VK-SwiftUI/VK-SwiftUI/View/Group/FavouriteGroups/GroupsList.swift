@@ -22,9 +22,15 @@ struct GroupsList: View {
     
     private var contentView: some View {
         NavigationStack {
-            if let groups = groupsViewModel.groups{
-                ListOfGroups(groups: groups)
+            ZStack {
+                if groupsViewModel.groups.count > 0{
+                    ListOfGroups(groups: groupsViewModel.groups)
+                } else {
+                    EmptyGroupListView()
+                        .transition(AnyTransition.opacity.animation(.easeIn))
+                }
             }
+            
         }
         .onAppear{
             groupsViewModel.getUserGroups(token: session.token, id: session.userID)
