@@ -29,7 +29,7 @@ struct CustomTabBar: View {
                                 .padding()
                                 .background(   
                                         .linearGradient(
-                                            colors: [Color("CustomControlColor"), .orange],
+                                            colors: [Color.theme.ginger, .orange],
                                             startPoint: .top,
                                             endPoint: .bottom
                                         )
@@ -48,7 +48,7 @@ struct CustomTabBar: View {
                             
                             Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
                                 .offset(y: -10)
-                                .foregroundColor(Color("RegularControlColor"))
+                                .foregroundColor(Color.theme.control)
                                 .bold()
                         } else {
                             Image(systemName:  tab.rawValue)
@@ -62,7 +62,7 @@ struct CustomTabBar: View {
                                 .hidden()
                         }
                     }
-                    .foregroundColor(selectedTab == tab ? .white: Color("RegularControlColor"))
+                    .foregroundColor(selectedTab == tab ? .white: Color.theme.control)
                     Spacer()
                 }
             }

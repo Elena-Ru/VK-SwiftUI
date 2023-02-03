@@ -13,7 +13,7 @@ struct AddButton: View {
             .font(.title)
             .foregroundStyle(   //Only for iOS 15 & above.
                     .linearGradient(
-                        colors: [Color("CustomControlColor"), .orange],
+                        colors: [Color.theme.ginger, .orange],
                         startPoint: .top,
                         endPoint: .bottom
                     )

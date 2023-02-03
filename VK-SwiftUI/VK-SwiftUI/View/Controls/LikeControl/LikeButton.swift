@@ -22,7 +22,7 @@ struct LikeButton: View {
         } label: {
             Label("Toggle Favorite", systemImage: isUserLike == 1 ? "heart.fill" : "heart")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isUserLike == 1 ? Color("CustomControlColor") : Color("RegularControlColor"))
+                .foregroundColor(isUserLike == 1 ? Color.theme.ginger : Color.theme.control)
                 .scaleEffect(isScaled ? 1.5 : 1)
                 .scaleEffect((isUserLike == 1  && !isScaled) ? 1.5 : 1)
                 .overlay {
