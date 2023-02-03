@@ -11,8 +11,7 @@ import SwiftUI
 struct GroupsList: View {
     
     @StateObject var groupsViewModel = GroupViewModel()
-    let session = Session.shared
-
+ 
     var body: some View {
         contentView
         .ignoresSafeArea()
@@ -23,17 +22,17 @@ struct GroupsList: View {
     private var contentView: some View {
         NavigationStack {
             ZStack {
-                if groupsViewModel.groups.count > 0{
-                    ListOfGroups(groups: groupsViewModel.groups)
-                } else {
+                if groupsViewModel.isListEmpty{
                     EmptyGroupListView()
                         .transition(AnyTransition.opacity.animation(.easeIn))
+                } else {
+                    ListOfGroups(groups: groupsViewModel.groups)
                 }
             }
             
         }
         .onAppear{
-            groupsViewModel.getUserGroups(token: session.token, id: session.userID)
+            groupsViewModel.getGroups()
         }
         .environmentObject(groupsViewModel) 
     }

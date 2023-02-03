@@ -14,6 +14,7 @@ class GroupViewModel: ObservableObject {
     @Published var groupsResults : Results<Group>?
     @Published var allGroups: [Group] = []
     @Published var isListEmpty = false
+    let session = Session.shared
     
     var groups: [Group] {
         if let groups = groupsResults {
@@ -38,7 +39,16 @@ class GroupViewModel: ObservableObject {
         }
     }
     
-    func getUserGroups(token: String, id: Int){
+    func getGroups(){
+        getUserGroups(token: session.token, id: session.userID){ items in
+            if items.isEmpty {
+                self.isListEmpty = true
+            }
+            
+        }
+    }
+    
+    func getUserGroups(token: String, id: Int, completion: @escaping ([Group]) -> ()){
         
         let groupsRealmAr = Array(realm.objects(Group.self))
         if !groupsRealmAr.isEmpty {
@@ -62,6 +72,7 @@ class GroupViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.saveData(groups)
+                    completion(groups)
                 }
         }
     }
