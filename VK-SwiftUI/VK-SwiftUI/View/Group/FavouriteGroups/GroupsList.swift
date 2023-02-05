@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-
+import RealmSwift
 
 struct GroupsList: View {
-    
-    @StateObject var groupsViewModel = GroupViewModel()
+    @ObservedObject var groupsViewModel = GroupViewModel()
+//    @StateObject var groupsViewModel = GroupViewModel()
+//    @ObservedResults(Group.self) var itemGroups
  
     var body: some View {
         contentView
@@ -23,10 +24,11 @@ struct GroupsList: View {
         NavigationStack {
             ZStack {
                 if groupsViewModel.isListEmpty{
-                    EmptyGroupListView()
+                    EmptyGroupListView(groupsViewModel: groupsViewModel)
                         .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {
-                    ListOfGroups(groups: groupsViewModel.groups)
+                    ListOfGroups(groupsViewModel: groupsViewModel)
+//                    ListOfGroups(groupsViewModel: groupsViewModel, groups: groupsViewModel.groups)
                 }
             }
             
@@ -38,10 +40,10 @@ struct GroupsList: View {
     }
 }
 
-struct GroupsList_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupsList()
-            .environmentObject(GroupViewModel())
-    }
-}
+//struct GroupsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupsList()
+//            .environmentObject(GroupViewModel())
+//    }
+//}
 

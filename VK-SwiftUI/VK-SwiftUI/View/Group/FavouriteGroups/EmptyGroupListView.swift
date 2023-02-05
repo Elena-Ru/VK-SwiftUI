@@ -10,6 +10,7 @@ import SwiftUI
 struct EmptyGroupListView: View {
     
     @State var animate: Bool = false
+    @ObservedObject var groupsViewModel : GroupViewModel
     
     var body: some View {
         VStack{
@@ -17,7 +18,7 @@ struct EmptyGroupListView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
             NavigationLink {
-                AllGroupsList()
+                AllGroupsList(groupsViewModel: groupsViewModel)
             } label: {
                 Text("Lets add one 🥳")
                     .frame(height: 55)
@@ -53,6 +54,6 @@ struct EmptyGroupListView: View {
 
 struct EmptyGroupListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyGroupListView()
+        EmptyGroupListView( groupsViewModel: GroupViewModel())
     }
 }

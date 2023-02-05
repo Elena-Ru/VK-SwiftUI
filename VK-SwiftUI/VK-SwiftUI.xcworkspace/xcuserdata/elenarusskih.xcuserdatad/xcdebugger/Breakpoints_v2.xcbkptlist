@@ -20,5 +20,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C7596B9-BAB7-413D-9D3C-B6A97C18F4DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VK-SwiftUI/ViewModel/GroupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "getGroups()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4681224-6F97-4F77-ACF2-B9685FC6D50C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VK-SwiftUI/ViewModel/GroupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getGroups()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E4681224-6F97-4F77-ACF2-B9685FC6D50C - a6343a2123ed8c3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VK_SwiftUI.GroupViewModel.getGroups() -&gt; ()"
+                  moduleName = "VK-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elenarusskih/ProjectsGB/VK-SwiftUI/VK-SwiftUI/VK-SwiftUI/ViewModel/GroupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "E4681224-6F97-4F77-ACF2-B9685FC6D50C - 8f5ae18391af2199"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;VK_SwiftUI.Group&gt;) -&gt; () in VK_SwiftUI.GroupViewModel.getGroups() -&gt; ()"
+                  moduleName = "VK-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elenarusskih/ProjectsGB/VK-SwiftUI/VK-SwiftUI/VK-SwiftUI/ViewModel/GroupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "69">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9D33793-B190-4537-A4E8-1C169B322A55"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VK-SwiftUI/ViewModel/GroupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getGroups()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EB48CF8-2FEE-42A1-BF38-895B89B0B1A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VK-SwiftUI/ViewModel/GroupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "getUserGroups(token:id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

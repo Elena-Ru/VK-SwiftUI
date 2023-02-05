@@ -10,7 +10,7 @@ import AlertX
 
 struct AllGroupsList: View {
     @Environment(\.presentationMode) var presentation
-    @EnvironmentObject var groupsViewModel : GroupViewModel
+    @ObservedObject var groupsViewModel : GroupViewModel
     @State var allGroups : [Group] = []
     let session = Session.shared
     @State var isAlreadyExist: Bool = false
@@ -30,7 +30,7 @@ struct AllGroupsList: View {
             List {
                 ForEach(allGroups) { group in
                     
-                    AllGroupRow(group: group)
+                    AllGroupRow(groupsViewModel: groupsViewModel, group: group)
                         .onTapGesture {
                             if (groupsViewModel.groups.first(where: { $0.id == group.id
                             }) != nil) {
