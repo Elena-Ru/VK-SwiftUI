@@ -16,17 +16,18 @@ extension View {
 
 struct LoginViewWK: View {
     @ObservedObject var networkMonitor =  NetworkMonitor()
-    @ObservedObject var modelData =  LoginViewModel()
     @State private var showLoading = false
+    @State var isLogin = false
     
     var body: some View {
         if networkMonitor.isConnected {
-            if modelData.loggedIn{
+            if isLogin{
                 MainView()
-                    .environmentObject(modelData)
+//                    .environmentObject(modelData)
             } else {
-                LoginWebView(showLoading: $showLoading, isLogin: $modelData.loggedIn)
-                    .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
+               LoginWebView(showLoading: $showLoading, isLogin: $isLogin)
+//                    .environmentObject(modelData)
+//                    .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
             }
         } else {
             NoNetworkView()
@@ -34,9 +35,9 @@ struct LoginViewWK: View {
     }
 }
 
-struct LoginViewWK_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginViewWK()
-            .environmentObject(LoginViewModel())
-    }
-}
+//struct LoginViewWK_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginViewWK()
+//            .environmentObject(LoginViewModel())
+//    }
+//}

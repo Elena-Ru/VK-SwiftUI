@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 extension Color {
+    
+    static let theme = ColorTheme()
+    
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
@@ -24,7 +27,7 @@ extension Color {
         default:
             (a, r, g, b) = (1, 1, 1, 0)
         }
-
+        
         self.init(
             .sRGB,
             red: Double(r) / 255,
@@ -33,4 +36,9 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+}
+
+struct ColorTheme {
+    let ginger = Color("CustomControlColor")
+    let control = Color("RegularControlColor")
 }

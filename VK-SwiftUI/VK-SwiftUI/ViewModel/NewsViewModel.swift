@@ -15,7 +15,7 @@ class NewsViewModel: ObservableObject{
     @Published var  isLoading = false
     let session = Session.shared
     let baseUrl = "https://api.vk.com"
-    let clientId = "51525791" //id_приложения
+    let clientId = "51542327" //id_приложения
     
     func getNewsPost(token: String, id: Int, completion: @escaping (Response) -> Void){
         

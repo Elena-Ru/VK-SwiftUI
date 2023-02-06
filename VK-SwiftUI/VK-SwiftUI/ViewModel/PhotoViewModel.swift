@@ -14,7 +14,7 @@ class PhotoViewModel: ObservableObject{
     @Published var photos: [Photo] = []
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
-    let clientId = "51525791" //id_приложения
+    let clientId = "51542327" //id_приложения
     let session = Session.shared
     
     func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([Photo]) -> Void){

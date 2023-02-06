@@ -19,7 +19,7 @@ class FriendsViewModel: ObservableObject {
     @Published var firstLetterArray: [Character] = []
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
-    let clientId = "51525791" //id_приложения 
+    let clientId = "51542327" //id_приложения  51525791
     let session = Session.shared
     
     func getFriends() {
