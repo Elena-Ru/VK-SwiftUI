@@ -10,28 +10,25 @@ import RealmSwift
 
 struct GroupsList: View {
     @ObservedObject var groupsViewModel = GroupViewModel()
-//    @StateObject var groupsViewModel = GroupViewModel()
-//    @ObservedResults(Group.self) var itemGroups
- 
+    @ObservedResults(Group.self) var itemGroups
+    
     var body: some View {
         contentView
         .ignoresSafeArea()
         .background(Color(uiColor: .systemBackground))
-       
     }
     
     private var contentView: some View {
         NavigationStack {
             ZStack {
-                if groupsViewModel.isListEmpty{
+                if itemGroups.count == 0 {
+//                if groupsViewModel.isListEmpty{
                     EmptyGroupListView(groupsViewModel: groupsViewModel)
                         .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {
                     ListOfGroups(groupsViewModel: groupsViewModel)
-//                    ListOfGroups(groupsViewModel: groupsViewModel, groups: groupsViewModel.groups)
                 }
             }
-            
         }
         .onAppear{
             groupsViewModel.getGroups()

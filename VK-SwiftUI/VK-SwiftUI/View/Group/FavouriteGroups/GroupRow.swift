@@ -10,7 +10,6 @@ import RealmSwift
 
 struct GroupRow: View {
     @ObservedRealmObject var group: Group
-   // @ObservedObject var group: Group
     
     var body: some View {
        contentView
@@ -32,11 +31,11 @@ struct GroupRow: View {
     }
 }
 
-struct GroupRow_Previews: PreviewProvider {
-    static var groups = GroupViewModel().groups
-    static var previews: some View {
-        GroupRow(group: groups[0])
-            .environmentObject(GroupViewModel())
-    }
-}
+//struct GroupRow_Previews: PreviewProvider {
+//    static var groups = GroupViewModel().groups
+//    static var previews: some View {
+//        GroupRow(group: groups[0])
+//            .environmentObject(GroupViewModel())
+//    }
+//}
 

@@ -7,10 +7,12 @@
 
 import SwiftUI
 import AlertX
+import RealmSwift
 
 struct AllGroupsList: View {
     @Environment(\.presentationMode) var presentation
     @ObservedObject var groupsViewModel : GroupViewModel
+    @ObservedResults(Group.self) var itemGroups
     @State var allGroups : [Group] = []
     let session = Session.shared
     @State var isAlreadyExist: Bool = false
@@ -29,15 +31,14 @@ struct AllGroupsList: View {
         NavigationView {
             List {
                 ForEach(allGroups) { group in
-                    
                     AllGroupRow(groupsViewModel: groupsViewModel, group: group)
                         .onTapGesture {
-                            if (groupsViewModel.groups.first(where: { $0.id == group.id
+                            if (itemGroups.first(where: { $0.id == group.id
                             }) != nil) {
                                 isAlreadyExist = true
                                 print("Already contains")
                             } else {
-                                groupsViewModel.addToFavorite(newGroup: group)
+                                $itemGroups.append(group)
                                 self.presentation.wrappedValue.dismiss()
                             }
                         }

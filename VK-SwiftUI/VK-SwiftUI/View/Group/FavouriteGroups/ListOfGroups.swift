@@ -10,9 +10,7 @@ import RealmSwift
 
 struct ListOfGroups: View {
     @ObservedObject var groupsViewModel : GroupViewModel
-//    var groups: [Group]
     @ObservedResults(Group.self) var itemGroups
-   // @ObservedRealmObject var groups: Group
     
     var body: some View {
         List {
@@ -20,7 +18,6 @@ struct ListOfGroups: View {
                 GroupRow( group: group)
             }
             .onDelete(perform: $itemGroups.remove)
-//            .onDelete(perform: groupsViewModel.delete)
         }
         .background(Color(uiColor: .systemBackground))
         .navigationTitle("My Groups")
