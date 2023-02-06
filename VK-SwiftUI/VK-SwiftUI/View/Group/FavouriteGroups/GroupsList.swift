@@ -6,37 +6,40 @@
 //
 
 import SwiftUI
-
+import RealmSwift
 
 struct GroupsList: View {
+    @ObservedObject var groupsViewModel = GroupViewModel()
+    @ObservedResults(Group.self) var itemGroups
     
-    @StateObject var groupsViewModel = GroupViewModel()
-    let session = Session.shared
-
     var body: some View {
         contentView
         .ignoresSafeArea()
         .background(Color(uiColor: .systemBackground))
-       
     }
     
     private var contentView: some View {
         NavigationStack {
-            if let groups = groupsViewModel.groups{
-                ListOfGroups(groups: groups)
+            ZStack {
+                if groupsViewModel.isListEmpty || itemGroups.isEmpty {
+                    EmptyGroupListView(groupsViewModel: groupsViewModel)
+                        .transition(AnyTransition.opacity.animation(.easeIn))
+                } else {
+                    ListOfGroups(groupsViewModel: groupsViewModel)
+                }
             }
         }
         .onAppear{
-            groupsViewModel.getUserGroups(token: session.token, id: session.userID)
+            groupsViewModel.getGroups()
         }
         .environmentObject(groupsViewModel) 
     }
 }
 
-struct GroupsList_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupsList()
-            .environmentObject(GroupViewModel())
-    }
-}
+//struct GroupsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupsList()
+//            .environmentObject(GroupViewModel())
+//    }
+//}
 

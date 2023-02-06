@@ -9,22 +9,22 @@ import SwiftUI
 import RealmSwift
 
 struct ListOfGroups: View {
-    @EnvironmentObject var groupsViewModel : GroupViewModel
-    var groups: [Group]
+    @ObservedObject var groupsViewModel : GroupViewModel
+    @ObservedResults(Group.self) var itemGroups
     
     var body: some View {
         List {
-            ForEach(groups) { group in
+            ForEach(itemGroups) { group in
                 GroupRow( group: group)
             }
-            .onDelete(perform: groupsViewModel.delete)
+            .onDelete(perform: $itemGroups.remove)
         }
         .background(Color(uiColor: .systemBackground))
         .navigationTitle("My Groups")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing, content: {
-                NavigationLink(destination: AllGroupsList( groupsViewModel: _groupsViewModel), label: {
+                NavigationLink(destination: AllGroupsList( groupsViewModel: groupsViewModel), label: {
                     AddButton()
                 })
                 .isDetailLink(false)

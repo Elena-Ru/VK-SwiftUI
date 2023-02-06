@@ -10,57 +10,53 @@ import RealmSwift
 import Alamofire
 
 class GroupViewModel: ObservableObject {
-  
-    @Published var groupsResults : Results<Group>?
+    
     @Published var allGroups: [Group] = []
-    var groups: [Group] {
-        if let groups = groupsResults {
-            return Array(groups)
-        } else {
-            return []
-        }
-    }
-    private var token: NotificationToken?
+    @Published var isListEmpty = false
+    let session = Session.shared
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
-    let clientId = "51525791" //id_приложения
+    let clientId = "51542327" //id_приложения
     
-    init() {
-        setupObserver()
-    }
-    
-    func setupObserver() {
-        let observerGroups = realm.objects(Group.self)
-        token = observerGroups.observe {[weak self] _ in
-            self?.groupsResults = observerGroups
+    func getGroups(){
+        getUserGroups(token: session.token, id: session.userID){ items in
+            if items.isEmpty {
+                self.isListEmpty = true
+            } else {
+                self.isListEmpty = false
+            }
         }
     }
     
-    func getUserGroups(token: String, id: Int){
+    func getUserGroups(token: String, id: Int, completion: @escaping ([Group]) -> ()){
         
         let groupsRealmAr = Array(realm.objects(Group.self))
         if !groupsRealmAr.isEmpty {
+            completion(groupsRealmAr)
             return
         }
-            let path = "/method/groups.get"
-            let parameters: Parameters = [
-                "access_token" : token,
-                "user_id": id,
-                "client_id": clientId,
-                "extended": "1",
-                "fields": "name, photo_50, members_count",
-                "v": "5.131"
-            ]
-            
-            let url = baseUrl+path
-            
-            AF.request(url, method: .get, parameters: parameters).responseData { response in
-                guard let data = response.value  else { return}
-                let groups = try! JSONDecoder().decode( GroupResponse.self, from: data).response.items
-                
-                DispatchQueue.main.async {
+        let path = "/method/groups.get"
+        let parameters: Parameters = [
+            "access_token" : token,
+            "user_id": id,
+            "client_id": clientId,
+            "extended": "1",
+            "fields": "name, photo_50, members_count",
+            "v": "5.131"
+        ]
+        
+        let url = baseUrl+path
+        
+        AF.request(url, method: .get, parameters: parameters).responseData { response in
+            guard let data = response.value  else { return}
+            let res = try! JSONDecoder().decode( GroupResponse.self, from: data).response
+            let groups = res.items
+            DispatchQueue.main.async {
+                if !groups.isEmpty {
                     self.saveData(groups)
                 }
+                    completion(groups)
+            }
         }
     }
     
@@ -91,36 +87,10 @@ class GroupViewModel: ObservableObject {
         }
     }
     
-    func deleteFromFavorite(groupToDelete: Group){
+    private  func saveData  <T: Object>(_ sData: [T]){
+        
         do {
             let realm = try Realm()
-            if let  groupRealm = realm.object(ofType: Group.self, forPrimaryKey: groupToDelete.id){
-                realm.beginWrite()
-                realm.delete(groupRealm)
-            }
-                try realm.commitWrite()
-            } catch {
-                print(error)
-            }
-        
-    }
-    
-    func addToFavorite(newGroup: Group){
-        do {
-           let realm = try Realm()
-            realm.beginWrite()
-            realm.add(newGroup, update: .all)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-
-    }
-    
-    private  func saveData  <T: Object>(_ sData: [T]){
-
-        do {
-           let realm = try Realm()
             print(realm.configuration.fileURL as Any)
             realm.beginWrite()
             realm.add(sData, update: .all)
@@ -128,11 +98,6 @@ class GroupViewModel: ObservableObject {
         } catch {
             print(error)
         }
-      }
-    
-    func delete(_ index: IndexSet) {
-        guard let index = index.first else { return }
-        let selectedGroup = groups[index]
-        deleteFromFavorite(groupToDelete: selectedGroup)
+        getGroups()
     }
 }

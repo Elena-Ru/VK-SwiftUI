@@ -10,11 +10,23 @@ import SwiftUI
 @main
 struct VK_SwiftUIApp: App {
     @StateObject private var friendsVM = FriendsViewModel()
+    @State private var showLaunchScreen: Bool = true
     
     var body: some Scene {
         WindowGroup {
+            ZStack {
             LoginViewWK()
-                .environmentObject(friendsVM)
+            .environmentObject(friendsVM)
+                
+            ZStack{
+                    if showLaunchScreen {
+                        LaunchScreen(showLaunchScreen: $showLaunchScreen)
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                .zIndex(2.0)
+            }
+            
         }
     }
 }
