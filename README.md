@@ -22,6 +22,7 @@ You can zoom photo, if ypu need.
 
 There is a list of your favourite groups on the second TabView. 
 If you have no favorite groups allready, the app will offer to add one.
+
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/10026372/216986381-62fec887-e3e6-4bcc-ad5e-1c8956c4589f.gif)
 
 You can add new group to your list by pressing Add button on the right top of the view. After you have pressed this button,  the view with list of all groups will apperead. If you tap on group, it will be added to your favorite list and current view will be changed to MyGoups. But if if you tap on group, wich already exsist in your favorite list, alert view will appered.
