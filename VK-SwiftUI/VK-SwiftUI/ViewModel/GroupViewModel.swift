@@ -94,5 +94,6 @@ class GroupViewModel: ObservableObject {
         } catch {
             print(error)
         }
+        getGroups()
     }
 }

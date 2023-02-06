@@ -21,8 +21,7 @@ struct GroupsList: View {
     private var contentView: some View {
         NavigationStack {
             ZStack {
-                if itemGroups.count == 0 {
-//                if groupsViewModel.isListEmpty{
+                if groupsViewModel.isListEmpty || itemGroups.isEmpty {
                     EmptyGroupListView(groupsViewModel: groupsViewModel)
                         .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {

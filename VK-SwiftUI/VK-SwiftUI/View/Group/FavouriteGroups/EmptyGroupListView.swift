@@ -40,6 +40,8 @@ struct EmptyGroupListView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundImage())
         .onAppear(perform: addAnimation)
+        .navigationTitle("My Groups")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func addAnimation(){
