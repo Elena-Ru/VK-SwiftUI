@@ -39,6 +39,7 @@ struct AllGroupsList: View {
                                 print("Already contains")
                             } else {
                                 $itemGroups.append(group)
+                                groupsViewModel.getGroups()
                                 self.presentation.wrappedValue.dismiss()
                             }
                         }

@@ -22,6 +22,8 @@ class GroupViewModel: ObservableObject {
         getUserGroups(token: session.token, id: session.userID){ items in
             if items.isEmpty {
                 self.isListEmpty = true
+            } else {
+                self.isListEmpty = false
             }
         }
     }
@@ -47,11 +49,13 @@ class GroupViewModel: ObservableObject {
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             guard let data = response.value  else { return}
-            let groups = try! JSONDecoder().decode( GroupResponse.self, from: data).response.items
-            
+            let res = try! JSONDecoder().decode( GroupResponse.self, from: data).response
+            let groups = res.items
             DispatchQueue.main.async {
-                self.saveData(groups)
-                completion(groups)
+                if !groups.isEmpty {
+                    self.saveData(groups)
+                }
+                    completion(groups)
             }
         }
     }

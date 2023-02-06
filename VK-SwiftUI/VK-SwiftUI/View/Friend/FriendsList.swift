@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FriendsList: View {
-    @EnvironmentObject var modelData:  LoginViewModel
+//    @EnvironmentObject var modelData:  LoginViewModel
     @ObservedObject var friendsViewModel = FriendsViewModel()
     
     var body: some View {
