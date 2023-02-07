@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct FriendsList: View {
-//    @EnvironmentObject var modelData:  LoginViewModel
     @ObservedObject var friendsViewModel = FriendsViewModel()
+  //  @ObservedObject var loginVM = LoginViewModel()
+    @EnvironmentObject var loginVM : LoginViewModel
     
     var body: some View {
         contentView
@@ -52,6 +53,16 @@ struct FriendsList: View {
         }
         .navigationTitle("Friends")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    loginVM.logOut()
+                }, label: {
+                    Text("Log Out")
+                }
+                )
+            })
+        }
     }
     
     var toggle: some View {

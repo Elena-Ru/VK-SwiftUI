@@ -55,6 +55,8 @@ struct LoginWebView: UIViewRepresentable {
 }
 
 class WebViewCoordinator: NSObject, WKNavigationDelegate {
+    
+  //  @EnvironmentObject var loginVM : LoginViewModel
     let session = Session.shared
    @State private var showLoading = false
 
