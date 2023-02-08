@@ -38,7 +38,7 @@ struct FriendsList: View {
             ForEach(friendsViewModel.firstLetterArray, id: \.self) { letter in
                 Section(header: SectionTitle(title: letter)) {
                     ForEach(friendsViewModel.filteredFriends.filter({ friend in
-                         friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
+                        friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
                          NavigationLink {
                                  FriendPhotos(friend: friend)
                          }

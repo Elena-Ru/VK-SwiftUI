@@ -18,7 +18,6 @@ struct LoginViewWK: View {
     @ObservedObject var networkMonitor =  NetworkMonitor()
     @StateObject var loginVM = LoginViewModel()
     @State private var showLoading = false
-
     
     var body: some View {
         if networkMonitor.isConnected {
@@ -28,10 +27,20 @@ struct LoginViewWK: View {
             } else {
                LoginWebView(showLoading: $showLoading, isLogin: $loginVM.isLogin)
                     .environmentObject(loginVM)
+                    .onAppear(){
+                       cleanRealm()
+                    }
 //                    .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
             }
         } else {
             NoNetworkView()
+        }
+    }
+    
+    func cleanRealm() {
+        let log = UserDefaults.standard.bool(forKey: "isLogin")
+        if  !log {
+            RealmService().deleteAll()
         }
     }
 }

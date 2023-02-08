@@ -68,6 +68,7 @@
 		B4B02BDE29682638002BA614 /* LikeQuantityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */; };
 		B4B02BE0296826C7002BA614 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BDF296826C7002BA614 /* LikeControl.swift */; };
 		B4B02BE229682968002BA614 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B02BE129682968002BA614 /* PhotoView.swift */; };
+		B4B6D1FA299347F4006207C2 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B6D1F9299347F3006207C2 /* RealmService.swift */; };
 		B4BC201D29706561002C1CF2 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */; };
 		B4BC2021297108B8002C1CF2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2020297108B8002C1CF2 /* SDWebImage */; };
 		B4BC2024297108F7002C1CF2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */; };
@@ -138,6 +139,7 @@
 		B4B02BDD29682638002BA614 /* LikeQuantityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeQuantityButton.swift; sourceTree = "<group>"; };
 		B4B02BDF296826C7002BA614 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		B4B02BE129682968002BA614 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		B4B6D1F9299347F3006207C2 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		B4BC20272973B84A002C1CF2 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -406,6 +408,7 @@
 				B41046012976B92E000A6932 /* PhotoViewModel.swift */,
 				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
 				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
+				B4B6D1F9299347F3006207C2 /* RealmService.swift */,
 				B46CC89329923CC400746B9A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
@@ -580,6 +583,7 @@
 				B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */,
 				B4856F5329633281001FA954 /* LoginTextField.swift in Sources */,
 				B40BFAB3297FD3A40011CCF0 /* LikeButtonNews.swift in Sources */,
+				B4B6D1FA299347F4006207C2 /* RealmService.swift in Sources */,
 				B4B02BD02967C390002BA614 /* Friend.swift in Sources */,
 				B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */,
 				B4B02BD62967E629002BA614 /* FriendPhotos.swift in Sources */,

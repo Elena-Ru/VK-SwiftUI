@@ -50,13 +50,13 @@ struct LoginWebView: UIViewRepresentable {
         }
         didLogin: {
             isLogin = true
+            UserDefaults.standard.set(true, forKey: "isLogin")
         }
     }
 }
 
 class WebViewCoordinator: NSObject, WKNavigationDelegate {
     
-  //  @EnvironmentObject var loginVM : LoginViewModel
     let session = Session.shared
    @State private var showLoading = false
 
@@ -89,6 +89,7 @@ class WebViewCoordinator: NSObject, WKNavigationDelegate {
             decisionHandler(.allow)
             return
         }
+    
         let parameters = fragment
             .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=") }
