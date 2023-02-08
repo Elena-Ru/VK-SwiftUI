@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct FriendsList: View {
-//    @EnvironmentObject var modelData:  LoginViewModel
     @ObservedObject var friendsViewModel = FriendsViewModel()
+  //  @ObservedObject var loginVM = LoginViewModel()
+    @EnvironmentObject var loginVM : LoginViewModel
     
     var body: some View {
         contentView
@@ -37,7 +38,7 @@ struct FriendsList: View {
             ForEach(friendsViewModel.firstLetterArray, id: \.self) { letter in
                 Section(header: SectionTitle(title: letter)) {
                     ForEach(friendsViewModel.filteredFriends.filter({ friend in
-                         friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
+                        friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
                          NavigationLink {
                                  FriendPhotos(friend: friend)
                          }
@@ -52,6 +53,16 @@ struct FriendsList: View {
         }
         .navigationTitle("Friends")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    loginVM.logOut()
+                }, label: {
+                    Text("Log Out")
+                }
+                )
+            })
+        }
     }
     
     var toggle: some View {

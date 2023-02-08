@@ -85,18 +85,19 @@ class FriendsViewModel: ObservableObject {
         }
     }
     
-    private  func saveData  <T: Object>(_ sData: [T]){
+    private func saveData  <T: Object>(_ sData: [T]){
 
-        do {
-           let realm = try Realm()
-            print(realm.configuration.fileURL as Any)
-            realm.beginWrite()
-            realm.add(sData, update: .all)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-      }
+       do {
+          let realm = try Realm()
+           print(realm.configuration.fileURL as Any)
+           realm.beginWrite()
+           realm.add(sData, update: .all)
+           try realm.commitWrite()
+       } catch {
+           print(error)
+       }
+     }
+    
     
     func isFavorite(friend: Friend){
         let realm = try! Realm()

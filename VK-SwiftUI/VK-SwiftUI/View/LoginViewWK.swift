@@ -16,21 +16,31 @@ extension View {
 
 struct LoginViewWK: View {
     @ObservedObject var networkMonitor =  NetworkMonitor()
+    @StateObject var loginVM = LoginViewModel()
     @State private var showLoading = false
-    @State var isLogin = false
     
     var body: some View {
         if networkMonitor.isConnected {
-            if isLogin{
+            if loginVM.isLogin{
                 MainView()
-//                    .environmentObject(modelData)
+                    .environmentObject(loginVM)
             } else {
-               LoginWebView(showLoading: $showLoading, isLogin: $isLogin)
-//                    .environmentObject(modelData)
+               LoginWebView(showLoading: $showLoading, isLogin: $loginVM.isLogin)
+                    .environmentObject(loginVM)
+                    .onAppear(){
+                       cleanRealm()
+                    }
 //                    .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
             }
         } else {
             NoNetworkView()
+        }
+    }
+    
+    func cleanRealm() {
+        let log = UserDefaults.standard.bool(forKey: "isLogin")
+        if  !log {
+            RealmService().deleteAll()
         }
     }
 }
