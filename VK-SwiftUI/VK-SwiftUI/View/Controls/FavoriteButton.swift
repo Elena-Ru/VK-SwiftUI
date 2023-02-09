@@ -15,7 +15,7 @@ struct FavoriteButton: View {
     var body: some View {
         
         Button {
-            friendsVM.isFavorite(friend: friend)
+            RealmService().isFavorite(friend: friend)
         } label: {
             Label("Toggle Favorite", systemImage: friend.isFavorite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
@@ -27,9 +27,9 @@ struct FavoriteButton: View {
 }
 
 
-struct FavoriteButton_Previews: PreviewProvider {
-    static var friends = FriendsViewModel().friends
-    static var previews: some View {
-        FavoriteButton(friend: friends[0])
-    }
-}
+//struct FavoriteButton_Previews: PreviewProvider {
+//    static var friends = FriendsViewModel().friends
+//    static var previews: some View {
+//        FavoriteButton(friend: friends[0])
+//    }
+//}

@@ -89,15 +89,7 @@ class GroupViewModel: ObservableObject {
     
     private  func saveData  <T: Object>(_ sData: [T]){
         
-        do {
-            let realm = try Realm()
-            print(realm.configuration.fileURL as Any)
-            realm.beginWrite()
-            realm.add(sData, update: .all)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
+        RealmService().saveData(sData)
         getGroups()
     }
 }

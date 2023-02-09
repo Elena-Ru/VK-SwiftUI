@@ -12,7 +12,6 @@ import RealmSwift
 
 class FriendsViewModel: ObservableObject {
     
-    @Published var friends: [Friend] = []
     @Published var showFavoritesOnly = false
     @Published var filteredFriends : [Friend] = []
     @Published var isListEmpty = false
@@ -24,8 +23,7 @@ class FriendsViewModel: ObservableObject {
     func getFriends() {
      getFriendsList(token: UserDefaults.standard.string(forKey: "token") ?? "",
                     id: UserDefaults.standard.integer(forKey: "userID")) { items in
-            self.friends = items.sorted { $0.lastName.first! < $1.lastName.first!}
-            self.filteredFriends = self.friends
+         self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
             if self.filteredFriends.isEmpty {
                 self.isListEmpty = true
             }
@@ -45,6 +43,7 @@ class FriendsViewModel: ObservableObject {
     }
     
     func updateFriends() {
+        let friends = realm.objects(Friend.self)
                 self.filteredFriends = friends.filter { friend in
                     (!self.showFavoritesOnly || friend.isFavorite)
                 }
@@ -56,8 +55,7 @@ class FriendsViewModel: ObservableObject {
         
         let friendsRealmAr = Array(realm.objects(Friend.self))
         if !friendsRealmAr.isEmpty {
-            self.friends = friendsRealmAr
-            completion(friends)
+            completion(friendsRealmAr)
         } else {
             let path = "/method/friends.get"
             let parameters: Parameters = [
@@ -74,47 +72,13 @@ class FriendsViewModel: ObservableObject {
                 if let data = result.data {
                     if let friends = try? JSONDecoder().decode(FriendsResponse.self, from: data).response.items {
                         DispatchQueue.main.async {
-                            self.friends = friends
-                            self.saveData(friends)
+                            RealmService().saveData(friends)
                             completion(friends)
                         }
                     }
                 }
                 
             }
-        }
-    }
-    
-    private func saveData  <T: Object>(_ sData: [T]){
-
-       do {
-          let realm = try Realm()
-           print(realm.configuration.fileURL as Any)
-           realm.beginWrite()
-           realm.add(sData, update: .all)
-           try realm.commitWrite()
-       } catch {
-           print(error)
-       }
-     }
-    
-    
-    func isFavorite(friend: Friend){
-        let realm = try! Realm()
-        let friend = realm.objects(Friend.self).where{$0.id == friend.id}
-        
-        do {
-            realm.beginWrite()
-            if friend[0].isFavorite {
-                friend.setValue(false, forKey: "isFavorite")
-            } else {
-                friend.setValue(true, forKey: "isFavorite")
-            }
-            realm.add(friend, update: .modified)
-            self.friends = Array(realm.objects(Friend.self))
-            try realm.commitWrite()
-        } catch {
-            print(error)
         }
     }
 }

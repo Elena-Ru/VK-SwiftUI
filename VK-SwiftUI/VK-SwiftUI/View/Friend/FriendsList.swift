@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift 
 
 struct FriendsList: View {
     @ObservedObject var friendsViewModel = FriendsViewModel()
-  //  @ObservedObject var loginVM = LoginViewModel()
+//    @ObservedObject var loginVM = LoginViewModel()
     @EnvironmentObject var loginVM : LoginViewModel
+    @ObservedResults(Friend.self) var friends
     
     var body: some View {
         contentView
@@ -37,7 +39,7 @@ struct FriendsList: View {
             toggle
             ForEach(friendsViewModel.firstLetterArray, id: \.self) { letter in
                 Section(header: SectionTitle(title: letter)) {
-                    ForEach(friendsViewModel.filteredFriends.filter({ friend in
+                    ForEach(friends.filter({ friend in
                         friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
                          NavigationLink {
                                  FriendPhotos(friend: friend)
@@ -79,12 +81,12 @@ struct FriendsList: View {
     }
 }
 
-struct FriendsList_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendsList()
-            .environmentObject(FriendsViewModel())
-    }
-}
+//struct FriendsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FriendsList()
+//            .environmentObject(FriendsViewModel())
+//    }
+//}
 
 
 

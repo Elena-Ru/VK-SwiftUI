@@ -12,17 +12,12 @@ import RealmSwift
 class PhotoViewModel: ObservableObject{
     
     @Published var photos: [Photo] = []
-    let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения
     
     func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([Photo]) -> Void){
         
         let path = "/method/photos.get"
-        
-        print(token)
-        print(idFriend)
-        print(clientId)
         let parameters: Parameters = [
             "access_token" : token,
             "owner_id": idFriend,
@@ -40,23 +35,11 @@ class PhotoViewModel: ObservableObject{
             let photos = try! JSONDecoder().decode( FriendPhotoResponse.self, from: data).response.items
             DispatchQueue.main.async {
                 self.photos = photos
-                self.saveData(photos)
+                RealmService().saveData(photos)
                 completion(photos)
             }
         }
     }
-    
-    private  func saveData  <T: Object>(_ sData: [T]){
-
-        do {
-           let realm = try Realm()
-            realm.beginWrite()
-            realm.add(sData, update: .all)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-      }
     
     func postLike( isLike: inout Int, owner: Int, item: Int ) {
         
