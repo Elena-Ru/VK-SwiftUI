@@ -58,7 +58,10 @@ struct FriendsList: View {
                 Button(action: {
                     loginVM.logOut()
                 }, label: {
-                    Text("Log Out")
+                    Image(systemName: "rectangle.portrait.and.arrow.forward")
+                        .rotationEffect(.degrees(180))
+                        .foregroundColor(Color.theme.control)
+                    
                 }
                 )
             })

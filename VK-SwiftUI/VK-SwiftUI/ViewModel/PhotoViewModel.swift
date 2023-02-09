@@ -15,12 +15,14 @@ class PhotoViewModel: ObservableObject{
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения
-    let session = Session.shared
     
     func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([Photo]) -> Void){
         
         let path = "/method/photos.get"
         
+        print(token)
+        print(idFriend)
+        print(clientId)
         let parameters: Parameters = [
             "access_token" : token,
             "owner_id": idFriend,
@@ -62,7 +64,7 @@ class PhotoViewModel: ObservableObject{
         let url = baseUrl+path
         
         let parameters: Parameters = [
-                "access_token" : session.token,
+                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
                 "type": "photo",
                 "owner_id": owner,
                 "item_id": item,

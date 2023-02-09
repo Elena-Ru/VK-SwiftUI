@@ -20,10 +20,10 @@ class FriendsViewModel: ObservableObject {
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения  51525791
-    let session = Session.shared
     
     func getFriends() {
-     getFriendsList(token: session.token, id: session.userID) { items in
+     getFriendsList(token: UserDefaults.standard.string(forKey: "token") ?? "",
+                    id: UserDefaults.standard.integer(forKey: "userID")) { items in
             self.friends = items.sorted { $0.lastName.first! < $1.lastName.first!}
             self.filteredFriends = self.friends
             if self.filteredFriends.isEmpty {

@@ -13,7 +13,6 @@ struct FriendPhotos: View {
     @ObservedObject var photoVieModel = PhotoViewModel()
     var friend: Friend
     @State var photos : [Photo] = []
-    let session = Session.shared
     let columnLayout = Array(repeating: GridItem(.flexible(minimum: 50, maximum: .infinity)), count: 2)
     
     var body: some View {
@@ -53,7 +52,7 @@ struct FriendPhotos: View {
         }
     }
         private func getPhotos() {
-            photoVieModel.getUserPhotos(token: session.token, idFriend: friend.id) { items in
+            photoVieModel.getUserPhotos(token: UserDefaults.standard.string(forKey: "token") ?? "", idFriend: friend.id) { items in
                 self.photos = items
             }
         }
