@@ -14,13 +14,13 @@ struct AllGroupsList: View {
     @ObservedObject var groupsViewModel : GroupViewModel
     @ObservedResults(Group.self) var itemGroups
     @State var allGroups : [Group] = []
-    let session = Session.shared
+//    let session = Session.shared
     @State var isAlreadyExist: Bool = false
     
     var body: some View {
     contentView
         .onAppear{
-            groupsViewModel.getGroupsAll(token: session.token) { items in
+            groupsViewModel.getGroupsAll(token: UserDefaults.standard.string(forKey: "token") ?? "") { items in
                 self.allGroups = items
             }
         }

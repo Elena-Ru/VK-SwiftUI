@@ -32,7 +32,6 @@
 		B484FEC0296C35DE0034AABD /* SharedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEBF296C35DE0034AABD /* SharedControl.swift */; };
 		B484FEC2296C36D50034AABD /* ViewsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC1296C36D50034AABD /* ViewsControl.swift */; };
 		B484FEC8296D6BB50034AABD /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FEC7296D6BB50034AABD /* LoginWebView.swift */; };
-		B484FECC296D6CD50034AABD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FECB296D6CD50034AABD /* Session.swift */; };
 		B484FECE296D6D5B0034AABD /* LoginViewWK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B484FECD296D6D5B0034AABD /* LoginViewWK.swift */; };
 		B4856F432962AE04001FA954 /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */; };
 		B4856F452962AE04001FA954 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F442962AE04001FA954 /* LoginView.swift */; };
@@ -103,7 +102,6 @@
 		B484FEBF296C35DE0034AABD /* SharedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedControl.swift; sourceTree = "<group>"; };
 		B484FEC1296C36D50034AABD /* ViewsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsControl.swift; sourceTree = "<group>"; };
 		B484FEC7296D6BB50034AABD /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
-		B484FECB296D6CD50034AABD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		B484FECD296D6D5B0034AABD /* LoginViewWK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewWK.swift; sourceTree = "<group>"; };
 		B4856F3F2962AE04001FA954 /* VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -218,7 +216,7 @@
 		B484FED1296EC8800034AABD /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				B484FECB296D6CD50034AABD /* Session.swift */,
+				B4B6D1F9299347F3006207C2 /* RealmService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -408,7 +406,6 @@
 				B41046012976B92E000A6932 /* PhotoViewModel.swift */,
 				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
 				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
-				B4B6D1F9299347F3006207C2 /* RealmService.swift */,
 				B46CC89329923CC400746B9A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
@@ -604,7 +601,6 @@
 				B484FEAF2969613D0034AABD /* AllGroupsList.swift in Sources */,
 				B484FEBC296C0F2A0034AABD /* LikeNewsControl.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
-				B484FECC296D6CD50034AABD /* Session.swift in Sources */,
 				B4856F582963550B001FA954 /* LoginSucceedView.swift in Sources */,
 				B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */,
 			);
