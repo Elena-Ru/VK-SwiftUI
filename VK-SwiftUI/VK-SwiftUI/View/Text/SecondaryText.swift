@@ -13,6 +13,7 @@ struct SecondaryText: ViewModifier {
             .lineLimit(1)
             .font(.caption)
             .foregroundColor(.secondary)
+            .textSelection(.enabled)
     }
 }
 
