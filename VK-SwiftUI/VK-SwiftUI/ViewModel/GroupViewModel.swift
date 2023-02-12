@@ -8,12 +8,13 @@
 import Foundation
 import RealmSwift
 import Alamofire
+import SwiftUI
+import Combine
 
 class GroupViewModel: ObservableObject {
     
     @Published var allGroups: [Group] = []
     @Published var isListEmpty = false
-    @Published var searchText = ""
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения
@@ -56,7 +57,7 @@ class GroupViewModel: ObservableObject {
                 if !groups.isEmpty {
                     self.saveData(groups)
                 }
-                    completion(groups)
+                completion(groups)
             }
         }
     }
@@ -93,4 +94,5 @@ class GroupViewModel: ObservableObject {
         RealmService().saveData(sData)
         getGroups()
     }
+    
 }
