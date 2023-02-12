@@ -29,29 +29,32 @@ struct AllGroupsList: View {
     
     var contentView: some View {
         NavigationView {
-            List {
-                ForEach(allGroups) { group in
-                    AllGroupRow(groupsViewModel: groupsViewModel, group: group)
-                        .onTapGesture {
-                            if (itemGroups.first(where: { $0.id == group.id
-                            }) != nil) {
-                                isAlreadyExist = true
-                                print("Already contains")
-                            } else {
-                                $itemGroups.append(group)
-                                groupsViewModel.getGroups()
-                                self.presentation.wrappedValue.dismiss()
+            VStack {
+                SearchBarView(searchText: $groupsViewModel.searchText)
+                List {
+                    ForEach(allGroups) { group in
+                        AllGroupRow(groupsViewModel: groupsViewModel, group: group)
+                            .onTapGesture {
+                                if (itemGroups.first(where: { $0.id == group.id
+                                }) != nil) {
+                                    isAlreadyExist = true
+                                    print("Already contains")
+                                } else {
+                                    $itemGroups.append(group)
+                                    groupsViewModel.getGroups()
+                                    self.presentation.wrappedValue.dismiss()
+                                }
                             }
-                        }
-                 }
-            }
-            .alertX(isPresented: $isAlreadyExist, content: {
-                  AlertX(title: Text("This group is already in your favorites."),
-                         theme: .cherry(withTransparency: true, roundedCorners: true))
-            })
-            .background(Color(uiColor: .systemBackground))
-            .navigationTitle("All Groups")
+                     }
+                }
+                .alertX(isPresented: $isAlreadyExist, content: {
+                      AlertX(title: Text("This group is already in your favorites."),
+                             theme: .cherry(withTransparency: true, roundedCorners: true))
+                })
+                .background(Color(uiColor: .systemBackground))
+                .navigationTitle("All Groups")
             .navigationBarTitleDisplayMode(.inline)
+            }
             
         }
     }

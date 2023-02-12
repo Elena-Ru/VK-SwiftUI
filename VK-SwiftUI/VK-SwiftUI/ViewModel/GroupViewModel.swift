@@ -13,6 +13,7 @@ class GroupViewModel: ObservableObject {
     
     @Published var allGroups: [Group] = []
     @Published var isListEmpty = false
+    @Published var searchText = ""
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения
