@@ -27,6 +27,7 @@ struct GroupRow: View {
             NameBoldText(name: $group.name)
             Text(group.screenName)
                 .modifier(SecondaryText())
+                .textSelection(.enabled)
         }
     }
 }

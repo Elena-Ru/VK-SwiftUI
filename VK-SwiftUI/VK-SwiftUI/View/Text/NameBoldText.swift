@@ -14,6 +14,8 @@ struct NameBoldText: View {
             .bold()
             .truncationMode(.tail)
             .lineLimit(1)
+            .textSelection(.enabled)
+            .textSelection(.enabled)
     }
 }
 
