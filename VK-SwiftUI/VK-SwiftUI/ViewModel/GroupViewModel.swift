@@ -8,6 +8,8 @@
 import Foundation
 import RealmSwift
 import Alamofire
+import SwiftUI
+import Combine
 
 class GroupViewModel: ObservableObject {
     
@@ -55,7 +57,7 @@ class GroupViewModel: ObservableObject {
                 if !groups.isEmpty {
                     self.saveData(groups)
                 }
-                    completion(groups)
+                completion(groups)
             }
         }
     }
@@ -92,4 +94,5 @@ class GroupViewModel: ObservableObject {
         RealmService().saveData(sData)
         getGroups()
     }
+    
 }
