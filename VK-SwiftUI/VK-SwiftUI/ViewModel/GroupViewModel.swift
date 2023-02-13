@@ -95,4 +95,20 @@ class GroupViewModel: ObservableObject {
         getGroups()
     }
     
+    func postLeaveGroup( groupId: Int) {
+        
+        let path = "/method/groups.leave"
+        let url = baseUrl+path
+        let parameters: Parameters = [
+                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "group_id": groupId,
+                "v": "5.131"
+            ]
+        
+         AF.request(url, method: .get, parameters: parameters).responseData { response in
+             guard response.value != nil  else { return}
+             print("You have left this group")
+         }
+    }
+    
 }
