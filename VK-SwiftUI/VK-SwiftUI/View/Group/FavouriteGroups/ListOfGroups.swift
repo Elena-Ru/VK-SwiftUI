@@ -29,12 +29,15 @@ struct ListOfGroups: View {
                 })
                 .isDetailLink(false)
             })
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                EditButton()
+            })
         }
     }
     
     func delete(at offsets: IndexSet) {
         let index = offsets[offsets.startIndex]
-        groupsViewModel.postLeaveGroup(groupId: itemGroups[index].id)
+        groupsViewModel.leaveGroup(groupId: itemGroups[index].id)
         $itemGroups.remove(atOffsets: offsets)
     }
 }
