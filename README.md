@@ -29,7 +29,7 @@ You can add new group to your list by pressing Add button on the right top of th
 
 ![addGroup](https://user-images.githubusercontent.com/10026372/216011223-de6729f8-8756-49db-a5fa-e6d5627d3aa4.jpg)
 
-You also can manage you favourite groups by deleting them from this list.
+You also can manage you favourite groups by deleting them from this list. All changes will appear also in your account on remote server.
 
 ![deleteGroup](https://user-images.githubusercontent.com/10026372/216012298-e9b52159-6817-4738-b65d-921866cd6c5b.jpg)
 
