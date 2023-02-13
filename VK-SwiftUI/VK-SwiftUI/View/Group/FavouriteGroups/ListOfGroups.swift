@@ -17,7 +17,7 @@ struct ListOfGroups: View {
             ForEach(itemGroups) { group in
                 GroupRow( group: group)
             }
-            .onDelete(perform: $itemGroups.remove)
+            .onDelete(perform: delete)
         }
         .background(Color(uiColor: .systemBackground))
         .navigationTitle("My Groups")
@@ -29,7 +29,16 @@ struct ListOfGroups: View {
                 })
                 .isDetailLink(false)
             })
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                EditButton()
+            })
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        let index = offsets[offsets.startIndex]
+        groupsViewModel.leaveGroup(groupId: itemGroups[index].id)
+        $itemGroups.remove(atOffsets: offsets)
     }
 }
 
