@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-
+import RealmSwift //1
 
 struct FriendsRow: View {
     @StateObject var friendsViewModel:  FriendsViewModel
-    var friend: Friend
-    var friendIndex: Int {
-        return friendsViewModel.friends.firstIndex(of: friend)!
-          }
+    @ObservedRealmObject var friend: Friend
     
     var body: some View {
         contentView
@@ -21,9 +18,9 @@ struct FriendsRow: View {
     
     var contentView: some View {
         HStack{
-            Avatar(avatar: $friendsViewModel.friends[friendIndex].photo100)
+            Avatar(avatar: $friend.photo100)
             VStack (alignment: .leading) {
-                NameBoldText(name: $friendsViewModel.friends[friendIndex].fullName)
+                NameBoldText(name: $friend.fullName)
                 //Secondary2lineText(text: $modelData.friends[friendIndex].universityName)
             }
             .padding(.leading, 20)
@@ -33,12 +30,12 @@ struct FriendsRow: View {
     }
 }
 
-struct FriendsRow_Previews: PreviewProvider {
-    static var friends = FriendsViewModel().friends
-    static var previews: some View {
-        FriendsRow(friendsViewModel: FriendsViewModel(), friend: friends[0])
-            .environmentObject(FriendsViewModel())
-    }
-}
+//struct FriendsRow_Previews: PreviewProvider {
+//    static var friends = FriendsViewModel().friends
+//    static var previews: some View {
+//        FriendsRow(friendsViewModel: FriendsViewModel(), friend: friends[0])
+//            .environmentObject(FriendsViewModel())
+//    }
+//}
 
 

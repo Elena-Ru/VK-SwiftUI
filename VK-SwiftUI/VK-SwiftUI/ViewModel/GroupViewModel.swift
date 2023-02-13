@@ -8,18 +8,20 @@
 import Foundation
 import RealmSwift
 import Alamofire
+import SwiftUI
+import Combine
 
 class GroupViewModel: ObservableObject {
     
     @Published var allGroups: [Group] = []
     @Published var isListEmpty = false
-    let session = Session.shared
     let realm = try! Realm()
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения
     
     func getGroups(){
-        getUserGroups(token: session.token, id: session.userID){ items in
+        getUserGroups(token: UserDefaults.standard.string(forKey: "token") ?? "",
+                      id: UserDefaults.standard.integer(forKey: "userID")){ items in
             if items.isEmpty {
                 self.isListEmpty = true
             } else {
@@ -55,7 +57,7 @@ class GroupViewModel: ObservableObject {
                 if !groups.isEmpty {
                     self.saveData(groups)
                 }
-                    completion(groups)
+                completion(groups)
             }
         }
     }
@@ -89,15 +91,40 @@ class GroupViewModel: ObservableObject {
     
     private  func saveData  <T: Object>(_ sData: [T]){
         
-        do {
-            let realm = try Realm()
-            print(realm.configuration.fileURL as Any)
-            realm.beginWrite()
-            realm.add(sData, update: .all)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
+        RealmService().saveData(sData)
         getGroups()
     }
+    
+    func leaveGroup( groupId: Int) {
+        
+        let path = "/method/groups.leave"
+        let url = baseUrl+path
+        let parameters: Parameters = [
+                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "group_id": groupId,
+                "v": "5.131"
+            ]
+        
+         AF.request(url, method: .get, parameters: parameters).responseData { response in
+             guard response.value != nil  else { return}
+             print("You have left this group")
+         }
+    }
+    
+    func joinGroup( groupId: Int) {
+        
+        let path = "/method/groups.join"
+        let url = baseUrl+path
+        let parameters: Parameters = [
+                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "group_id": groupId,
+                "v": "5.131"
+            ]
+        
+         AF.request(url, method: .get, parameters: parameters).responseData { response in
+             guard response.value != nil  else { return}
+             print("You have joined this group")
+         }
+    }
+    
 }

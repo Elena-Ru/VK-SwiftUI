@@ -41,6 +41,7 @@ struct NewsRow: View {
           authorInfo
             if let text = newsItem.text {
                 Text(text)
+                    .textSelection(.enabled)
             }
             if let attachments = newsItem.attachments {
                 if let photo = attachments.first?.photo {

@@ -51,13 +51,13 @@ struct LoginWebView: UIViewRepresentable {
         didLogin: {
             isLogin = true
             UserDefaults.standard.set(true, forKey: "isLogin")
+            
         }
     }
 }
 
 class WebViewCoordinator: NSObject, WKNavigationDelegate {
     
-    let session = Session.shared
    @State private var showLoading = false
 
     var didStart: () ->  Void
@@ -107,10 +107,8 @@ class WebViewCoordinator: NSObject, WKNavigationDelegate {
             else {decisionHandler(.allow)
                return  }
         didLogin()
-        session.token = token
-        session.userID = userID
-        print(session.userID)
-        print(session.token)
+        UserDefaults.standard.set(token, forKey: "token")
+        UserDefaults.standard.set(userID, forKey: "userID")
         decisionHandler(.cancel)
         }
 
