@@ -25,13 +25,14 @@ If you have no favorite groups allready, the app will offer to add one.
 
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/10026372/216986381-62fec887-e3e6-4bcc-ad5e-1c8956c4589f.gif)
 
-You can add new group to your list by pressing Add button on the right top of the view. After you have pressed this button,  the view with list of all groups will apperead. If you tap on group, it will be added to your favorite list and current view will be changed to MyGoups. But if if you tap on group, wich already exsist in your favorite list, alert view will appered.
+You can add new group to your list by pressing Add button on the right top of the view. After you have pressed this button,  the view with list of all groups will apperead. There is a search bar in All group list, so you can search any group you need.
 
-![addGroup](https://user-images.githubusercontent.com/10026372/216011223-de6729f8-8756-49db-a5fa-e6d5627d3aa4.jpg)
+![searchGroup](https://user-images.githubusercontent.com/10026372/218621924-51dc4487-1b3b-4e85-8da1-a3e97d8662a4.jpg)
 
-You also can manage you favourite groups by deleting them from this list. All changes will appear also in your account on remote server.
+If you tap on group, it will be added to your favorite list and current view will be changed to MyGoups. But if if you tap on group, wich already exsist in your favorite list, alert view will appered.
+You can also manage you favourite groups by deleting them from this list. All changes will appear also in your account on remote server.
 
-![deleteGroup](https://user-images.githubusercontent.com/10026372/216012298-e9b52159-6817-4738-b65d-921866cd6c5b.jpg)
+![deleteGroup](https://user-images.githubusercontent.com/10026372/218622488-e0c58960-f8ad-4628-ba66-8e260a1061f8.jpg)
 
 There is a list news on the third TabView. Here you can see the news from your groups. You can like news post, by tapping on like control below the news content.
 
