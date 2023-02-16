@@ -20,14 +20,30 @@ struct FriendsList: View {
     var contentView: some View {
         NavigationView {
             ZStack {
-                if friendsViewModel.isListEmpty {
+                if friendsViewModel.isListEmpty || friends.isEmpty {
                     EmptyFriendsListView()
                         .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {
                     listView
                 }
             }
+            .navigationTitle("Friends")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    Button(action: {
+                        loginVM.logOut()
+                    }, label: {
+                        Image(systemName: "rectangle.portrait.and.arrow.forward")
+                            .rotationEffect(.degrees(180))
+                            .foregroundColor(Color.theme.control)
+                        
+                    }
+                    )
+                })
+            }
         }
+     
         .onAppear{
             friendsViewModel.getFriends()
         }
@@ -52,21 +68,7 @@ struct FriendsList: View {
                      }
                  }
              }
-        }
-        .navigationTitle("Friends")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading, content: {
-                Button(action: {
-                    loginVM.logOut()
-                }, label: {
-                    Image(systemName: "rectangle.portrait.and.arrow.forward")
-                        .rotationEffect(.degrees(180))
-                        .foregroundColor(Color.theme.control)
-                    
-                }
-                )
-            })
+            .onDelete(perform: delete)
         }
     }
     
@@ -78,6 +80,13 @@ struct FriendsList: View {
         .onChange(of: friendsViewModel.showFavoritesOnly) { value in
             friendsViewModel.updateFriends()
             }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        let index = offsets[offsets.startIndex]
+        friendsViewModel.deleteFriend(friendId: friends[index].id)
+        $friends.remove(atOffsets: offsets)
+        friendsViewModel.updateFriends()
     }
 }
 

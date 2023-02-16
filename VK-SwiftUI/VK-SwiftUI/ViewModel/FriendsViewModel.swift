@@ -51,6 +51,21 @@ class FriendsViewModel: ObservableObject {
             firstLetterArray = setFirstLetterArray()
     }
     
+    func deleteFriend(friendId: Int) {
+        let path = "/method/friends.delete"
+        let url = baseUrl+path
+        let parameters: Parameters = [
+                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "user_id": friendId,
+                "v": "5.131"
+            ]
+        
+         AF.request(url, method: .get, parameters: parameters).responseData { response in
+             guard response.value != nil  else { return}
+             print("You have delete this friend")
+         }
+    }
+    
     func getFriendsList(token: String, id: Int, completion: @escaping ([Friend]) -> ()){
         
         let friendsRealmAr = Array(realm.objects(Friend.self))
