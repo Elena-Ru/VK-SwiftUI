@@ -26,6 +26,11 @@ struct LikeButtonNews: View {
                 .labelStyle(.iconOnly)
                 .foregroundColor(isUserLike == 1 ? Color.theme.ginger : Color.theme.control)
                 .scaleEffect(isScaled ? 1.5 : 1)
+                .scaleEffect((isUserLike == 1  && !isScaled) ? 1.5 : 1)
+                .overlay {
+                    InnerHeart()
+                        .opacity((isUserLike == 1 &&  !innerHeart) ? 1 : 0)
+                }
         }
         .overlay {
             InnerHeart()
