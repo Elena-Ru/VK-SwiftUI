@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct LikeNewsControl: View {
+    var idOwner: Int
+    var itemId: Int
    @State var isLike: Int
    @State var qty: Int
     
    
     var body: some View {
         HStack{
-            LikeButtonNews(isUserLike: $isLike ,likeQty: $qty)
+            LikeButtonNews(isUserLike: $isLike ,likeQty: $qty, idOwner: idOwner, itemId: itemId)
             LikeQuantityButton(likeQty: $qty, isUserLike: $isLike)
         }
         .buttonStyle(BorderlessButtonStyle())

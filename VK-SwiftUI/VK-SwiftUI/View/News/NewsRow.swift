@@ -12,7 +12,15 @@ import SDWebImageSwiftUI
 struct NewsRow: View {
     
     @StateObject var newsViewModel:  NewsViewModel
-    var newsItem: Item
+    @State var newsItem: Item
+    
+    var ownerId: Int {
+        newsItem.ownerID ?? 0
+    }
+    
+    var itemId: Int {
+        newsItem.id ?? 0
+    }
     var index: Int {
         var index = 0
         if newsItem.sourceID < 0 {
@@ -67,7 +75,8 @@ struct NewsRow: View {
     }
     var controlsArea: some View {
         HStack {
-            LikeNewsControl(isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0)
+            LikeNewsControl(idOwner: ownerId, itemId: itemId, isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0)
+//            LikeNewsControl(isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0, idOwner: ownerId, itemId: itemId)
                 .modifier(CapsuleControl())
             CommentControl( count: newsItem.comments?.count ?? 0)
             SharedControl( count : newsItem.reposts?.count ?? 0)
