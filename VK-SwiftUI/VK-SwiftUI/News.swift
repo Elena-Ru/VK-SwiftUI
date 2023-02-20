@@ -96,10 +96,10 @@ class Item: Codable, Identifiable {
     let markedAsAds: Int?
     let shortTextRate: Double?
     let attachments: [Attachment]?
-    let id: Int?
-    let isFavorite: Bool?
+    var id: Int?
+    var isFavorite: Bool?
     var likes: Likes?
-    let ownerID: Int?
+    var ownerID: Int?
     let postSource: ItemPostSource?
     let postType: PostTypeEnum?
     let reposts: Reposts?
