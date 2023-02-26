@@ -165,7 +165,7 @@ class Item: Codable, Identifiable {
 }
 
 // MARK: - Attachment
-class Attachment: Codable {
+class Attachment: Codable, Identifiable {
     let type: AttachmentType?
     let photo: NewsPhoto?
     let video: Video?
