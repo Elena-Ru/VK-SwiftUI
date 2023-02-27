@@ -33,7 +33,6 @@ struct FriendPhotos: View {
                                         .aspectRatio(1, contentMode: .fill)
                                         .cornerRadius(12)
                                 }
-                                
                                 LikeControl(isLike: photoVieModel.photos[index].userLikes, qty: photoVieModel.photos[index].count, owner: friend.id, item: photoVieModel.photos[index].id )
                                     .padding(.top, -5)
                                     .padding(.trailing, -60)

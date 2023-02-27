@@ -79,33 +79,27 @@ struct NewsRow: View {
                                 .scaledToFit()
                         }
                     case 2...:
-                        
                         LazyVGrid(columns: columns3, alignment: .center, spacing: 4) {
                             ForEach(0..<2) { index in
-                                
                                 if index == 1 {
-                                    NavigationLink {
-                                        NewsAttachmentsPhotos()
+                                    NavigationLink(destination: NewsAttachmentsPhotos(photos: photos, currentIndex: index)){
+                                        ZStack {
+                                            WebImage(url: URL(string: ((photos[index].photo?.sizes?.last?.url)!)))
+                                                .resizable()
+                                                .scaledToFit()
+                                            Rectangle()
+                                                .foregroundColor(Color.gray.opacity(0.4))
+                                            Text("+\(photos.count - 2)")
+                                                .foregroundColor(.white)
+                                                .font(.headline)
+                                                .bold()
+                                        }
                                     }
-                                label: {
-                                    ZStack {
-                                        WebImage(url: URL(string: ((photos[index].photo?.sizes?.last?.url)!)))
-                                            .resizable()
-                                            .scaledToFit()
-                                        Rectangle()
-                                            .foregroundColor(Color.gray.opacity(0.4))
-                                        Text("+\(photos.count - 2)")
-                                            .foregroundColor(.white)
-                                            .font(.headline)
-                                            .bold()
-                                    }
-                                }
                                 } else {
                                     WebImage(url: URL(string: ((photos[index].photo?.sizes?.last?.url)!)))
                                         .resizable()
                                         .scaledToFit()
                                 }
-                                
                             }
                         }
                     default:
