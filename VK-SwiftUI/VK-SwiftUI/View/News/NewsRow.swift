@@ -13,10 +13,11 @@ struct NewsRow: View {
     
     @StateObject var newsViewModel:  NewsViewModel
     @State var newsItem: Item
+    
     let columnLayout = Array(repeating: GridItem(.flexible(minimum: 50, maximum: .infinity)), count: 2)
     let columns3 :[GridItem] = [
-        GridItem(.fixed(75), spacing: 2, alignment: .leading),
-        GridItem(.fixed(75), spacing: 2, alignment: .trailing),
+        GridItem(.adaptive(minimum: 150), spacing: 2, alignment: .center),
+        GridItem(.adaptive(minimum: 150), spacing: 2, alignment: .center)
     ]
     var ownerId: Int {
         newsItem.ownerID ?? 0
@@ -77,40 +78,34 @@ struct NewsRow: View {
                                 .resizable()
                                 .scaledToFit()
                         }
-                    case 2:
-                        LazyVGrid(columns: columnLayout, alignment: .center, spacing: 4) {
-                            ForEach( photos.indices ){ index in
-                                WebImage(url: URL(string: ((photos[index].photo?.sizes?.last?.url)!)))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .tag(index)
-                                    .padding()
-                            }
-                        }
-                    case 3...:
+                    case 2...:
+                        
                         LazyVGrid(columns: columns3, alignment: .center, spacing: 4) {
-                            ForEach(0..<3) { index in
-                                if index == 2 {
-                                    ZStack{
+                            ForEach(0..<2) { index in
+                                
+                                if index == 1 {
+                                    NavigationLink {
+                                        NewsAttachmentsPhotos()
+                                    }
+                                label: {
+                                    ZStack {
                                         WebImage(url: URL(string: ((photos[index].photo?.sizes?.last?.url)!)))
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(width: 75, height: 75)
                                         Rectangle()
-                                            .frame(width: 75, height: 75)
                                             .foregroundColor(Color.gray.opacity(0.4))
-                                        Text("+\(photos.count - 3)")
+                                        Text("+\(photos.count - 2)")
                                             .foregroundColor(.white)
                                             .font(.headline)
                                             .bold()
                                     }
+                                }
                                 } else {
                                     WebImage(url: URL(string: ((photos[index].photo?.sizes?.last?.url)!)))
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: index == 0 ? 150 : 75, height: index == 0 ? 150 : 75)
-                                    if index == 0 { Color.clear }
                                 }
+                                
                             }
                         }
                     default:
