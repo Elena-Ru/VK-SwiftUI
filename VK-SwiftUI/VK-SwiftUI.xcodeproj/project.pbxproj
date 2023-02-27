@@ -74,6 +74,7 @@
 		B4BC2021297108B8002C1CF2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2020297108B8002C1CF2 /* SDWebImage */; };
 		B4BC2024297108F7002C1CF2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC2023297108F7002C1CF2 /* SDWebImageSwiftUI */; };
 		B4BC20282973B84A002C1CF2 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC20272973B84A002C1CF2 /* GroupViewModel.swift */; };
+		B4CD3E0D29ACF121003130AE /* NewsAttachmentsPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0C29ACF121003130AE /* NewsAttachmentsPhotos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +145,7 @@
 		B4B6D1F9299347F3006207C2 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		B4BC20272973B84A002C1CF2 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		B4CD3E0C29ACF121003130AE /* NewsAttachmentsPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAttachmentsPhotos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B02BBB2966C5AF002BA614 /* NewsRow.swift */,
+				B4CD3E0C29ACF121003130AE /* NewsAttachmentsPhotos.swift */,
 				B484FEB7296B076F0034AABD /* NewsList.swift */,
 			);
 			path = News;
@@ -594,6 +597,7 @@
 				B4B02BDC29682576002BA614 /* LikeButton.swift in Sources */,
 				B4BC201D29706561002C1CF2 /* FriendsViewModel.swift in Sources */,
 				B484FEBE296C34100034AABD /* CommentControl.swift in Sources */,
+				B4CD3E0D29ACF121003130AE /* NewsAttachmentsPhotos.swift in Sources */,
 				B4856F452962AE04001FA954 /* LoginView.swift in Sources */,
 				B484FEB12969631A0034AABD /* AllGroupRow.swift in Sources */,
 				B4B02BE0296826C7002BA614 /* LikeControl.swift in Sources */,
