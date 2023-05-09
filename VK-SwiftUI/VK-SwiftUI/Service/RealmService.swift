@@ -1,4 +1,4 @@
-//
+  //
 //  RealmService.swift
 //  VK-SwiftUI
 //
@@ -36,9 +36,9 @@ class RealmService {
     }
     
     
-    func isFavorite(friend: Friend){
+    func isFavorite(friend: RLMFriend){
         let realm = try! Realm()
-        let friend = realm.objects(Friend.self).where{$0.id == friend.id}
+        let friend = realm.objects(RLMFriend.self).where{$0.id == friend.id}
         let friendR = friend.thaw()
         do {
             realm.beginWrite()
