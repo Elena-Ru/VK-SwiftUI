@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import RealmSwift
 
-final class FriendsAdapter {
+final class FriendsAdapter: FriendService {
   
   let realm = try! Realm()
   let baseUrl = "https://api.vk.com"
@@ -62,11 +62,11 @@ final class FriendsAdapter {
   }
   
   private func friend(from rlmFriend: RLMFriend) -> Friend {
-    return Friend(id: rlmFriend.id,
-                  firstName: rlmFriend.firstName,
-                  lastName: rlmFriend.lastName,
-                  fullName: rlmFriend.fullName,
-                  isRealm: rlmFriend.isRealm,
-                  isFavorite: rlmFriend.isFavorite)
+    Friend(id: rlmFriend.id,
+           firstName: rlmFriend.firstName,
+           lastName: rlmFriend.lastName,
+           fullName: rlmFriend.fullName,
+           isRealm: rlmFriend.isRealm,
+           isFavorite: rlmFriend.isFavorite)
   }
 }
