@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import RealmSwift 
+import RealmSwift
 
 struct FriendsList: View {
     @ObservedObject var friendsViewModel = FriendsViewModel()
-//    @ObservedObject var loginVM = LoginViewModel()
     @EnvironmentObject var loginVM : LoginViewModel
-    @ObservedResults(Friend.self) var friends
+    @ObservedResults(RLMFriend.self) var friends
     
     var body: some View {
         contentView
@@ -90,12 +89,7 @@ struct FriendsList: View {
     }
 }
 
-//struct FriendsList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FriendsList()
-//            .environmentObject(FriendsViewModel())
-//    }
-//}
+
 
 
 

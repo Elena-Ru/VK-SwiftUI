@@ -10,7 +10,7 @@ import RealmSwift //1
 
 struct FriendsRow: View {
     @StateObject var friendsViewModel:  FriendsViewModel
-    @ObservedRealmObject var friend: Friend
+    @ObservedRealmObject var friend: RLMFriend
     
     var body: some View {
         contentView

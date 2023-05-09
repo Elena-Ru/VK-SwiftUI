@@ -11,11 +11,11 @@ import RealmSwift
 
 class PhotoViewModel: ObservableObject{
     
-    @Published var photos: [Photo] = []
+    @Published var photos: [RLMPhoto] = []
     let baseUrl = "https://api.vk.com"
     let clientId = "51542327" //id_приложения
     
-    func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([Photo]) -> Void){
+    func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([RLMPhoto]) -> Void){
         
         let path = "/method/photos.get"
         let parameters: Parameters = [
