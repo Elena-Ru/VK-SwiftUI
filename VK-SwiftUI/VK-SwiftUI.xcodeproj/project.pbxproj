@@ -16,6 +16,7 @@
 		B414B1332A0A3B54001221C3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414B1322A0A3B54001221C3 /* Friend.swift */; };
 		B414B1352A0A3D0B001221C3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414B1342A0A3D0B001221C3 /* Photo.swift */; };
 		B414B1372A0A3EE3001221C3 /* FriendsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */; };
+		B414B1392A0A6991001221C3 /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414B1382A0A6991001221C3 /* FriendService.swift */; };
 		B433A2C82975702A00037C80 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433A2C72975702900037C80 /* NewsViewModel.swift */; };
 		B45EB49D29862EF90039E6BD /* ListOfGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45EB49C29862EF90039E6BD /* ListOfGroups.swift */; };
 		B45EB49F298921DF0039E6BD /* EmptyFriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45EB49E298921DF0039E6BD /* EmptyFriendsListView.swift */; };
@@ -92,6 +93,7 @@
 		B414B1322A0A3B54001221C3 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		B414B1342A0A3D0B001221C3 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAdapter.swift; sourceTree = "<group>"; };
+		B414B1382A0A6991001221C3 /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendService.swift; path = ../../../../Documents/FriendService.swift; sourceTree = "<group>"; };
 		B433A2C72975702900037C80 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		B45EB49C29862EF90039E6BD /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
 		B45EB49E298921DF0039E6BD /* EmptyFriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFriendsListView.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */,
 				B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */,
 				B4BC20272973B84A002C1CF2 /* GroupViewModel.swift */,
+				B414B1382A0A6991001221C3 /* FriendService.swift */,
 				B433A2C72975702900037C80 /* NewsViewModel.swift */,
 				B41046012976B92E000A6932 /* PhotoViewModel.swift */,
 				B484FEC7296D6BB50034AABD /* LoginWebView.swift */,
@@ -589,6 +592,7 @@
 				B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */,
 				B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */,
 				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
+				B414B1392A0A6991001221C3 /* FriendService.swift in Sources */,
 				B45EB49D29862EF90039E6BD /* ListOfGroups.swift in Sources */,
 				B484FECE296D6D5B0034AABD /* LoginViewWK.swift in Sources */,
 				B4856F69296535F4001FA954 /* GroupRow.swift in Sources */,
