@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LaunchScreen: View {
     
-    @State private var loadingText:[String] = "Loading your account...".map { String($0)}
+  @State private var loadingText:[String] = Texts.LaunchScreen.loading.map { String($0)}
     @State private var showLoadingText: Bool = false
    private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @State private var counter : Int = 0

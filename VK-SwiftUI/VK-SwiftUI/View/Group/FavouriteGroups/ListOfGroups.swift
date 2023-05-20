@@ -20,7 +20,7 @@ struct ListOfGroups: View {
             .onDelete(perform: delete)
         }
         .background(Color(uiColor: .systemBackground))
-        .navigationTitle("My Groups")
+        .navigationTitle(Texts.FavoritesGroups.favGroupsTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing, content: {

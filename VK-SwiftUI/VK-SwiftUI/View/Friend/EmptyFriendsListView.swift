@@ -10,7 +10,7 @@ import SwiftUI
 struct EmptyFriendsListView: View {
     var body: some View {
         VStack{
-            Text("Your friends list is empty right now")
+          Text(Texts.EmptyFriends.noFriends)
                 .font(.title2)
                 .fontWeight(.semibold)
             Text("🥲")

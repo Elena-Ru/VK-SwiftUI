@@ -73,7 +73,7 @@ struct FriendsList: View {
     
     var toggle: some View {
         Toggle(isOn: $friendsViewModel.showFavoritesOnly) {
-          Text(Texts.FrindsVC.favoritesOnly)
+          Text(Texts.FriendsVC.favoritesOnly)
                 .font(.subheadline)
         }
         .onChange(of: friendsViewModel.showFavoritesOnly) { value in
