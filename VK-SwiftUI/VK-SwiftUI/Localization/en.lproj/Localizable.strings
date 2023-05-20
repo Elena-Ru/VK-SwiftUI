@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  VK-SwiftUI
+
+  Created by Елена Русских on 20.05.2023.
+  
+*/
+"Friends" = "Friends";
+"Favorites" = "Favorites only";
+"Groups" = "Groups";
+"News" = "News";
+"FavGroupsTitle" = "My Groups";
+"AllGroupsTitle" = "All groups";
+"LoadingApp" = "Loading your account...";
+"NoFriends" = "Your friends list is empty right now";
+"NoGroups" = "Your group list is empty right now";
+"AddGroup" = "Lets add one 🥳";
+"NoNetwork" = "Please, check your connection activity";
+"WrongInfo" = "Information not correct. Try again.";
+"Search" = "Search by name...";
+"Loading" = "LOADING...";
+"isAlreadyExist" = "This group is already in your favorites.";

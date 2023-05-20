@@ -22,10 +22,10 @@ struct NewsList: View {
                     .onAppear{
                         newsViewModel.getNews()
                     }
-                    .navigationTitle("News")
+                    .navigationTitle(Texts.Shared.news)
                     .navigationBarTitleDisplayMode(.inline)
                 if newsViewModel.isLoading {
-                    ProgressView("LOADING...")
+                  ProgressView(Texts.Shared.loading)
                 }
             }
         }

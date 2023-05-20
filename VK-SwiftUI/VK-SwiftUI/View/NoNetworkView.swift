@@ -16,7 +16,7 @@ struct NoNetworkView: View {
                 .frame(width: 160, height: 160)
                 .font(.title)
                 .foregroundColor(Color("CustomControlColor"))
-            Text("Please, check your connection activity")
+          Text(Texts.NoNetwork.noNetwork)
                 .padding(.top, 30)
         }
     }

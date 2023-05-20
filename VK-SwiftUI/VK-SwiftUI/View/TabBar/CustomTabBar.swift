@@ -15,6 +15,9 @@ enum Tab: String, CaseIterable {
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
+    var friends = Texts.Shared.friends.lowercased()
+    var groups = Texts.Shared.groups.lowercased()
+    var news = Texts.Shared.news.lowercased()
     private var fillImage: String {
         selectedTab.rawValue + ".fill"
     }
@@ -46,7 +49,7 @@ struct CustomTabBar: View {
                                     }
                                 }
                             
-                            Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
+                          Text(tab.rawValue == "person.2" ? friends : (tab.rawValue == "person.3" ? groups : news ))
                                 .offset(y: -10)
                                 .foregroundColor(Color.theme.control)
                                 .bold()
@@ -57,7 +60,7 @@ struct CustomTabBar: View {
                                          selectedTab = tab
                                      }
                              }
-                            Text(tab.rawValue == "person.2" ? "friends" : (tab.rawValue == "person.3" ? "groups" : "news" ))
+                          Text(tab.rawValue == "person.2" ? friends : (tab.rawValue == "person.3" ? groups : news ))
                                 .offset(y: -10)
                                 .hidden()
                         }

@@ -46,12 +46,12 @@ struct AllGroupsList: View {
                         }
                 }
                 .alertX(isPresented: $isAlreadyExist, content: {
-                    AlertX(title: Text("This group is already in your favorites."),
+                  AlertX(title: Text(Texts.Alert.alreadyExist),
                            theme: .cherry(withTransparency: true, roundedCorners: true))
                 })
                 .searchable(text: $searchText)
                 .background(Color(uiColor: .systemBackground))
-                .navigationTitle("All Groups")
+                .navigationTitle(Texts.AllGroups.allGroupsTitle)
                 .navigationBarTitleDisplayMode(.inline)
             }
             

@@ -13,7 +13,7 @@ struct SearchBarView: View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor( searchText.isEmpty ? .secondary : Color.theme.control)
-            TextField("Search by name...", text: $searchText)
+          TextField(Texts.AllGroups.search, text: $searchText)
                 .autocorrectionDisabled()
                 .overlay (
                     Image(systemName: "xmark.circle.fill")

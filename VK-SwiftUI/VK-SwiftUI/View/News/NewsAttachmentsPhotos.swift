@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct NewsAttachmentsPhotos: View {
     
-    @State var photos: [Attachment]
+    @State var photos: [ItemAttachment]
     @State var currentIndex: Int
     @State var currentAmount: CGFloat = 0
     

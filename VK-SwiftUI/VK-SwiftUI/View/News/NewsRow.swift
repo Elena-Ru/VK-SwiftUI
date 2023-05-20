@@ -28,15 +28,15 @@ struct NewsRow: View {
     }
     var index: Int {
         var index = 0
-        if newsItem.sourceID < 0 {
-            let sourceId = newsItem.sourceID * ( -1)
+      if newsItem.sourceID! < 0 {
+        let sourceId = newsItem.sourceID! * ( -1)
             index = newsViewModel.newsGroups.firstIndex { $0.id == sourceId}!
         }
         return index
     }
     
     var date: String {
-        let timeResult = Double(newsItem.date)
+      let timeResult = Double(newsItem.date!)
         let date = Date(timeIntervalSince1970: timeResult)
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = DateFormatter.Style.medium
