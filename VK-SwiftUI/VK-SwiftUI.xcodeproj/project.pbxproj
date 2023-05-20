@@ -18,6 +18,9 @@
 		B414B1372A0A3EE3001221C3 /* FriendsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */; };
 		B414B1392A0A6991001221C3 /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414B1382A0A6991001221C3 /* FriendService.swift */; };
 		B433A2C82975702A00037C80 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433A2C72975702900037C80 /* NewsViewModel.swift */; };
+		B459F0F42A187F0A000231EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B459F0F62A187F0A000231EC /* Localizable.strings */; };
+		B459F0F92A187FCC000231EC /* LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459F0F82A187FCC000231EC /* LocalizationKeys.swift */; };
+		B459F0FE2A188EC4000231EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B459F1002A188EC4000231EC /* InfoPlist.strings */; };
 		B45EB49D29862EF90039E6BD /* ListOfGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45EB49C29862EF90039E6BD /* ListOfGroups.swift */; };
 		B45EB49F298921DF0039E6BD /* EmptyFriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45EB49E298921DF0039E6BD /* EmptyFriendsListView.swift */; };
 		B45EB4A3298951910039E6BD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B45EB4A2298951910039E6BD /* Launch Screen.storyboard */; };
@@ -96,6 +99,11 @@
 		B414B1382A0A6991001221C3 /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendService.swift; path = ../../../../Documents/FriendService.swift; sourceTree = "<group>"; };
 		B433A2C72975702900037C80 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		B459F0F02A187C62000231EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B459F0F52A187F0A000231EC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B459F0F72A187F1D000231EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B459F0F82A187FCC000231EC /* LocalizationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationKeys.swift; sourceTree = "<group>"; };
+		B459F0FF2A188EC4000231EC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B459F1012A188EC7000231EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B45EB49C29862EF90039E6BD /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
 		B45EB49E298921DF0039E6BD /* EmptyFriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFriendsListView.swift; sourceTree = "<group>"; };
 		B45EB4A2298951910039E6BD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -180,6 +188,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B459F0F12A187E64000231EC /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B459F1002A188EC4000231EC /* InfoPlist.strings */,
+				B459F0F82A187FCC000231EC /* LocalizationKeys.swift */,
+				B459F0F62A187F0A000231EC /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		B484FEA6296916500034AABD /* Friend */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +280,7 @@
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
 				B4B02BC8296713F8002BA614 /* Extensions */,
 				B484FED1296EC8800034AABD /* Service */,
+				B459F0F12A187E64000231EC /* Localization */,
 				B4BC201E29707968002C1CF2 /* ViewModel */,
 				B4B02BCE2967C2DD002BA614 /* Model */,
 				B4856F56296334AE001FA954 /* View */,
@@ -492,6 +511,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B4856F362962AE04001FA954;
 			packageReferences = (
@@ -514,8 +534,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B45EB4A3298951910039E6BD /* Launch Screen.storyboard in Resources */,
+				B459F0F42A187F0A000231EC /* Localizable.strings in Resources */,
 				B4856F4A2962AE06001FA954 /* Preview Assets.xcassets in Resources */,
 				B4856F472962AE06001FA954 /* Assets.xcassets in Resources */,
+				B459F0FE2A188EC4000231EC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +614,7 @@
 				B414B1352A0A3D0B001221C3 /* Photo.swift in Sources */,
 				B47E4F72299891D300EA7FF6 /* SearchBarView.swift in Sources */,
 				B4B02BD42967D329002BA614 /* FriendsList.swift in Sources */,
+				B459F0F92A187FCC000231EC /* LocalizationKeys.swift in Sources */,
 				B484FEBA296C07F50034AABD /* CapsuleControl.swift in Sources */,
 				B4856F6F2965D353001FA954 /* Avatar.swift in Sources */,
 				B414B1392A0A6991001221C3 /* FriendService.swift in Sources */,
@@ -637,6 +660,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B459F0F62A187F0A000231EC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B459F0F52A187F0A000231EC /* ru */,
+				B459F0F72A187F1D000231EC /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B459F1002A188EC4000231EC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B459F0FF2A188EC4000231EC /* ru */,
+				B459F1012A188EC7000231EC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B4856F4B2962AE06001FA954 /* Debug */ = {

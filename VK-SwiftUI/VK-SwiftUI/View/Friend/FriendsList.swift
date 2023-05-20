@@ -26,7 +26,7 @@ struct FriendsList: View {
                     listView
                 }
             }
-            .navigationTitle("Friends")
+            .navigationTitle(Texts.Shared.friends)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: {
@@ -73,7 +73,7 @@ struct FriendsList: View {
     
     var toggle: some View {
         Toggle(isOn: $friendsViewModel.showFavoritesOnly) {
-            Text("Favorites only")
+          Text(Texts.FrindsVC.favoritesOnly)
                 .font(.subheadline)
         }
         .onChange(of: friendsViewModel.showFavoritesOnly) { value in
