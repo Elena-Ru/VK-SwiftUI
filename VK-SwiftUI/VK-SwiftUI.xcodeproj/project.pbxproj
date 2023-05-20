@@ -95,6 +95,7 @@
 		B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAdapter.swift; sourceTree = "<group>"; };
 		B414B1382A0A6991001221C3 /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendService.swift; path = ../../../../Documents/FriendService.swift; sourceTree = "<group>"; };
 		B433A2C72975702900037C80 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		B459F0F02A187C62000231EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B45EB49C29862EF90039E6BD /* ListOfGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfGroups.swift; sourceTree = "<group>"; };
 		B45EB49E298921DF0039E6BD /* EmptyFriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFriendsListView.swift; sourceTree = "<group>"; };
 		B45EB4A2298951910039E6BD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 		B4856F412962AE04001FA954 /* VK-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B459F0F02A187C62000231EC /* Info.plist */,
 				B4856F422962AE04001FA954 /* VK_SwiftUIApp.swift */,
 				B4B02BC8296713F8002BA614 /* Extensions */,
 				B484FED1296EC8800034AABD /* Service */,
@@ -763,8 +765,8 @@
 				DEVELOPMENT_TEAM = AD4W7X6593;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "VK-SwiftUI/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "VK client";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -794,8 +796,8 @@
 				DEVELOPMENT_TEAM = AD4W7X6593;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "VK-SwiftUI/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "VK client";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
