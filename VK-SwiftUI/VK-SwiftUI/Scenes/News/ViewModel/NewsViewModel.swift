@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class NewsViewModel: ObservableObject{
+final class NewsViewModel: ObservableObject {
 
     @Published var news: [Item] = []
     @Published var newsGroups: [NewsGroup] = []
@@ -35,17 +35,16 @@ class NewsViewModel: ObservableObject{
             self.news = newsResponse?.response?.items ?? []
             self.newsGroups = newsResponse?.response?.groups ?? []
             completion((newsResponse?.response)!)
-            
         }
     }
     
     func getNews() {
-          isLoading = true
-          getNewsPost(token: UserDefaults.standard.string(forKey: "token") ?? "",
-                      id: UserDefaults.standard.integer(forKey: "userID")) { response in
-              self.isLoading = false
-          }
-      }
+        isLoading = true
+        getNewsPost(token: AuthenticationManager.shared.accessToken ?? "",
+                    id: Int(AuthenticationManager.shared.clientID ?? "1") ?? 1) { response in
+            self.isLoading = false
+        }
+    }
     
     func postLike( isLike: inout Int, owner: Int, item: Int ) {
         
@@ -53,7 +52,7 @@ class NewsViewModel: ObservableObject{
         let url = baseUrl+path
         
         let parameters: Parameters = [
-                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "access_token" : AuthenticationManager.shared.accessToken ?? "",
                 "type": "post",
                 "owner_id": owner,
                 "item_id": item,

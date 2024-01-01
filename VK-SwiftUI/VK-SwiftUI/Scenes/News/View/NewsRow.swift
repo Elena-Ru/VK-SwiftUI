@@ -124,7 +124,6 @@ struct NewsRow: View {
     var controlsArea: some View {
         HStack {
             LikeNewsControl(idOwner: ownerId, itemId: itemId, isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0)
-            //            LikeNewsControl(isLike: newsItem.likes?.userLikes ?? 0, qty: newsItem.likes?.count ?? 0, idOwner: ownerId, itemId: itemId)
                 .modifier(CapsuleControl())
             CommentControl( count: newsItem.comments?.count ?? 0)
             SharedControl( count : newsItem.reposts?.count ?? 0)

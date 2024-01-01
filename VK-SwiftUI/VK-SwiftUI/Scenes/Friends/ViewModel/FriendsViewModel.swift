@@ -19,7 +19,7 @@ class FriendsViewModel: ObservableObject {
   private let friendsService = FriendsAdapter()
   
   func getFriends() {
-    friendsService.get(token: UserDefaults.standard.string(forKey: "token") ?? "", id: UserDefaults.standard.integer(forKey: "userID")) { items in
+    friendsService.get(token: AuthenticationManager.shared.accessToken ?? "", id: Int(AuthenticationManager.shared.clientID ?? "1") ?? 1) { items in
       
       self.filteredFriends = items.sorted { $0.lastName.first ?? " " < $1.lastName.first ?? " "}
       if self.filteredFriends.isEmpty {
@@ -54,7 +54,7 @@ class FriendsViewModel: ObservableObject {
     let path = "/method/friends.delete"
     let url = baseUrl+path
     let parameters: Parameters = [
-      "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+      "access_token" : AuthenticationManager.shared.accessToken ?? "",
       "user_id": friendId,
       "v": "5.131"
     ]

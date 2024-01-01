@@ -41,9 +41,3 @@ struct NewsAttachmentsPhotos: View {
         .tabViewStyle(.page(indexDisplayMode: .always))
     }
 }
-
-//struct NewsAttachmentsPhotos_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewsAttachmentsPhotos()
-//    }
-//}

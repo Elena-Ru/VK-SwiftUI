@@ -41,9 +41,3 @@ struct ListOfGroups: View {
         $itemGroups.remove(atOffsets: offsets)
     }
 }
-
-//struct ListOfGroups_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListOfGroups(, groups: <#[Group]#>)
-//    }
-//}

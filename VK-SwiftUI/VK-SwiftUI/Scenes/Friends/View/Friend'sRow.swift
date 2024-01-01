@@ -29,13 +29,3 @@ struct FriendsRow: View {
         }
     }
 }
-
-//struct FriendsRow_Previews: PreviewProvider {
-//    static var friends = FriendsViewModel().friends
-//    static var previews: some View {
-//        FriendsRow(friendsViewModel: FriendsViewModel(), friend: friends[0])
-//            .environmentObject(FriendsViewModel())
-//    }
-//}
-
-

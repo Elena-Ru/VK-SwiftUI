@@ -20,8 +20,8 @@ class GroupViewModel: ObservableObject {
     let clientId = "51542327" //id_приложения
     
     func getGroups(){
-        getUserGroups(token: UserDefaults.standard.string(forKey: "token") ?? "",
-                      id: UserDefaults.standard.integer(forKey: "userID")){ items in
+        getUserGroups(token: AuthenticationManager.shared.accessToken ?? "",
+                      id: Int(AuthenticationManager.shared.clientID ?? "1") ?? 1){ items in
             if items.isEmpty {
                 self.isListEmpty = true
             } else {
@@ -100,7 +100,7 @@ class GroupViewModel: ObservableObject {
         let path = "/method/groups.leave"
         let url = baseUrl+path
         let parameters: Parameters = [
-                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "access_token" : AuthenticationManager.shared.accessToken ?? "",
                 "group_id": groupId,
                 "v": "5.131"
             ]
@@ -116,7 +116,7 @@ class GroupViewModel: ObservableObject {
         let path = "/method/groups.join"
         let url = baseUrl+path
         let parameters: Parameters = [
-                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "access_token" : AuthenticationManager.shared.accessToken ?? "",
                 "group_id": groupId,
                 "v": "5.131"
             ]
@@ -126,5 +126,4 @@ class GroupViewModel: ObservableObject {
              print("You have joined this group")
          }
     }
-    
 }

@@ -5,20 +5,19 @@
 //  Created by Елена Русских on 06.01.2023.
 //
 
-import Foundation
 import RealmSwift
 
 
-class FriendPhotoResponse: Decodable {
+final class FriendPhotoResponse: Decodable {
     let response: FriendsPhotos
 }
 
 
-class FriendsPhotos: Decodable {
+final class FriendsPhotos: Decodable {
     let items: [RLMPhoto]
 }
 
-class RLMPhoto: Object, Decodable {
+final class RLMPhoto: Object, Decodable {
 
     @Persisted var id: Int = 0
     @Persisted var url: String = ""
@@ -84,18 +83,3 @@ class RLMPhoto: Object, Decodable {
         return "id"
     }
 }
-//import SwiftUI
-//
-//class Photo: Identifiable {
-//    var id: Int
-//    var photoName: String
-//    var likeQty: Int
-//    var isPhotoLike: Bool
-//
-//    init(_ id: Int, _ photo: String, _ likeQuantity: Int, _ isLike: Bool) {
-//        self.id = id
-//        self.photoName = photo
-//        self.likeQty = likeQuantity
-//        self.isPhotoLike = isLike
-//    }
-//}

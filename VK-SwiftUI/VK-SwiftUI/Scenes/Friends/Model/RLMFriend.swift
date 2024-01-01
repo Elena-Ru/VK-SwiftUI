@@ -5,20 +5,19 @@
 //  Created by Елена Русских on 06.01.2023.
 //
 
-import Foundation
 import SwiftUI
 import RealmSwift
 
-class FriendsResponse: Decodable {
+final class FriendsResponse: Decodable {
     let response: Friends
 }
 
-class Friends: Decodable {
+final class Friends: Decodable {
     let items: [RLMFriend]
     
 }
 
-class RLMFriend: Object, Decodable, Identifiable {
+final class RLMFriend: Object, Decodable, Identifiable {
     @Persisted var id: Int = 0
     @Persisted var photo100: String = ""
     @Persisted var firstName: String = ""
@@ -50,5 +49,3 @@ class RLMFriend: Object, Decodable, Identifiable {
         return "id"
     }
 }
-
-
