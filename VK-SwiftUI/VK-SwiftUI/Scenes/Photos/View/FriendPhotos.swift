@@ -51,7 +51,7 @@ struct FriendPhotos: View {
         }
     }
         private func getPhotos() {
-            photoVieModel.getUserPhotos(token: UserDefaults.standard.string(forKey: "token") ?? "", idFriend: friend.id) { items in
+            photoVieModel.getUserPhotos(token: AuthenticationManager.shared.accessToken ?? "", idFriend: friend.id) { items in
                 self.photos = items
             }
         }

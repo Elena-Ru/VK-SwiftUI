@@ -20,7 +20,7 @@ struct AllGroupsList: View {
     var body: some View {
         contentView
             .onAppear{
-                groupsViewModel.getGroupsAll(token: UserDefaults.standard.string(forKey: "token") ?? "") { items in
+                groupsViewModel.getGroupsAll(token: AuthenticationManager.shared.accessToken ?? "") { items in
                     self.allGroups = items
                 }
             }

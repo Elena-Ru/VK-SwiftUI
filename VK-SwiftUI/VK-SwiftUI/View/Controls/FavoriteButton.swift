@@ -25,11 +25,3 @@ struct FavoriteButton: View {
         .buttonStyle(.borderless)
     }
 }
-
-
-//struct FavoriteButton_Previews: PreviewProvider {
-//    static var friends = FriendsViewModel().friends
-//    static var previews: some View {
-//        FavoriteButton(friend: friends[0])
-//    }
-//}

@@ -5,11 +5,10 @@
 //  Created by Елена Русских on 17.01.2023.
 //
 
-import Foundation
 import Alamofire
 import RealmSwift
 
-class PhotoViewModel: ObservableObject{
+final class PhotoViewModel: ObservableObject{
     
     @Published var photos: [RLMPhoto] = []
     let baseUrl = "https://api.vk.com"
@@ -47,7 +46,7 @@ class PhotoViewModel: ObservableObject{
         let url = baseUrl+path
         
         let parameters: Parameters = [
-                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "access_token" : AuthenticationManager.shared.accessToken ?? "",
                 "type": "photo",
                 "owner_id": owner,
                 "item_id": item,

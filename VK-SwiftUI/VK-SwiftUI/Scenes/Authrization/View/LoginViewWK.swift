@@ -30,7 +30,6 @@ struct LoginViewWK: View {
                     .onAppear(){
                        cleanRealm()
                     }
-//                    .overlay(showLoading ? ProgressView("LOADING...").toAnyView() : EmptyView().toAnyView())
             }
         } else {
             NoNetworkView()
@@ -44,10 +43,3 @@ struct LoginViewWK: View {
         }
     }
 }
-
-//struct LoginViewWK_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoginViewWK()
-//            .environmentObject(LoginViewModel())
-//    }
-//}

@@ -31,7 +31,6 @@ struct MainView: View {
                             .tag(Tab.news)
                     }
                 }
-               // .isDetailLink(false)
             }
             VStack {
                 Spacer()

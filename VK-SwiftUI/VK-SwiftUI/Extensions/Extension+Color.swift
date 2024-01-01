@@ -5,11 +5,9 @@
 //  Created by Елена Русских on 05.01.2023.
 //
 
-import Foundation
 import SwiftUI
 
 extension Color {
-    
     static let theme = ColorTheme()
     
     init(hex: String) {

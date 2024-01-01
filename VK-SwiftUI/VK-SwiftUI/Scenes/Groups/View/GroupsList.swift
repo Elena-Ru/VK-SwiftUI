@@ -35,11 +35,3 @@ struct GroupsList: View {
         .environmentObject(groupsViewModel) 
     }
 }
-
-//struct GroupsList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GroupsList()
-//            .environmentObject(GroupViewModel())
-//    }
-//}
-

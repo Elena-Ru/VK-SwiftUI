@@ -102,18 +102,16 @@ class WebViewCoordinator: NSObject, WKNavigationDelegate {
             }
             guard
                 let token = parameters["access_token"],
-                let userIDString = parameters["user_id"],
-                let userID = Int(userIDString)
+                let userIDString = parameters["user_id"]
             else {decisionHandler(.allow)
                return  }
         didLogin()
-        UserDefaults.standard.set(token, forKey: "token")
-        UserDefaults.standard.set(userID, forKey: "userID")
+        AuthenticationManager.shared.setAccessToken(token: token)
+        AuthenticationManager.shared.setClientID(id: userIDString)
         decisionHandler(.cancel)
         }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error)
     }
-
 }

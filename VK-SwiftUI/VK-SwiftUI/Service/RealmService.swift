@@ -5,25 +5,21 @@
 //  Created by Елена Русских on 08.02.2023.
 //
 
-import Foundation
 import RealmSwift
 
-class RealmService {
-    
-   
-    func deleteAll() {
-        do{
+final class RealmService {
+  	func deleteAll() {
+  	  	do{
             let realm = try Realm()
             try? realm.write {
-                realm.deleteAll()
+              realm.deleteAll()
             }
-        } catch {
+  	  	} catch {
             print(error)
-        }
-    }
+  	  	}
+  	}
     
-    func saveData  <T: Object>(_ sData: [T]){
-        
+    func saveData  <T: Object>(_ sData: [T]) {
         do {
             let realm = try Realm()
             print(realm.configuration.fileURL as Any)
@@ -35,8 +31,7 @@ class RealmService {
         }
     }
     
-    
-    func isFavorite(friend: RLMFriend){
+    func isFavorite(friend: RLMFriend) {
         let realm = try! Realm()
         let friend = realm.objects(RLMFriend.self).where{$0.id == friend.id}
         let friendR = friend.thaw()
@@ -53,6 +48,4 @@ class RealmService {
             print(error)
         }
     }
-    
-    
 }

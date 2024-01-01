@@ -17,8 +17,8 @@ class LoginViewModel: ObservableObject {
         WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: Date(timeIntervalSince1970: 0)) {
             self.isLogin = false
             UserDefaults.standard.set(false, forKey: "isLogin")
-            UserDefaults.standard.set("", forKey: "token")
-            UserDefaults.standard.set(1, forKey: "userID")
+            AuthenticationManager.shared.clearAccessToken()
+            AuthenticationManager.shared.setClientID(id: "1")
         }
     }
 }

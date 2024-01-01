@@ -106,7 +106,7 @@ struct Item: Codable, Identifiable {
 }
 
 // MARK: - ItemAttachment
-struct ItemAttachment: Codable {  //ItemAttachment
+struct ItemAttachment: Codable {  
     let type: AttachmentType?
     let photo: LinkPhoto?
     let link: Link?
