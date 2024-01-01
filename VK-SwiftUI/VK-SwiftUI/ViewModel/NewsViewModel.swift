@@ -27,7 +27,6 @@ class NewsViewModel: ObservableObject{
             "v": "5.131"
         ]
         let url = baseUrl+path
-
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             guard let data = response.value  else { return}
             
@@ -47,4 +46,23 @@ class NewsViewModel: ObservableObject{
               self.isLoading = false
           }
       }
+    
+    func postLike( isLike: inout Int, owner: Int, item: Int ) {
+        
+        let path = isLike == 1 ? "/method/likes.add" : "/method/likes.delete"
+        let url = baseUrl+path
+        
+        let parameters: Parameters = [
+                "access_token" : UserDefaults.standard.string(forKey: "token") ?? "",
+                "type": "post",
+                "owner_id": owner,
+                "item_id": item,
+                "v": "5.131"
+            ]
+        
+         AF.request(url, method: .get, parameters: parameters).responseData { response in
+             guard response.value != nil  else { return}
+             print("Done")
+         }
+    }
 }

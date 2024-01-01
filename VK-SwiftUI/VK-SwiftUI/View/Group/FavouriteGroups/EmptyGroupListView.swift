@@ -14,13 +14,13 @@ struct EmptyGroupListView: View {
     
     var body: some View {
         VStack{
-            Text("Your group list is empty right now")
+          Text(Texts.EmptyGroups.noGroups)
                 .font(.title2)
                 .fontWeight(.semibold)
             NavigationLink {
                 AllGroupsList(groupsViewModel: groupsViewModel)
             } label: {
-                Text("Lets add one 🥳")
+              Text(Texts.EmptyGroups.addGroup)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
@@ -40,7 +40,7 @@ struct EmptyGroupListView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundImage())
         .onAppear(perform: addAnimation)
-        .navigationTitle("My Groups")
+        .navigationTitle(Texts.FavoritesGroups.favGroupsTitle)
         .navigationBarTitleDisplayMode(.inline)
     }
     

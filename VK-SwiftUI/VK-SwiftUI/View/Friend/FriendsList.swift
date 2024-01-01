@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import RealmSwift 
+import RealmSwift
 
 struct FriendsList: View {
     @ObservedObject var friendsViewModel = FriendsViewModel()
-//    @ObservedObject var loginVM = LoginViewModel()
     @EnvironmentObject var loginVM : LoginViewModel
-    @ObservedResults(Friend.self) var friends
+    @ObservedResults(RLMFriend.self) var friends
     
     var body: some View {
         contentView
@@ -20,14 +19,30 @@ struct FriendsList: View {
     var contentView: some View {
         NavigationView {
             ZStack {
-                if friendsViewModel.isListEmpty {
+                if friendsViewModel.isListEmpty || friends.isEmpty {
                     EmptyFriendsListView()
                         .transition(AnyTransition.opacity.animation(.easeIn))
                 } else {
                     listView
                 }
             }
+            .navigationTitle(Texts.Shared.friends)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    Button(action: {
+                        loginVM.logOut()
+                    }, label: {
+                        Image(systemName: "rectangle.portrait.and.arrow.forward")
+                            .rotationEffect(.degrees(180))
+                            .foregroundColor(Color.theme.control)
+                        
+                    }
+                    )
+                })
+            }
         }
+     
         .onAppear{
             friendsViewModel.getFriends()
         }
@@ -52,41 +67,29 @@ struct FriendsList: View {
                      }
                  }
              }
-        }
-        .navigationTitle("Friends")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading, content: {
-                Button(action: {
-                    loginVM.logOut()
-                }, label: {
-                    Image(systemName: "rectangle.portrait.and.arrow.forward")
-                        .rotationEffect(.degrees(180))
-                        .foregroundColor(Color.theme.control)
-                    
-                }
-                )
-            })
+            .onDelete(perform: delete)
         }
     }
     
     var toggle: some View {
         Toggle(isOn: $friendsViewModel.showFavoritesOnly) {
-            Text("Favorites only")
+          Text(Texts.FriendsVC.favoritesOnly)
                 .font(.subheadline)
         }
         .onChange(of: friendsViewModel.showFavoritesOnly) { value in
             friendsViewModel.updateFriends()
             }
     }
+    
+    func delete(at offsets: IndexSet) {
+        let index = offsets[offsets.startIndex]
+        friendsViewModel.deleteFriend(friendId: friends[index].id)
+        $friends.remove(atOffsets: offsets)
+        friendsViewModel.updateFriends()
+    }
 }
 
-//struct FriendsList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FriendsList()
-//            .environmentObject(FriendsViewModel())
-//    }
-//}
+
 
 
 

@@ -11,8 +11,8 @@ import SDWebImageSwiftUI
 
 struct FriendPhotos: View {
     @ObservedObject var photoVieModel = PhotoViewModel()
-    var friend: Friend
-    @State var photos : [Photo] = []
+    var friend: RLMFriend
+    @State var photos : [RLMPhoto] = []
     let columnLayout = Array(repeating: GridItem(.flexible(minimum: 50, maximum: .infinity)), count: 2)
     
     var body: some View {
@@ -33,7 +33,6 @@ struct FriendPhotos: View {
                                         .aspectRatio(1, contentMode: .fill)
                                         .cornerRadius(12)
                                 }
-                                
                                 LikeControl(isLike: photoVieModel.photos[index].userLikes, qty: photoVieModel.photos[index].count, owner: friend.id, item: photoVieModel.photos[index].id )
                                     .padding(.top, -5)
                                     .padding(.trailing, -60)

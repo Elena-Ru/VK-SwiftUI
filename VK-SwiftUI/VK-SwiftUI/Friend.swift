@@ -1,54 +1,19 @@
 //
-//  Friend.swift
+//  User.swift
 //  VK-SwiftUI
 //
-//  Created by Елена Русских on 06.01.2023.
+//  Created by Елена Русских on 09.05.2023.
 //
 
 import Foundation
-import SwiftUI
-import RealmSwift
 
-class FriendsResponse: Decodable {
-    let response: Friends
+struct Friend {
+  var id: Int
+  var photo100: String?
+  var firstName: String
+  var lastName: String
+  var fullName: String
+  var isRealm: Bool
+  var isFavorite: Bool
+  var photos : [RLMPhoto]?
 }
-
-class Friends: Decodable {
-    let items: [Friend]
-    
-}
-
-class Friend: Object, Decodable, Identifiable {
-    @Persisted var id: Int = 0
-    @Persisted var photo100: String = ""
-    @Persisted var firstName: String = ""
-    @Persisted var lastName: String = ""
-    @Persisted var fullName: String = ""
-    @Persisted var isRealm: Bool = false
-    @Persisted var isFavorite: Bool = false
-    
-    @Persisted var photos = RealmSwift.List<Photo>()
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case photo100 = "photo_100"
-        case firstName = "first_name"
-        case lastName = "last_name"
-    }
-    
-    convenience required init(from decoder: Decoder) throws {
-        self.init()
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decode(Int.self, forKey: .id)
-        self.photo100 = try values.decode(String.self, forKey: .photo100)
-        self.firstName = try values.decode(String.self, forKey: .firstName)
-        self.lastName = try values.decode(String.self, forKey: .lastName)
-        self.fullName = self.firstName + " " + self.lastName
-    }
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-
