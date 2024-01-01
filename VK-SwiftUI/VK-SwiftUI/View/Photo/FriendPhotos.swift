@@ -23,8 +23,8 @@ struct FriendPhotos: View {
         GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: columnLayout, alignment: .center, spacing: 6) {
-                    if let photos = photoVieModel.photos{
-                        ForEach(photos.indices, id: \.self) { index in
+                  if !photoVieModel.photos.isEmpty {
+                        ForEach(photoVieModel.photos.indices, id: \.self) { index in
                             VStack {
                                 NavigationLink(destination: PhotoView(photoViewModel: photoVieModel, currentIndex: index)) {
                                     WebImage(url: URL(string: (photoVieModel.photos[index].url)))

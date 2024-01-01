@@ -21,7 +21,7 @@ class FriendsViewModel: ObservableObject {
   func getFriends() {
     friendsService.get(token: UserDefaults.standard.string(forKey: "token") ?? "", id: UserDefaults.standard.integer(forKey: "userID")) { items in
       
-      self.filteredFriends = items.sorted { $0.lastName.first! < $1.lastName.first!}
+      self.filteredFriends = items.sorted { $0.lastName.first ?? " " < $1.lastName.first ?? " "}
       if self.filteredFriends.isEmpty {
         self.isListEmpty = true
       }
@@ -32,10 +32,10 @@ class FriendsViewModel: ObservableObject {
   func setFirstLetterArray() -> [Character] {
     var firstLetterAr : [Character] = []
     for i in 0..<filteredFriends.count {
-      guard !firstLetterAr.contains(filteredFriends[i].lastName.first!) else {
+      guard !firstLetterAr.contains(filteredFriends[i].lastName.first ?? " ") else {
         continue
       }
-      firstLetterAr.append(filteredFriends[i].lastName.first!)
+      firstLetterAr.append(filteredFriends[i].lastName.first ?? " ")
     }
     return firstLetterAr
   }
@@ -45,7 +45,7 @@ class FriendsViewModel: ObservableObject {
       self.filteredFriends = items.filter { friend in
         (!self.showFavoritesOnly || friend.isFavorite)
       }
-      .sorted { $0.lastName.first! < $1.lastName.first!}
+      .sorted { $0.lastName.first ?? " " < $1.lastName.first ?? " "}
       firstLetterArray = self.setFirstLetterArray()
     }
   }
