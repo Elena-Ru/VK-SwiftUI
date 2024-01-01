@@ -7,13 +7,6 @@
 
 import Foundation
 
-// MARK: - KeychainManagerInterface
-protocol KeychainManagerInterface {
-    func save(data: Data, service: String, account: String)
-    func read(service: String, account: String) -> Data?
-    func delete(service: String, account: String)
-}
-
 // MARK: - KeychainManager
 class KeychainManager: KeychainManagerInterface {
     func save(data: Data, service: String, account: String) {
@@ -67,7 +60,7 @@ class KeychainManager: KeychainManagerInterface {
     }
     
     //MARK: Initializer
-    public init() {
+    init() {
         
     }
 }

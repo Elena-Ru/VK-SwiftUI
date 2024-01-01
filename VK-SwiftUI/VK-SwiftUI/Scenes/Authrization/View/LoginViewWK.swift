@@ -7,27 +7,21 @@
 
 import SwiftUI
 
-extension View {
-    
-    func toAnyView() -> AnyView {
-        AnyView(self)
-    }
-}
-
+// MARK: - LoginViewWK
 struct LoginViewWK: View {
-    @ObservedObject var networkMonitor =  NetworkMonitor()
+    var networkMonitor = NetworkMonitor()
     @StateObject var loginVM = LoginViewModel()
     @State private var showLoading = false
     
     var body: some View {
         if networkMonitor.isConnected {
-            if loginVM.isLogin{
-                MainView()
+            if loginVM.isLogin {
+               MainView()
                     .environmentObject(loginVM)
             } else {
                LoginWebView(showLoading: $showLoading, isLogin: $loginVM.isLogin)
                     .environmentObject(loginVM)
-                    .onAppear(){
+                    .onAppear() {
                        cleanRealm()
                     }
             }
@@ -35,11 +29,14 @@ struct LoginViewWK: View {
             NoNetworkView()
         }
     }
-    
-    func cleanRealm() {
-        let log = UserDefaults.standard.bool(forKey: "isLogin")
-        if  !log {
-            RealmService().deleteAll()
-        }
-    }
+}
+
+// MARK: - Private Methods
+private extension LoginViewWK {
+  	func cleanRealm() {
+        let log = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isLogin)
+  	    if  !log {
+  	        RealmService().deleteAll()
+  	    }
+  	}
 }
