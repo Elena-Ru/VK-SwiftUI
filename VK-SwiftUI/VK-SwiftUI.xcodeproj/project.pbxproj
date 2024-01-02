@@ -54,7 +54,7 @@
 		B4856F6D2965D1FB001FA954 /* Secondary2lineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */; };
 		B4856F6F2965D353001FA954 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F6E2965D353001FA954 /* Avatar.swift */; };
 		B4856F742965D6BD001FA954 /* SecondaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4856F732965D6BD001FA954 /* SecondaryText.swift */; };
-		B49013042B42D9B7007B2DFC /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013032B42D9B7007B2DFC /* FriendService.swift */; };
+		B49013042B42D9B7007B2DFC /* FriendServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013032B42D9B7007B2DFC /* FriendServiceProtocol.swift */; };
 		B49013212B42E7E0007B2DFC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013202B42E7E0007B2DFC /* AuthenticationManager.swift */; };
 		B49013242B42E875007B2DFC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013232B42E875007B2DFC /* KeychainManager.swift */; };
 		B49013292B42F379007B2DFC /* KeychainManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013282B42F379007B2DFC /* KeychainManagerInterface.swift */; };
@@ -66,6 +66,7 @@
 		B490133A2B431040007B2DFC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B49013392B431040007B2DFC /* Config.plist */; };
 		B490133C2B4311F0007B2DFC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490133B2B4311F0007B2DFC /* Secrets.swift */; };
 		B49013402B43CAA3007B2DFC /* NetworkMonitorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */; };
+		B49013472B442DE2007B2DFC /* FriendsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013462B442DE2007B2DFC /* FriendsViewModelProtocol.swift */; };
 		B49B6721298CC4B000267D66 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6720298CC4B000267D66 /* LaunchScreen.swift */; };
 		B49B6723298CF68F00267D66 /* EmptyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6722298CF68F00267D66 /* EmptyGroupListView.swift */; };
 		B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = B4B02BB72966B0A4002BA614 /* AlertX */; };
@@ -143,7 +144,7 @@
 		B4856F6C2965D1FB001FA954 /* Secondary2lineText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secondary2lineText.swift; sourceTree = "<group>"; };
 		B4856F6E2965D353001FA954 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B4856F732965D6BD001FA954 /* SecondaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryText.swift; sourceTree = "<group>"; };
-		B49013032B42D9B7007B2DFC /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendService.swift; sourceTree = "<group>"; };
+		B49013032B42D9B7007B2DFC /* FriendServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendServiceProtocol.swift; sourceTree = "<group>"; };
 		B49013202B42E7E0007B2DFC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B49013232B42E875007B2DFC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B49013282B42F379007B2DFC /* KeychainManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerInterface.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		B49013392B431040007B2DFC /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		B490133B2B4311F0007B2DFC /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorProtocol.swift; sourceTree = "<group>"; };
+		B49013462B442DE2007B2DFC /* FriendsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModelProtocol.swift; sourceTree = "<group>"; };
 		B49B6720298CC4B000267D66 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		B49B6722298CF68F00267D66 /* EmptyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGroupListView.swift; sourceTree = "<group>"; };
 		B4B02BB92966C4F5002BA614 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -441,7 +443,8 @@
 		B49013122B42DBCE007B2DFC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */,
+				B49013452B442DB8007B2DFC /* Impl */,
+				B49013442B442DB1007B2DFC /* API */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -449,8 +452,8 @@
 		B49013132B42DBE5007B2DFC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */,
-				B49013032B42D9B7007B2DFC /* FriendService.swift */,
+				B49013432B43EB6B007B2DFC /* Impl */,
+				B49013422B43EB61007B2DFC /* API */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -649,6 +652,38 @@
 			isa = PBXGroup;
 			children = (
 				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		B49013422B43EB61007B2DFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B49013032B42D9B7007B2DFC /* FriendServiceProtocol.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B49013432B43EB6B007B2DFC /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				B414B1362A0A3EE3001221C3 /* FriendsAdapter.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		B49013442B442DB1007B2DFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B49013462B442DE2007B2DFC /* FriendsViewModelProtocol.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B49013452B442DB8007B2DFC /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -858,7 +893,7 @@
 				B45EB49F298921DF0039E6BD /* EmptyFriendsListView.swift in Sources */,
 				B484FEC0296C35DE0034AABD /* SharedControl.swift in Sources */,
 				B484FEA8296916960034AABD /* GroupsList.swift in Sources */,
-				B49013042B42D9B7007B2DFC /* FriendService.swift in Sources */,
+				B49013042B42D9B7007B2DFC /* FriendServiceProtocol.swift in Sources */,
 				B490132F2B42F59C007B2DFC /* Extension+View.swift in Sources */,
 				B49013292B42F379007B2DFC /* KeychainManagerInterface.swift in Sources */,
 				B40BFAC629827C1D0011CCF0 /* NoNetworkView.swift in Sources */,
@@ -868,6 +903,7 @@
 				B484FEB6296AD5F80034AABD /* News.swift in Sources */,
 				B484FEC2296C36D50034AABD /* ViewsControl.swift in Sources */,
 				B484FEA5296887690034AABD /* SectionTitle.swift in Sources */,
+				B49013472B442DE2007B2DFC /* FriendsViewModelProtocol.swift in Sources */,
 				B49013402B43CAA3007B2DFC /* NetworkMonitorProtocol.swift in Sources */,
 				B484FEAD296960670034AABD /* AddButton.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,

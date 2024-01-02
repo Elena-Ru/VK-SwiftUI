@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+// MARK: - EmptyFriendsListView
 struct EmptyFriendsListView: View {
     var body: some View {
         VStack{
           Text(Texts.EmptyFriends.noFriends)
                 .font(.title2)
                 .fontWeight(.semibold)
-            Text("🥲")
+          Text(Constants.sadSmile)
                 .font(.largeTitle)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -22,8 +23,16 @@ struct EmptyFriendsListView: View {
     }
 }
 
+// MARK: - Preview
 struct EmptyFriendsListView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyFriendsListView()
+    }
+}
+
+// MARK: - Constants
+private extension EmptyFriendsListView {
+    enum Constants {
+        static let sadSmile: String = "🥲"
     }
 }
