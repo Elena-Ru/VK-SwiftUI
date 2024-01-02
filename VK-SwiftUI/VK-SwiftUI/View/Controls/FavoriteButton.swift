@@ -15,7 +15,7 @@ struct FavoriteButton: View {
     var body: some View {
         
         Button {
-            RealmService().isFavorite(friend: friend)
+            RealmService.shared.isFavorite(friend: friend)
         } label: {
             Label("Toggle Favorite", systemImage: friend.isFavorite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)

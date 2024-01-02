@@ -34,7 +34,7 @@ final class PhotoViewModel: ObservableObject{
             let photos = try! JSONDecoder().decode( FriendPhotoResponse.self, from: data).response.items
             DispatchQueue.main.async {
                 self.photos = photos
-                RealmService().saveData(photos)
+                RealmService.shared.saveData(photos)
                 completion(photos)
             }
         }

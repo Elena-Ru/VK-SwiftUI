@@ -90,8 +90,7 @@ class GroupViewModel: ObservableObject {
     }
     
     private  func saveData  <T: Object>(_ sData: [T]){
-        
-        RealmService().saveData(sData)
+        RealmService.shared.saveData(sData)
         getGroups()
     }
     
