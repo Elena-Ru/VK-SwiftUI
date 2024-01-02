@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - EmptyFriendsListView
 struct EmptyFriendsListView: View {
     var body: some View {
         VStack{
@@ -22,6 +23,7 @@ struct EmptyFriendsListView: View {
     }
 }
 
+// MARK: - Preview
 struct EmptyFriendsListView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyFriendsListView()

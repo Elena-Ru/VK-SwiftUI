@@ -8,15 +8,18 @@
 import SwiftUI
 import RealmSwift
 
+// MARK: - FriendsResponse
 final class FriendsResponse: Decodable {
     let response: Friends
 }
 
+// MARK: - Friends
 final class Friends: Decodable {
     let items: [RLMFriend]
     
 }
 
+// MARK: - RLMFriend
 final class RLMFriend: Object, Decodable, Identifiable {
     @Persisted var id: Int = 0
     @Persisted var photo100: String = ""
@@ -25,7 +28,6 @@ final class RLMFriend: Object, Decodable, Identifiable {
     @Persisted var fullName: String = ""
     @Persisted var isRealm: Bool = false
     @Persisted var isFavorite: Bool = false
-    
     @Persisted var photos = RealmSwift.List<RLMPhoto>()
     
     enum CodingKeys: String, CodingKey {

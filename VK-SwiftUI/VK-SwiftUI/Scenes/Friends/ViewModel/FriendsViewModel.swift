@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+// MARK: - FriendsViewModel
 class FriendsViewModel: ObservableObject {
   
   @Published var showFavoritesOnly = false

@@ -8,6 +8,7 @@
 import SwiftUI
 import RealmSwift
 
+// MARK: - FriendsList
 struct FriendsList: View {
     @ObservedObject var friendsViewModel = FriendsViewModel()
     @EnvironmentObject var loginVM : LoginViewModel
