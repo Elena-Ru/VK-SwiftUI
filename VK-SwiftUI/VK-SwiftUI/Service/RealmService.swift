@@ -8,6 +8,10 @@
 import RealmSwift
 
 final class RealmService {
+  
+    static let shared = RealmService()
+    private init() {}
+
   	func deleteAll() {
   	  	do{
             let realm = try Realm()

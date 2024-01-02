@@ -65,6 +65,7 @@
 		B49013372B42FE67007B2DFC /* LoginViewModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013362B42FE67007B2DFC /* LoginViewModelInterface.swift */; };
 		B490133A2B431040007B2DFC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B49013392B431040007B2DFC /* Config.plist */; };
 		B490133C2B4311F0007B2DFC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490133B2B4311F0007B2DFC /* Secrets.swift */; };
+		B49013402B43CAA3007B2DFC /* NetworkMonitorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */; };
 		B49B6721298CC4B000267D66 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6720298CC4B000267D66 /* LaunchScreen.swift */; };
 		B49B6723298CF68F00267D66 /* EmptyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6722298CF68F00267D66 /* EmptyGroupListView.swift */; };
 		B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = B4B02BB72966B0A4002BA614 /* AlertX */; };
@@ -153,6 +154,7 @@
 		B49013362B42FE67007B2DFC /* LoginViewModelInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelInterface.swift; sourceTree = "<group>"; };
 		B49013392B431040007B2DFC /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		B490133B2B4311F0007B2DFC /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorProtocol.swift; sourceTree = "<group>"; };
 		B49B6720298CC4B000267D66 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		B49B6722298CF68F00267D66 /* EmptyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGroupListView.swift; sourceTree = "<group>"; };
 		B4B02BB92966C4F5002BA614 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B6D1F9299347F3006207C2 /* RealmService.swift */,
+				B490133D2B43CA72007B2DFC /* NetworkMonitor */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -455,7 +458,6 @@
 		B49013142B42DC4D007B2DFC /* NoNetworkView */ = {
 			isa = PBXGroup;
 			children = (
-				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
 				B40BFAC529827C1D0011CCF0 /* NoNetworkView.swift */,
 			);
 			path = NoNetworkView;
@@ -622,6 +624,31 @@
 			isa = PBXGroup;
 			children = (
 				B46CC89329923CC400746B9A /* LoginViewModel.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		B490133D2B43CA72007B2DFC /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				B49013412B43CAAA007B2DFC /* Impl */,
+				B490133E2B43CA87007B2DFC /* API */,
+			);
+			path = NetworkMonitor;
+			sourceTree = "<group>";
+		};
+		B490133E2B43CA87007B2DFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B49013412B43CAAA007B2DFC /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				B40BFAC3298277880011CCF0 /* NetworkMonitor.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -841,6 +868,7 @@
 				B484FEB6296AD5F80034AABD /* News.swift in Sources */,
 				B484FEC2296C36D50034AABD /* ViewsControl.swift in Sources */,
 				B484FEA5296887690034AABD /* SectionTitle.swift in Sources */,
+				B49013402B43CAA3007B2DFC /* NetworkMonitorProtocol.swift in Sources */,
 				B484FEAD296960670034AABD /* AddButton.swift in Sources */,
 				B4856F6529646837001FA954 /* CircleShadow.swift in Sources */,
 				B414B1352A0A3D0B001221C3 /* Photo.swift in Sources */,

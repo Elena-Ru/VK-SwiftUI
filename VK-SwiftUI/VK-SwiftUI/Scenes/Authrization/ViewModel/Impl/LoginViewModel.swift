@@ -54,7 +54,7 @@ private extension LoginViewModel {
   	
   	private func updateLoginState(isLoggedIn: Bool) {
   	  	isLogin = isLoggedIn
-  	  	userDefaults.set(isLoggedIn, forKey: UserDefaults.Keys.isLogin)
+        userDefaults.set(isLoggedIn, forKey: UserDefaults.Keys.isLogin)
   	}
 }
 

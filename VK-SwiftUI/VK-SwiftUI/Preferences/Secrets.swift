@@ -15,7 +15,19 @@ struct Secrets {
     static var clientSecret: String {
         getSecret(key: "ClientSecret")
     }
+  
+  	static var scope: String {
+  	    getSecret(key: "Scope")
+  	}
+  
+  	static var redirectURI: String {
+  	    getSecret(key: "RedirectURI")
+  	}
     
+    static var version: String {
+        getSecret(key: "Version")
+    }
+  
     private static func getSecret(key: String) -> String {
         guard let filePath = Bundle.main.path(forResource: "Config", ofType: "plist"),
               let plist = NSDictionary(contentsOfFile: filePath),

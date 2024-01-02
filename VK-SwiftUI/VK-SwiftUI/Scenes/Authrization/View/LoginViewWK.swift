@@ -4,39 +4,58 @@
 //
 //  Created by Елена Русских on 10.01.2023.
 //
-
+import Combine
 import SwiftUI
 
 // MARK: - LoginViewWK
 struct LoginViewWK: View {
-    var networkMonitor = NetworkMonitor()
+  
+    // MARK: Properties
+    var networkMonitor: NetworkMonitorProtocol
     @StateObject var loginVM = LoginViewModel()
     @State private var showLoading = false
-    
+    @State private var isConnected = false
+    @State private var cancellables = Set<AnyCancellable>()
+
+    // MARK: Initializer
+    init(networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared) {
+        self.networkMonitor = networkMonitor
+    }
+
     var body: some View {
-        if networkMonitor.isConnected {
+        if isConnected {
             if loginVM.isLogin {
-               MainView()
-                    .environmentObject(loginVM)
+                MainView().environmentObject(loginVM)
             } else {
-               LoginWebView(showLoading: $showLoading, isLogin: $loginVM.isLogin)
+                LoginWebView(showLoading: $showLoading, isLogin: $loginVM.isLogin)
                     .environmentObject(loginVM)
-                    .onAppear() {
-                       cleanRealm()
+                    .onAppear {
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            self.cleanRealm()
+                        }
+                        subscribeToNetworkChanges()
                     }
             }
         } else {
-            NoNetworkView()
+            NoNetworkView().onAppear {
+                subscribeToNetworkChanges()
+            }
         }
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Private methods
 private extension LoginViewWK {
-  	func cleanRealm() {
-        let log = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isLogin)
-  	    if  !log {
-  	        RealmService().deleteAll()
-  	    }
-  	}
+    func cleanRealm() {
+        RealmService.shared.deleteAll()
+    }
+  
+    func subscribeToNetworkChanges() {
+        networkMonitor.isConnectedPublisher
+            .receive(on: RunLoop.main)
+            .sink { isConnected in
+                self.isConnected = isConnected
+            }
+            .store(in: &cancellables)
+    }
 }

@@ -42,12 +42,13 @@ extension WebViewCoordinator: WKNavigationDelegate {
         decidePolicyFor navigationResponse: WKNavigationResponse,
         decisionHandler: (WKNavigationResponsePolicy) -> Void
     ) {
-        guard let url = navigationResponse.response.url,
-              url.path == "/blank.html",
-              let fragment = url.fragment
+        guard
+            let url = navigationResponse.response.url,
+            url.path == Constants.redirectPath,
+            let fragment = url.fragment
         else {
-          decisionHandler(.allow)
-          return
+            decisionHandler(.allow)
+            return
         }
         
         let parameters = fragment
@@ -61,11 +62,11 @@ extension WebViewCoordinator: WKNavigationDelegate {
             return dict
           }
         guard
-          	let token = parameters["access_token"],
-          	let userIDString = parameters["user_id"]
+            let token = parameters[Constants.accessTokenKey],
+            let userIDString = parameters[Constants.userIDKey]
         else {
-         	 decisionHandler(.allow)
-         	 return
+            decisionHandler(.allow)
+            return
         }
         didLogin()
         AuthenticationManager.shared.setAccessToken(token: token)
@@ -80,4 +81,13 @@ extension WebViewCoordinator: WKNavigationDelegate {
     ) {
         print(error)
     }
+}
+
+// MARK: - Constants
+private extension WebViewCoordinator {
+  	enum Constants {
+  	    static let redirectPath: String = "/blank.html"
+  	    static let accessTokenKey: String = "access_token"
+  	    static let userIDKey: String = "user_id"
+  	}
 }

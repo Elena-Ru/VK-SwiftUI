@@ -48,7 +48,7 @@ final class FriendsAdapter: FriendService {
       AF.request(url, method: .post,  parameters: parameters).response { result in
         if let data = result.data {
           if let rlmFriends = try? JSONDecoder().decode(FriendsResponse.self, from: data).response.items {
-            RealmService().saveData(rlmFriends)
+            RealmService.shared.saveData(rlmFriends)
             rlmFriends.forEach { rlmFriend in
               friends.append(self.friend(from: rlmFriend))
             }

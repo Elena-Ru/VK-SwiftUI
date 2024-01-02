@@ -31,7 +31,9 @@ struct FriendsList: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: {
                     Button(action: {
-                        loginVM.logOut()
+                        DispatchQueue.main.async {
+                          loginVM.logOut()
+                        }
                     }, label: {
                         Image(systemName: "rectangle.portrait.and.arrow.forward")
                             .rotationEffect(.degrees(180))
@@ -88,8 +90,3 @@ struct FriendsList: View {
         friendsViewModel.updateFriends()
     }
 }
-
-
-
-
-
