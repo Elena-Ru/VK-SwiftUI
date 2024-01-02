@@ -10,6 +10,7 @@ import RealmSwift
 
 // MARK: - FriendsRow
 struct FriendsRow: View {
+    // MARK: Properties
     @StateObject var friendsViewModel:  FriendsViewModel
     @ObservedRealmObject var friend: RLMFriend
     
@@ -23,9 +24,16 @@ struct FriendsRow: View {
             VStack (alignment: .leading) {
                 NameBoldText(name: $friend.fullName)
             }
-            .padding(.leading, 20)
+            .padding(.leading, Constants.inset)
             Spacer()
             FavoriteButton(friend: friend)
         }
+    }
+}
+
+// MARK: - Constants
+private extension FriendsRow {
+    enum Constants {
+        static let inset: CGFloat = 20
     }
 }

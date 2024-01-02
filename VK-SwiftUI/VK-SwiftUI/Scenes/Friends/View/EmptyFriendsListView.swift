@@ -14,7 +14,7 @@ struct EmptyFriendsListView: View {
           Text(Texts.EmptyFriends.noFriends)
                 .font(.title2)
                 .fontWeight(.semibold)
-            Text("🥲")
+          Text(Constants.sadSmile)
                 .font(.largeTitle)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -27,5 +27,12 @@ struct EmptyFriendsListView: View {
 struct EmptyFriendsListView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyFriendsListView()
+    }
+}
+
+// MARK: - Constants
+private extension EmptyFriendsListView {
+    enum Constants {
+        static let sadSmile: String = "🥲"
     }
 }

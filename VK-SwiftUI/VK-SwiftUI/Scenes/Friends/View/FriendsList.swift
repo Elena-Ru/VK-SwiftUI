@@ -10,6 +10,7 @@ import RealmSwift
 
 // MARK: - FriendsList
 struct FriendsList: View {
+    // MARK: Properties
     @ObservedObject var friendsViewModel = FriendsViewModel()
     @EnvironmentObject var loginVM : LoginViewModel
     @ObservedResults(RLMFriend.self) var friends
@@ -17,6 +18,7 @@ struct FriendsList: View {
     var body: some View {
         contentView
     }
+  
     var contentView: some View {
         NavigationView {
             ZStack {
@@ -36,16 +38,13 @@ struct FriendsList: View {
                           loginVM.logOut()
                         }
                     }, label: {
-                        Image(systemName: "rectangle.portrait.and.arrow.forward")
-                            .rotationEffect(.degrees(180))
+                        Image(systemName: Constants.logoutIcon)
+                            .rotationEffect(.degrees(Constants.rotationDegree))
                             .foregroundColor(Color.theme.control)
-                        
-                    }
-                    )
+                    })
                 })
             }
         }
-     
         .onAppear{
             friendsViewModel.getFriends()
         }
@@ -60,13 +59,12 @@ struct FriendsList: View {
                     ForEach(friends.filter({ friend in
                         friend.lastName.first?.lowercased() == letter.lowercased()})) { friend in
                          NavigationLink {
-                                 FriendPhotos(friend: friend)
+                            FriendPhotos(friend: friend)
                          }
                          label: {
-                             FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
+                            FriendsRow(friendsViewModel: friendsViewModel, friend: friend)
                         }
-                         .disabled(friend.photo100 == "https://vk.com/images/camera_100.png")
-                         
+                         .disabled(friend.photo100 == Constants.friendDefaultIcon )
                      }
                  }
              }
@@ -77,17 +75,29 @@ struct FriendsList: View {
     var toggle: some View {
         Toggle(isOn: $friendsViewModel.showFavoritesOnly) {
           Text(Texts.FriendsVC.favoritesOnly)
-                .font(.subheadline)
+              .font(.subheadline)
         }
-        .onChange(of: friendsViewModel.showFavoritesOnly) { value in
+        .onChange(of: friendsViewModel.showFavoritesOnly) { _ in
             friendsViewModel.updateFriends()
-            }
+        }
     }
-    
-    func delete(at offsets: IndexSet) {
-        let index = offsets[offsets.startIndex]
-        friendsViewModel.deleteFriend(friendId: friends[index].id)
-        $friends.remove(atOffsets: offsets)
-        friendsViewModel.updateFriends()
+}
+
+// MARK: - Private methods
+private extension FriendsList {
+  	func delete(at offsets: IndexSet) {
+  	    let index = offsets[offsets.startIndex]
+  	    friendsViewModel.deleteFriend(friendId: friends[index].id)
+  	    $friends.remove(atOffsets: offsets)
+  	    friendsViewModel.updateFriends()
+  	}
+}
+
+// MARK: - Constants
+private extension FriendsList {
+    enum Constants {
+        static let logoutIcon: String = "rectangle.portrait.and.arrow.forward"
+        static let friendDefaultIcon: String = "https://vk.com/images/camera_100.png"
+        static let rotationDegree: CGFloat = 180
     }
 }

@@ -91,12 +91,12 @@ private extension FriendsAdapter {
 private extension FriendsAdapter {
   	enum Constants {
         static let baseUrl: String = "https://api.vk.com"
-  	    static let friendsGetMethod = "/method/friends.get"
-  	    static let accessTokenKey = "access_token"
-  	    static let userIdKey = "user_id"
-  	    static let clientIdKey = "client_id"
-  	    static let fieldsKey = "fields"
-  	    static let versionKey = "v"
-  	    static let fieldsValue = "photo_100, education"
+      	static let friendsGetMethod: String = "/method/friends.get"
+      	static let accessTokenKey: String = "access_token"
+      	static let userIdKey: String = "user_id"
+      	static let clientIdKey: String = "client_id"
+      	static let fieldsKey: String = "fields"
+      	static let versionKey: String = "v"
+      	static let fieldsValue: String = "photo_100, education"
   	}
 }
