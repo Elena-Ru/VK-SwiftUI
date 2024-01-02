@@ -67,6 +67,7 @@
 		B490133C2B4311F0007B2DFC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490133B2B4311F0007B2DFC /* Secrets.swift */; };
 		B49013402B43CAA3007B2DFC /* NetworkMonitorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */; };
 		B49013472B442DE2007B2DFC /* FriendsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49013462B442DE2007B2DFC /* FriendsViewModelProtocol.swift */; };
+		B490134B2B444731007B2DFC /* PhotoViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490134A2B444731007B2DFC /* PhotoViewModelProtocol.swift */; };
 		B49B6721298CC4B000267D66 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6720298CC4B000267D66 /* LaunchScreen.swift */; };
 		B49B6723298CF68F00267D66 /* EmptyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6722298CF68F00267D66 /* EmptyGroupListView.swift */; };
 		B4B02BB82966B0A4002BA614 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = B4B02BB72966B0A4002BA614 /* AlertX */; };
@@ -157,6 +158,7 @@
 		B490133B2B4311F0007B2DFC /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B490133F2B43CAA3007B2DFC /* NetworkMonitorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorProtocol.swift; sourceTree = "<group>"; };
 		B49013462B442DE2007B2DFC /* FriendsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModelProtocol.swift; sourceTree = "<group>"; };
+		B490134A2B444731007B2DFC /* PhotoViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModelProtocol.swift; sourceTree = "<group>"; };
 		B49B6720298CC4B000267D66 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		B49B6722298CF68F00267D66 /* EmptyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGroupListView.swift; sourceTree = "<group>"; };
 		B4B02BB92966C4F5002BA614 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -515,7 +517,8 @@
 		B490131A2B42DE60007B2DFC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B41046012976B92E000A6932 /* PhotoViewModel.swift */,
+				B49013492B444715007B2DFC /* Impl */,
+				B49013482B44470C007B2DFC /* API */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -684,6 +687,22 @@
 			isa = PBXGroup;
 			children = (
 				B4BC201C29706561002C1CF2 /* FriendsViewModel.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		B49013482B44470C007B2DFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B490134A2B444731007B2DFC /* PhotoViewModelProtocol.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B49013492B444715007B2DFC /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				B41046012976B92E000A6932 /* PhotoViewModel.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -953,6 +972,7 @@
 				B484FEBC296C0F2A0034AABD /* LikeNewsControl.swift in Sources */,
 				B4B02BE229682968002BA614 /* PhotoView.swift in Sources */,
 				B4856F6729652AC0001FA954 /* FavoriteButton.swift in Sources */,
+				B490134B2B444731007B2DFC /* PhotoViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
