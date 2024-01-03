@@ -9,13 +9,16 @@ import SwiftUI
 import SDWebImage
 import SDWebImageSwiftUI
 
+// MARK: - PhotoView
 struct PhotoView: View {
+  
+    // MARK: Properties
     @StateObject var photoViewModel: PhotoViewModel
     @State var currentIndex: Int
-    @State var currentAmount: CGFloat = 0
+    @State var currentAmount: CGFloat = .zero
     
     var body: some View {
-      contentView
+        contentView
     }
     
     var contentView: some View {
@@ -29,15 +32,14 @@ struct PhotoView: View {
                         .scaleEffect(1 + currentAmount)
                         .gesture(
                             MagnificationGesture()
-                                .onChanged{ value in
+                                .onChanged { value in
                                     currentAmount = value - 1
                                 }
-                                .onEnded{ value in
+                                .onEnded { value in
                                     withAnimation(.spring()) {
-                                        currentAmount = 0
+                                        currentAmount = .zero
                                     }
-                                }
-                        )
+                                })
                 }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))

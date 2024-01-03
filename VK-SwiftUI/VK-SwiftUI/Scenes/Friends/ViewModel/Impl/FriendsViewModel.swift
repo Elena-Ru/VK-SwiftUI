@@ -22,7 +22,7 @@ class FriendsViewModel: ObservableObject {
 extension FriendsViewModel: FriendsViewModelProtocol {
   	func getFriends() {
   	    friendsService.get(
-  	        token: AuthenticationManager.shared.accessToken ?? Constants.emptyString,
+            token: AuthenticationManager.shared.accessToken ?? .empty,
   	        id: Int(AuthenticationManager.shared.clientID ?? Constants.defaultClientIdString) ?? Constants.defaultClientId
   	    ) { [weak self] items in
             guard let self = self else { return }
@@ -47,7 +47,7 @@ extension FriendsViewModel: FriendsViewModelProtocol {
 
   	func deleteFriend(friendId: Int) {
   	    let parameters: Parameters = [
-  	        Constants.accessTokenKey: AuthenticationManager.shared.accessToken ?? Constants.emptyString,
+            Constants.accessTokenKey: AuthenticationManager.shared.accessToken ?? .empty,
   	        Constants.userIdKey: friendId,
   	        Constants.versionKey: Secrets.version
   	    ]
@@ -69,7 +69,7 @@ extension FriendsViewModel: FriendsViewModelProtocol {
 // MARK: - Private methods
 private extension FriendsViewModel {
   	func sortFriends(_ friends: [Friend]) -> [Friend] {
-        return friends.sorted { $0.lastName?.first ?? Constants.emptyCharacter < $1.lastName?.first ?? Constants.emptyCharacter }
+        return friends.sorted { $0.lastName?.first ?? .emptyCharacter < $1.lastName?.first ?? .emptyCharacter }
   	}
   
   	func createFirstLetterArray(from friends: [Friend]) -> [Character] {
@@ -87,7 +87,5 @@ private extension FriendsViewModel {
         static let versionKey: String = "v"
         static let defaultClientId: Int = 1
         static let defaultClientIdString: String = "1"
-        static let emptyCharacter: Character = " "
-        static let emptyString: String = ""
     }
 }

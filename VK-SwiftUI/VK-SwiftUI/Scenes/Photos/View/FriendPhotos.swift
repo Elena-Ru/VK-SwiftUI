@@ -9,11 +9,12 @@ import SwiftUI
 import SDWebImage
 import SDWebImageSwiftUI
 
+// MARK: - PhotoView
 struct FriendPhotos: View {
     @ObservedObject var photoVieModel = PhotoViewModel()
-    var friend: RLMFriend
     @State var photos : [RLMPhoto] = []
-    let columnLayout = Array(repeating: GridItem(.flexible(minimum: 50, maximum: .infinity)), count: 2)
+    let columnLayout = Array(repeating: GridItem(.flexible(minimum: Constants.minimumSize, maximum: .infinity)), count: Constants.colomnCount)
+    var friend: RLMFriend
     
     var body: some View {
         contentView
@@ -22,7 +23,7 @@ struct FriendPhotos: View {
     var contentView: some View {
         GeometryReader { geometry in
             ScrollView {
-                LazyVGrid(columns: columnLayout, alignment: .center, spacing: 6) {
+                LazyVGrid(columns: columnLayout, alignment: .center, spacing: Constants.itemSpacing) {
                   if !photoVieModel.photos.isEmpty {
                         ForEach(photoVieModel.photos.indices, id: \.self) { index in
                             VStack {
@@ -31,11 +32,11 @@ struct FriendPhotos: View {
                                         .resizable()
                                         .clipped()
                                         .aspectRatio(1, contentMode: .fill)
-                                        .cornerRadius(12)
+                                        .cornerRadius(Constants.cornerRadius)
                                 }
                                 LikeControl(isLike: photoVieModel.photos[index].userLikes, qty: photoVieModel.photos[index].count, owner: friend.id, item: photoVieModel.photos[index].id )
-                                    .padding(.top, -5)
-                                    .padding(.trailing, -60)
+                                    .padding(.top, Constants.topPadding)
+                                    .padding(.trailing, Constants.trailingPadding)
                             }
                         }
                         .frame(height: geometry.size.width/2)
@@ -50,11 +51,28 @@ struct FriendPhotos: View {
             }
         }
     }
-        private func getPhotos() {
-            photoVieModel.getUserPhotos(token: AuthenticationManager.shared.accessToken ?? "", idFriend: friend.id) { items in
-                self.photos = items
-            }
-        }
+}
+
+// MARK: - Private methods
+private extension FriendPhotos {
+    func getPhotos() {
+        photoVieModel.getUserPhotos(
+            token: AuthenticationManager.shared.accessToken ?? .empty,
+            idFriend: friend.id
+        ) { items in
+              self.photos = items
+          }
     }
+}
 
-
+// MARK: - Constants
+private extension FriendPhotos {
+  enum Constants {
+      static let trailingPadding: CGFloat = -60
+      static let topPadding: CGFloat = -5
+      static let cornerRadius: CGFloat = 12
+      static let minimumSize: CGFloat = 50
+      static let colomnCount: Int = 2
+      static let itemSpacing: CGFloat = 6
+  }
+}
