@@ -24,10 +24,10 @@ final class RLMFriend: Object, Decodable, Identifiable {
   
     // MARK: Properties
     @Persisted var id: Int = .zero
-    @Persisted var photo100: String = Constants.emptyString
-    @Persisted var firstName: String = Constants.emptyString
-    @Persisted var lastName: String = Constants.emptyString
-    @Persisted var fullName: String = Constants.emptyString
+    @Persisted var photo100: String = .empty
+    @Persisted var firstName: String = .empty
+    @Persisted var lastName: String = .empty
+    @Persisted var fullName: String = .empty
     @Persisted var isRealm: Bool = false
     @Persisted var isFavorite: Bool = false
     @Persisted var photos = RealmSwift.List<RLMPhoto>()
@@ -48,7 +48,7 @@ final class RLMFriend: Object, Decodable, Identifiable {
         self.photo100 = try values.decode(String.self, forKey: .photo100)
         self.firstName = try values.decode(String.self, forKey: .firstName)
         self.lastName = try values.decode(String.self, forKey: .lastName)
-        self.fullName = self.firstName + Constants.emptyCharacter + self.lastName
+        self.fullName = self.firstName + .emptyCharacterString + self.lastName
     }
     
     override static func primaryKey() -> String? {
@@ -60,7 +60,5 @@ final class RLMFriend: Object, Decodable, Identifiable {
 private extension RLMFriend {
     enum Constants {
         static let primaryKey: String = "id"
-        static let emptyCharacter: String = " "
-        static let emptyString: String = ""
     }
 }

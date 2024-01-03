@@ -47,7 +47,7 @@ extension PhotoViewModel: PhotoViewModelProtocol {
   	    let url = Constants.baseUrl + path
   	    
   	    let parameters: Parameters = [
-  	          Constants.accessTokenKey : AuthenticationManager.shared.accessToken ?? Constants.emptyString,
+              Constants.accessTokenKey : AuthenticationManager.shared.accessToken ?? .empty,
   	          Constants.typeKey: Constants.typeValue,
   	          Constants.ownerIdKey: owner,
   	          Constants.itemIdKey: item,
@@ -73,7 +73,6 @@ private extension PhotoViewModel {
         static let typeKey: String = "type"
         static let ownerIdKey: String = "owner_id"
         static let itemIdKey: String = "item_id"
-        static let emptyString: String = ""
         static let albumIdKey: String = "album_id"
         static let albumIdValue: String = "profile"
         static let extendedKey: String = "extended"

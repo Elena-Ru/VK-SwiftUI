@@ -7,42 +7,43 @@
 
 import RealmSwift
 
-
+// MARK: - FriendPhotoResponse
 final class FriendPhotoResponse: Decodable {
     let response: FriendsPhotos
 }
 
-
+// MARK: - FriendsPhotos
 final class FriendsPhotos: Decodable {
     let items: [RLMPhoto]
 }
 
+// MARK: - RLMPhoto
 final class RLMPhoto: Object, Decodable {
 
-    @Persisted var id: Int = 0
-    @Persisted var url: String = ""
-    @Persisted var count: Int = 0
-    @Persisted var userLikes: Int = 0
-    
+    @Persisted var id: Int = .zero
+    @Persisted var url: String = .empty
+    @Persisted var count: Int = .zero
+    @Persisted var userLikes: Int = .zero
     @Persisted var owner: RLMFriend?
     @Persisted var owners = LinkingObjects(fromType: RLMFriend.self, property: "photos")
 
-    
-    enum CodingKeys: String, CodingKey{
+    // MARK: CodingKey
+    enum CodingKeys: String, CodingKey {
         case id
         case likes
         case sizes
     }
   
-    enum SizeKeys: String, CodingKey{
+    enum SizeKeys: String, CodingKey {
         case url
     }
     
-    enum LikesKeys: String, CodingKey{
+    enum LikesKeys: String, CodingKey {
         case count
         case userLikes = "user_likes"
     }
 
+    // MARK: Initializer
     convenience required init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -78,8 +79,16 @@ final class RLMPhoto: Object, Decodable {
         self.count = try likeValues.decode(Int.self, forKey: .count)
         self.userLikes = try likeValues.decode(Int.self, forKey: .userLikes)
     }
-    
+  
+    // MARK: PrimaryKey
     override static func primaryKey() -> String? {
-        return "id"
+        Constants.primaryKey
+    }
+}
+
+// MARK: - Constants
+private extension RLMPhoto {
+    enum Constants {
+        static let primaryKey: String = "id"
     }
 }
