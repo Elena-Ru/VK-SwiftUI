@@ -7,19 +7,22 @@
 
 import RealmSwift
 
+// MARK: - GroupResponse
 final class GroupResponse: Decodable {
     let response: Groups
 }
 
-final class Groups: Decodable{
+// MARK: - Groups
+final class Groups: Decodable {
     let items: [Group]
 }
 
-final class Group: Object, Decodable, Identifiable{
-    @Persisted var id: Int = 0
-    @Persisted var name: String = ""
-    @Persisted var photoGroup: String = ""
-    @Persisted var screenName: String = ""
+// MARK: - Group
+final class Group: Object, Decodable, Identifiable {
+    @Persisted var id: Int = .zero
+    @Persisted var name: String = .empty
+    @Persisted var photoGroup: String = .empty
+    @Persisted var screenName: String = .empty
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -29,9 +32,15 @@ final class Group: Object, Decodable, Identifiable{
     }
     
     override static func primaryKey() -> String? {
-        return "id"
+        Constants.primaryKey
     }
 }
 
+// MARK: - Constants
+private extension Group {
+    enum Constants {
+        static let primaryKey: String = "id"
+    }
+}
 
 

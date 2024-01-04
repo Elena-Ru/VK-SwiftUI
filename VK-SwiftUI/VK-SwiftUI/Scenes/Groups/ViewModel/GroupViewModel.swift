@@ -11,17 +11,16 @@ import Alamofire
 import SwiftUI
 import Combine
 
-class GroupViewModel: ObservableObject {
+// MARK: - GroupViewModel
+final class GroupViewModel: ObservableObject {
     
     @Published var allGroups: [Group] = []
     @Published var isListEmpty = false
     let realm = try! Realm()
-    let baseUrl = "https://api.vk.com"
-    let clientId = "51542327" //id_приложения
     
-    func getGroups(){
-        getUserGroups(token: AuthenticationManager.shared.accessToken ?? "",
-                      id: Int(AuthenticationManager.shared.clientID ?? "1") ?? 1){ items in
+    func getGroups() {
+      getUserGroups(token: AuthenticationManager.shared.accessToken ?? .empty,
+                      id: Int(AuthenticationManager.shared.clientID ?? "1") ?? 1) { items in
             if items.isEmpty {
                 self.isListEmpty = true
             } else {
@@ -30,7 +29,10 @@ class GroupViewModel: ObservableObject {
         }
     }
     
-    func getUserGroups(token: String, id: Int, completion: @escaping ([Group]) -> ()){
+    func getUserGroups(
+        token: String,
+        id: Int,
+        completion: @escaping ([Group]) -> ()){
         
         let groupsRealmAr = Array(realm.objects(Group.self))
         if !groupsRealmAr.isEmpty {
@@ -39,15 +41,15 @@ class GroupViewModel: ObservableObject {
         }
         let path = "/method/groups.get"
         let parameters: Parameters = [
-            "access_token" : token,
+            Constants.accessTokenKey : token,
             "user_id": id,
-            "client_id": clientId,
+            "client_id": Secrets.clientID,
             "extended": "1",
             "fields": "name, photo_50, members_count",
-            "v": "5.131"
+            Constants.versionKey: Secrets.version
         ]
         
-        let url = baseUrl+path
+        let url = Constants.baseUrl+path
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             guard let data = response.value  else { return}
@@ -62,7 +64,9 @@ class GroupViewModel: ObservableObject {
         }
     }
     
-    func getGroupsAll(token: String, completion: @escaping ([Group]) -> Void){
+    func getGroupsAll(
+        token: String,
+        completion: @escaping ([Group]) -> Void) {
         
         let path = "/method/groups.search"
         
@@ -71,17 +75,20 @@ class GroupViewModel: ObservableObject {
             "type": "group",
             "count": "100",
             "sort": 6,
-            "access_token" : token,
-            "client_id": clientId,
-            "v": "5.131"
+            Constants.accessTokenKey : token,
+            "client_id": Secrets.clientID,
+            Constants.versionKey: Secrets.version
         ]
         
-        let url = baseUrl+path
+          let url = Constants.baseUrl+path
         
-        AF.request(url, parameters: parameters).responseData { response in
-            guard let data = response.value  else { return}
+        AF.request(
+            url,
+            parameters: parameters
+          ).responseData { response in
+            guard let data = response.value  else { return }
             
-            let groups = try! JSONDecoder().decode( GroupResponse.self, from: data).response.items
+            let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
             DispatchQueue.main.async {
                 self.allGroups = groups
                 completion(groups)
@@ -89,40 +96,61 @@ class GroupViewModel: ObservableObject {
         }
     }
     
-    private  func saveData  <T: Object>(_ sData: [T]){
+    private func saveData <T: Object>(_ sData: [T]) {
         RealmService.shared.saveData(sData)
         getGroups()
     }
     
-    func leaveGroup( groupId: Int) {
+    func leaveGroup(groupId: Int) {
         
         let path = "/method/groups.leave"
-        let url = baseUrl+path
+        let url = Constants.baseUrl+path
         let parameters: Parameters = [
-                "access_token" : AuthenticationManager.shared.accessToken ?? "",
-                "group_id": groupId,
-                "v": "5.131"
+            Constants.accessTokenKey: AuthenticationManager.shared.accessToken ?? .empty,
+              "group_id": groupId,
+              Constants.versionKey: Secrets.version
             ]
         
-         AF.request(url, method: .get, parameters: parameters).responseData { response in
-             guard response.value != nil  else { return}
-             print("You have left this group")
+         AF.request(
+            url,
+            method: .get,
+            parameters: parameters
+         ).responseData { response in
+            guard response.value != nil else { return }
+            print("You have left this group")
          }
     }
     
-    func joinGroup( groupId: Int) {
-        
+    func joinGroup(groupId: Int) {
         let path = "/method/groups.join"
-        let url = baseUrl+path
+        let url = Constants.baseUrl+path
         let parameters: Parameters = [
-                "access_token" : AuthenticationManager.shared.accessToken ?? "",
-                "group_id": groupId,
-                "v": "5.131"
+              Constants.accessTokenKey : AuthenticationManager.shared.accessToken ?? .empty,
+              "group_id": groupId,
+              Constants.versionKey: Secrets.version
             ]
         
-         AF.request(url, method: .get, parameters: parameters).responseData { response in
-             guard response.value != nil  else { return}
+         AF.request(
+            url,
+            method: .get,
+            parameters: parameters
+         ).responseData { response in
+             guard response.value != nil  else { return }
              print("You have joined this group")
          }
+    }
+}
+
+// MARK: - Constants
+private extension GroupViewModel {
+    enum Constants {
+        static let baseUrl: String = "https://api.vk.com"
+        static let friendsGetMethod: String = "/method/friends.get"
+        static let accessTokenKey: String = "access_token"
+        static let userIdKey: String = "user_id"
+        static let clientIdKey: String = "client_id"
+        static let groupKey: String = "fields"
+        static let versionKey: String = "v"
+        static let fieldsValue: String = "photo_100, education"
     }
 }

@@ -15,12 +15,12 @@ struct AllGroupsList: View {
     @ObservedResults(Group.self) var itemGroups
     @State var allGroups : [Group] = []
     @State var isAlreadyExist: Bool = false
-    @State var searchText : String = ""
+    @State var searchText : String = .empty
     
     var body: some View {
         contentView
             .onAppear{
-                groupsViewModel.getGroupsAll(token: AuthenticationManager.shared.accessToken ?? "") { items in
+                groupsViewModel.getGroupsAll(token: AuthenticationManager.shared.accessToken ?? .empty) { items in
                     self.allGroups = items
                 }
             }
@@ -46,8 +46,9 @@ struct AllGroupsList: View {
                         }
                 }
                 .alertX(isPresented: $isAlreadyExist, content: {
-                  AlertX(title: Text(Texts.Alert.alreadyExist),
-                           theme: .cherry(withTransparency: true, roundedCorners: true))
+                  AlertX(
+                      title: Text(Texts.Alert.alreadyExist),
+                      theme: .cherry(withTransparency: true, roundedCorners: true))
                 })
                 .searchable(text: $searchText)
                 .background(Color(uiColor: .systemBackground))
