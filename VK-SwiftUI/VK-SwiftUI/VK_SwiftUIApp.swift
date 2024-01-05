@@ -11,6 +11,7 @@ import SwiftUI
 struct VK_SwiftUIApp: App {
     @StateObject private var friendsVM = FriendsViewModel()
     @State private var showLaunchScreen: Bool = true
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
