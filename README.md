@@ -39,7 +39,8 @@ There is a list news on the third TabView. Here you can see the news from your g
 ![news](https://user-images.githubusercontent.com/10026372/216014281-fa626ccb-2843-410f-bb9f-290a600698f0.jpg)
 
 Application uses:
- - Realm for storing data;
- - Alamofire for requests;
- - SDWebImage for images;
- - AlertX for custom alert views.
+ - Realm;
+ - Alamofire;
+ - SDWebImage;
+ - SwiftLint;
+ - AlertX.
