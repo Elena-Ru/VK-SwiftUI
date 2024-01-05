@@ -35,21 +35,19 @@ final class RealmService {
         }
     }
     
-    func isFavorite(friend: RLMFriend) {
-        let realm = try! Realm()
-        let friend = realm.objects(RLMFriend.self).where{$0.id == friend.id}
-        let friendR = friend.thaw()
-        do {
-            realm.beginWrite()
-            if friend[0].isFavorite {
-                friendR?.setValue(false, forKey: "isFavorite")
-            } else {
-                friendR?.setValue(true, forKey: "isFavorite")
-            }
-            realm.add(friendR!, update: .modified)            
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-    }
+  func isFavorite(friend: RLMFriend) {
+      do {
+          let realm = try Realm()
+          if let friendObject = realm.object(ofType: RLMFriend.self, forPrimaryKey: friend.id) {
+              if let thawedFriend = friendObject.thaw() {
+                  try realm.write {
+                      thawedFriend.isFavorite.toggle() 
+                  }
+              }
+          }
+      } catch {
+          print(error)
+      }
+  }
+
 }
