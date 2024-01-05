@@ -17,31 +17,36 @@ final class PhotoViewModel: ObservableObject {
 
 // MARK: - PhotoViewModelProtocol
 extension PhotoViewModel: PhotoViewModelProtocol {
-  	func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([RLMPhoto]) -> Void){
-  	    let path = Constants.photoGetMethod
-  	    let parameters: Parameters = [
-  	        Constants.accessTokenKey: token,
-  	        Constants.ownerIdKey: idFriend,
-  	        Constants.albumIdKey: Constants.albumIdValue,
-  	        Constants.extendedKey: Constants.extendedValue,
-  	        Constants.photoSizesKey: Constants.photoSizesValue,
-  	        Constants.clientIdKey: Secrets.clientID,
-  	        Constants.versionKey: Secrets.version
-  	    ]
-  	    
-  	    let url = Constants.baseUrl + path
-  	    
-  	    AF.request(url, method: .get, parameters: parameters).responseData { response in
-  	        guard let data = response.value else { return}
-  	        let photos = try! JSONDecoder().decode( FriendPhotoResponse.self, from: data).response.items
-  	        DispatchQueue.main.async {
-  	            self.photos = photos
-  	            RealmService.shared.saveData(photos)
-  	            completion(photos)
-  	        }
-  	    }
-  	}
-  
+    func getUserPhotos(token: String, idFriend: Int, completion: @escaping ([RLMPhoto]) -> Void) {
+        let path = Constants.photoGetMethod
+        let parameters: Parameters = [
+            Constants.accessTokenKey: token,
+            Constants.ownerIdKey: idFriend,
+            Constants.albumIdKey: Constants.albumIdValue,
+            Constants.extendedKey: Constants.extendedValue,
+            Constants.photoSizesKey: Constants.photoSizesValue,
+            Constants.clientIdKey: Secrets.clientID,
+            Constants.versionKey: Secrets.version
+        ]
+      
+        let url = Constants.baseUrl + path
+      
+        AF.request(url, method: .get, parameters: parameters).responseData { response in
+            guard let data = response.value else { return }
+          
+            if let photos = try? JSONDecoder().decode(FriendPhotoResponse.self, from: data).response.items {
+                DispatchQueue.main.async {
+                    self.photos = photos
+                    RealmService.shared.saveData(photos)
+                    completion(photos)
+                }
+            } else {
+                // Обработка ошибки декодирования
+                print("Ошибка декодирования данных")
+            }
+        }
+    }
+    
   	func postLike(isLike: inout Int, owner: Int, item: Int) {
   	    let path = isLike == Constants.photoLikedByUser ? Constants.likeAddMethod : Constants.likeDeleteMethod
   	    let url = Constants.baseUrl + path

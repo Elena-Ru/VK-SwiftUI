@@ -11,30 +11,45 @@ import RealmSwift
 
 // MARK: - FriendsAdapter
 final class FriendsAdapter {
-    private var realm: Realm {
-        return try! Realm()
+    private var realm: Realm? {
+        do {
+            return try Realm()
+        } catch {
+            print("Ошибка при инициализации Realm: \(error)")
+            return nil
+        }
     }
 }
 
 // MARK: - FriendServiceProtocol
 extension FriendsAdapter: FriendServiceProtocol {
-    func getFromRLM(completion: @escaping ([Friend]) -> ()) {
-        let rlmFriends = realm.objects(RLMFriend.self)
-        lazy var friends = [Friend]()
-        rlmFriends.forEach { rlmFriend in
-            friends.append(self.friend(from: rlmFriend))
+    func getFromRLM(completion: @escaping ([Friend]) -> Void) {
+        if let realm = self.realm {
+          let rlmFriends = realm.objects(RLMFriend.self)
+          lazy var friends = [Friend]()
+          rlmFriends.forEach { rlmFriend in
+              friends.append(self.friend(from: rlmFriend))
+          }
+          completion(friends)
+        } else {
+          print("Не удалось инициализировать Realm. Дальнейшие операции с базой данных невозможны.")
+          
         }
-        completion(friends)
     }
     
-    func get(token: String, id: Int, completion: @escaping ([Friend]) -> ()) {
-        let friendsRealmAr = Array(realm.objects(RLMFriend.self))
-        if !friendsRealmAr.isEmpty {
-            completion(friendsRealmAr.map { self.friend(from: $0) })
-        } else {
-            fetchFriendsFromServer(token: token, id: id, completion: completion)
-        }
+  func get(token: String, id: Int, completion: @escaping ([Friend]) -> Void) {
+    if let realm = self.realm {
+      let friendsRealmAr = Array(realm.objects(RLMFriend.self))
+      if !friendsRealmAr.isEmpty {
+        completion(friendsRealmAr.map { self.friend(from: $0) })
+      } else {
+        fetchFriendsFromServer(token: token, id: id, completion: completion)
+      }
+    } else {
+      print("Не удалось инициализировать Realm. Дальнейшие операции с базой данных невозможны.")
+
     }
+  }
 }
 
 // MARK: - Private methods
