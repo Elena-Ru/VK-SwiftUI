@@ -11,15 +11,13 @@ struct AddButton: View {
     var body: some View {
         Image(systemName: "plus.circle.fill")
             .font(.title)
-            .foregroundStyle(   //Only for iOS 15 & above.
+            .foregroundStyle( 
                     .linearGradient(
                         colors: [Color.theme.ginger, .orange],
                         startPoint: .top,
                         endPoint: .bottom
                     )
                 )
-        
-    
     }
 }
 

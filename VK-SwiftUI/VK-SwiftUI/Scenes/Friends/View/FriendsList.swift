@@ -12,7 +12,7 @@ import RealmSwift
 struct FriendsList: View {
     // MARK: Properties
     @ObservedObject var friendsViewModel = FriendsViewModel()
-    @EnvironmentObject var loginVM : LoginViewModel
+    @EnvironmentObject var loginVM: LoginViewModel
     @ObservedResults(RLMFriend.self) var friends
     
     var body: some View {
@@ -45,7 +45,7 @@ struct FriendsList: View {
                 })
             }
         }
-        .onAppear{
+        .onAppear {
             friendsViewModel.getFriends()
         }
         .ignoresSafeArea()

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct CircleShadow: ViewModifier {
   
   func body(content: Content) -> some View {

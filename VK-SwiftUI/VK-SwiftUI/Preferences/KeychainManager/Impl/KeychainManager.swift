@@ -52,16 +52,15 @@ class KeychainManager: KeychainManagerInterface {
     }
     
     func delete(service: String, account: String) {
-        let query: [String: AnyObject] = [
+        let _: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service as AnyObject,
             kSecAttrAccount as String: account as AnyObject
         ]
     }
     
-    //MARK: Initializer
+    // MARK: Initializer
     init() {
         
     }
 }
-

@@ -23,7 +23,7 @@ struct PhotoView: View {
     
     var contentView: some View {
         TabView(selection: $currentIndex) {
-            ForEach(photoViewModel.photos.indices, id: \.self){ index in
+            ForEach(photoViewModel.photos.indices, id: \.self) { index in
                 WebImage(url: URL(string: (photoViewModel.photos[index].url)))
                         .resizable()
                         .scaledToFit()
@@ -35,7 +35,7 @@ struct PhotoView: View {
                                 .onChanged { value in
                                     currentAmount = value - 1
                                 }
-                                .onEnded { value in
+                                .onEnded { _ in
                                     withAnimation(.spring()) {
                                         currentAmount = .zero
                                     }
@@ -45,4 +45,3 @@ struct PhotoView: View {
         .tabViewStyle(.page(indexDisplayMode: .always))
     }
 }
-

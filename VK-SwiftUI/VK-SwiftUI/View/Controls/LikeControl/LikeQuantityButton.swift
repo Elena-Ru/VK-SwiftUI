@@ -17,7 +17,7 @@ struct LikeQuantityButton: View {
         }
         .foregroundColor(isUserLike == 1 ? .blue : Color("RegularControlColor"))
     }
-    func buttonPressed(){
+    func buttonPressed() {
         isUserLike = isUserLike == 1 ? 0 : 1
         likeQty = isUserLike == 1 ? likeQty + 1 : likeQty - 1
     }

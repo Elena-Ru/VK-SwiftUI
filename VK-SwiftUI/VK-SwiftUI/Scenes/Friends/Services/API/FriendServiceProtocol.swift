@@ -7,6 +7,6 @@
 
 // MARK: - FriendService
 protocol FriendServiceProtocol {
-    func getFromRLM(completion: @escaping ([Friend]) -> ())
-    func get(token: String, id: Int, completion: @escaping ([Friend]) -> ())
+    func getFromRLM(completion: @escaping ([Friend]) -> Void)
+    func get(token: String, id: Int, completion: @escaping ([Friend]) -> Void)
 }

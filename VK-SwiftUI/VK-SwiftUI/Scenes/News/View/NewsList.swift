@@ -19,7 +19,7 @@ struct NewsList: View {
         NavigationStack {
             ZStack {
                 listOfNews
-                    .onAppear{
+                    .onAppear {
                         newsViewModel.getNews()
                     }
                     .navigationTitle(Texts.Shared.news)

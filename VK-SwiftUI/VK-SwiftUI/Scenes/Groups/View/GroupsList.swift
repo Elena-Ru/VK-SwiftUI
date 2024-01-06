@@ -29,7 +29,7 @@ struct GroupsList: View {
                 }
             }
         }
-        .onAppear{
+        .onAppear {
             groupsViewModel.getGroups()
         }
         .environmentObject(groupsViewModel) 

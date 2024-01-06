@@ -14,11 +14,9 @@ struct LikeControl: View {
     @State var item: Int
 
     var body: some View {
-        HStack{
+        HStack {
             LikeButton(isUserLike: $isLike, likeQty: $qty, idFriend: $owner, itemId: $item )
             LikeQuantityButton(likeQty: $qty, isUserLike: $isLike)
         }
     }
 }
-
-

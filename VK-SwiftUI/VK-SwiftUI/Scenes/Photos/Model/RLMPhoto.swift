@@ -67,9 +67,9 @@ final class RLMPhoto: Object, Decodable {
             self.url = try rSizeValue!.decode(String.self, forKey: .url)
         } else if qSizeValue != nil {
             self.url = try qSizeValue!.decode(String.self, forKey: .url)
-        } else if pSizeValue != nil{
+        } else if pSizeValue != nil {
             self.url = try pSizeValue!.decode(String.self, forKey: .url)
-        } else if oSizeValue != nil{
+        } else if oSizeValue != nil {
             self.url = try oSizeValue!.decode(String.self, forKey: .url)
         } else {
             self.url = try mSizeValue.decode(String.self, forKey: .url)

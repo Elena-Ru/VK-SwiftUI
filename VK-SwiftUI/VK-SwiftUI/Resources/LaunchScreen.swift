@@ -7,16 +7,17 @@
 
 import SwiftUI
 
+// MARK: - LaunchScreen
 struct LaunchScreen: View {
-    @State private var loadingText:[String] = Texts.LaunchScreen.loading.map { String($0)}
+    @State private var loadingText: [String] = Texts.LaunchScreen.loading.map { String($0)}
     @State private var showLoadingText: Bool = false
-    @State private var counter : Int = 0
-    @State private var loops: Int = 0
+    @State private var counter: Int = .zero
+    @State private var loops: Int = .zero
     @Binding var showLaunchScreen: Bool
     private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        ZStack{
+        ZStack {
             Color.theme.ginger
                 .ignoresSafeArea()
         
@@ -27,13 +28,13 @@ struct LaunchScreen: View {
             
             ZStack {
                 if showLoadingText {
-                    HStack(spacing: 0){
+                    HStack(spacing: .zero) {
                         ForEach(loadingText.indices) { index in
                             Text(loadingText[index])
                                 .foregroundColor(.white)
                                 .font(.headline)
                                 .fontWeight(.heavy)
-                                .offset(y: counter == index ? -6 : 0)
+                                .offset(y: counter == index ? -6 : .zero)
                         }
                     }
                     .transition(AnyTransition.scale.animation(.easeIn))
@@ -41,7 +42,7 @@ struct LaunchScreen: View {
             }
             .offset(y: 140)
         }
-        .onAppear{
+        .onAppear {
             showLoadingText.toggle()
         }
         .onReceive(timer) { _ in

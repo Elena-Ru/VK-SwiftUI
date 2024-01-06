@@ -15,7 +15,6 @@ struct ViewsControl: View {
     }
 }
 
-
 struct ViewsControl_Previews: PreviewProvider {
     static var previews: some View {
         ViewsControl(count: 2)

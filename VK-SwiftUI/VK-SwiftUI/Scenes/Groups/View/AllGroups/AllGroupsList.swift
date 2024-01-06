@@ -11,15 +11,15 @@ import RealmSwift
 
 struct AllGroupsList: View {
     @Environment(\.presentationMode) var presentation
-    @ObservedObject var groupsViewModel : GroupViewModel
+    @ObservedObject var groupsViewModel: GroupViewModel
     @ObservedResults(Group.self) var itemGroups
-    @State var allGroups : [Group] = []
+    @State var allGroups: [Group] = []
     @State var isAlreadyExist: Bool = false
-    @State var searchText : String = .empty
+    @State var searchText: String = .empty
     
     var body: some View {
         contentView
-            .onAppear{
+            .onAppear {
                 groupsViewModel.getGroupsAll(token: AuthenticationManager.shared.accessToken ?? .empty) { items in
                     self.allGroups = items
                 }
@@ -33,8 +33,8 @@ struct AllGroupsList: View {
                 ForEach(filteredGroups) { group in
                     AllGroupRow(groupsViewModel: groupsViewModel, group: group)
                         .onTapGesture {
-                            if (itemGroups.first(where: { $0.id == group.id
-                            }) != nil) {
+                            if itemGroups.first(where: { $0.id == group.id
+                            }) != nil {
                                 isAlreadyExist = true
                                 print("Already contains")
                             } else {
@@ -68,4 +68,3 @@ struct AllGroupsList: View {
     }
     
 }
-

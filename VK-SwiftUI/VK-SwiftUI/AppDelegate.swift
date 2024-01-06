@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       	let center = UNUserNotificationCenter.current()
-      	center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+      	center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
       	  	guard granted else {
                 print("Разрешение не получено")
                 return
@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         var token: String = .empty
-        for i in 0..<deviceToken.count {
-          token += String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        for element in 0..<deviceToken.count {
+            token += String(format: "%02.2hhx", arguments: [deviceToken[element]])
         }
         print("Токен: \(token)")
     }

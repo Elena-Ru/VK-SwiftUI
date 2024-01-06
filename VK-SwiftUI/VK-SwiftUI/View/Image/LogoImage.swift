@@ -12,7 +12,7 @@ struct LogoImage: View {
         Image("vkLogo")
             .resizable()
             .scaledToFit()
-            .frame(width: 120 , height: 120)
+            .frame(width: 120, height: 120)
     }
 }
 

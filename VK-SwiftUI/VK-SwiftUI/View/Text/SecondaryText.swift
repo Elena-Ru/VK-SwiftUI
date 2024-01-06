@@ -16,4 +16,3 @@ struct SecondaryText: ViewModifier {
             .textSelection(.enabled)
     }
 }
-

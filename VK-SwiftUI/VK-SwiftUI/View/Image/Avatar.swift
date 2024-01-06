@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImage
 import SDWebImageSwiftUI
 
-
 struct Avatar: View {
     @Binding var avatar: String
     @State private var showAnimation = false

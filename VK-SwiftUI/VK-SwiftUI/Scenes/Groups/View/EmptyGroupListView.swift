@@ -10,10 +10,10 @@ import SwiftUI
 struct EmptyGroupListView: View {
     
     @State var animate: Bool = false
-    @ObservedObject var groupsViewModel : GroupViewModel
+    @ObservedObject var groupsViewModel: GroupViewModel
     
     var body: some View {
-        VStack{
+        VStack {
           Text(Texts.EmptyGroups.noGroups)
                 .font(.title2)
                 .fontWeight(.semibold)
@@ -29,11 +29,11 @@ struct EmptyGroupListView: View {
                     .cornerRadius(12)
                     .padding(.horizontal, animate ? 30 : 50)
                     .scaleEffect(animate ? 1.1 : 1.0)
-                    .offset(y: animate ?  -10 : 0)
+                    .offset(y: animate ? -10 : 0)
                     .shadow(color: animate ? Color.theme.ginger.opacity(0.7) : .orange.opacity(0.7),
                             radius: animate ? 30 : 10,
                             x: 0,
-                            y: animate ?  30: 10)
+                            y: animate ? 30: 10)
             }
             .padding(40)
         }
@@ -44,9 +44,9 @@ struct EmptyGroupListView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    func addAnimation(){
+    func addAnimation() {
         guard !animate else {return}
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             withAnimation(Animation.easeInOut(duration: 2.0).repeatForever()) {
                 animate.toggle()
             }

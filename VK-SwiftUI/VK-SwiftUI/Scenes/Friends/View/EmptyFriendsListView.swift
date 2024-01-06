@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - EmptyFriendsListView
 struct EmptyFriendsListView: View {
     var body: some View {
-        VStack{
+        VStack {
           Text(Texts.EmptyFriends.noFriends)
                 .font(.title2)
                 .fontWeight(.semibold)

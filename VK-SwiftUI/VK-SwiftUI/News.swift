@@ -55,8 +55,8 @@ struct NewsGroup: Codable {
 }
 
 enum GroupType: String, Codable {
-    case group = "group"
-    case page = "page"
+    case group
+    case page
 }
 
 // MARK: - Item
@@ -164,24 +164,24 @@ struct VideoElement: Codable {
 }
 
 enum SizeType: String, Codable {
-    case a = "a"
-    case b = "b"
-    case c = "c"
-    case d = "d"
-    case e = "e"
-    case k = "k"
-    case l = "l"
-    case m = "m"
-    case o = "o"
-    case p = "p"
-    case q = "q"
-    case r = "r"
-    case s = "s"
-    case temp = "temp"
-    case w = "w"
-    case x = "x"
-    case y = "y"
-    case z = "z"
+    case a
+    case b
+    case c
+    case d
+    case e
+    case k
+    case l
+    case m
+    case o
+    case p
+    case q
+    case r
+    case s
+    case temp
+    case w
+    case x
+    case y
+    case z
 }
 
 // MARK: - Link
@@ -228,10 +228,10 @@ enum Target: String, Codable {
 }
 
 enum AttachmentType: String, Codable {
-    case doc = "doc"
-    case link = "link"
-    case photo = "photo"
-    case video = "video"
+    case doc
+    case link
+    case photo
+    case video
 }
 
 // MARK: - AttachmentVideo
@@ -281,7 +281,7 @@ enum Platform: String, Codable {
 }
 
 enum ResponseType: String, Codable {
-    case full = "full"
+    case full
 }
 
 // MARK: - Comments
@@ -330,12 +330,12 @@ struct CopyHistoryPostSource: Codable {
 }
 
 enum PostSourceType: String, Codable {
-    case api = "api"
-    case vk = "vk"
+    case api
+    case vk
 }
 
 enum PostTypeEnum: String, Codable {
-    case post = "post"
+    case post
 }
 
 // MARK: - Donut

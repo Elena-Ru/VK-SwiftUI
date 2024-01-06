@@ -1,4 +1,4 @@
-  //
+//
 //  RealmService.swift
 //  VK-SwiftUI
 //
@@ -7,13 +7,18 @@
 
 import RealmSwift
 
+// MARK: - RealmService
 final class RealmService {
   
+    // MARK: Properties
     static let shared = RealmService()
+    
+    // MARK: Initializer
     private init() {}
 
+    // MARK: Methods
   	func deleteAll() {
-  	  	do{
+  	  	do {
             let realm = try Realm()
             try? realm.write {
               realm.deleteAll()
@@ -23,7 +28,7 @@ final class RealmService {
   	  	}
   	}
     
-    func saveData  <T: Object>(_ sData: [T]) {
+    func saveData <T: Object>(_ sData: [T]) {
         do {
             let realm = try Realm()
             print(realm.configuration.fileURL as Any)
