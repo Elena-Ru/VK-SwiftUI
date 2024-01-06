@@ -68,9 +68,9 @@ private extension FriendsAdapter {
         return "\(Constants.baseUrl)\(path)"
   	}
   
-    func fetchFriendsFromServer(token: String, id: Int, completion: @escaping ([Friend]) -> ()) {
+    func fetchFriendsFromServer(token: String, id: Int, completion: @escaping ([Friend]) -> Void) {
       	let parameters: Parameters = [
-      	    Constants.accessTokenKey : token,
+      	    Constants.accessTokenKey: token,
       	    Constants.userIdKey: id,
       	    Constants.clientIdKey: Secrets.clientID,
       	    Constants.fieldsKey: Constants.fieldsValue,

@@ -15,10 +15,9 @@ struct NewsAttachmentsPhotos: View {
     @State var currentIndex: Int
     @State var currentAmount: CGFloat = 0
     
-    
     var body: some View {
         TabView(selection: $currentIndex) {
-            ForEach(photos.indices, id: \.self){ index in
+            ForEach(photos.indices, id: \.self) { index in
                 WebImage(url: URL(string: (photos[index].photo?.sizes?.last?.url)!))
                         .resizable()
                         .scaledToFit()
@@ -27,10 +26,10 @@ struct NewsAttachmentsPhotos: View {
                         .scaleEffect(1 + currentAmount)
                         .gesture(
                             MagnificationGesture()
-                                .onChanged{ value in
+                                .onChanged { value in
                                     currentAmount = value - 1
                                 }
-                                .onEnded{ value in
+                                .onEnded { _ in
                                     withAnimation(.spring()) {
                                         currentAmount = 0
                                     }

@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+// MARK: - NoNetworkView
 struct NoNetworkView: View {
     var body: some View {
-        VStack{
+        VStack {
             Image(systemName: "wifi.slash")
                 .resizable()
                 .scaledToFill()
@@ -22,6 +23,7 @@ struct NoNetworkView: View {
     }
 }
 
+// MARK: - Preview
 struct NoNetworkView_Previews: PreviewProvider {
     static var previews: some View {
         NoNetworkView()

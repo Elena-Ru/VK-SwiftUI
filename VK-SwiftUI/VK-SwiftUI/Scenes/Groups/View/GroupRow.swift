@@ -16,14 +16,14 @@ struct GroupRow: View {
           .padding()
   	}
   	var contentView: some View {
-        HStack (spacing: 30) {
+        HStack(spacing: 30) {
           Avatar(avatar: $group.photoGroup)
           groupInfo
           Spacer()
         }
   	}
   	var groupInfo: some View {
-        VStack (alignment: .leading) {
+        VStack(alignment: .leading) {
           NameBoldText(name: $group.name)
           Text(group.screenName)
             .modifier(SecondaryText())

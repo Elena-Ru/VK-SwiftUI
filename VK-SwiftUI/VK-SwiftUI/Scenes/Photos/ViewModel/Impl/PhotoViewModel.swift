@@ -52,7 +52,7 @@ extension PhotoViewModel: PhotoViewModelProtocol {
   	    let url = Constants.baseUrl + path
   	    
   	    let parameters: Parameters = [
-              Constants.accessTokenKey : AuthenticationManager.shared.accessToken ?? .empty,
+              Constants.accessTokenKey: AuthenticationManager.shared.accessToken ?? .empty,
   	          Constants.typeKey: Constants.typeValue,
   	          Constants.ownerIdKey: owner,
   	          Constants.itemIdKey: item,
@@ -60,7 +60,7 @@ extension PhotoViewModel: PhotoViewModelProtocol {
   	        ]
   	    
   	     AF.request(url, method: .post, parameters: parameters).responseData { response in
-  	         guard response.value != nil  else { return }
+  	         guard response.value != nil else { return }
   	         print("Done")
   	     }
   	}

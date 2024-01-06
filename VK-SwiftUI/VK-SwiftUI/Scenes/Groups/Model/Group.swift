@@ -42,5 +42,3 @@ private extension Group {
         static let primaryKey: String = "id"
     }
 }
-
-

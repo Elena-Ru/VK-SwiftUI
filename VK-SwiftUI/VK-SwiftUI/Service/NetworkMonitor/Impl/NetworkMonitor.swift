@@ -35,4 +35,3 @@ final class NetworkMonitor: NetworkMonitorProtocol {
         networkMonitor.cancel()
     }
 }
-

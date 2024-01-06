@@ -131,7 +131,7 @@ final class GroupViewModel: ObservableObject {
         let path = "/method/groups.join"
         let url = Constants.baseUrl+path
         let parameters: Parameters = [
-              Constants.accessTokenKey : AuthenticationManager.shared.accessToken ?? .empty,
+              Constants.accessTokenKey: AuthenticationManager.shared.accessToken ?? .empty,
               "group_id": groupId,
               Constants.versionKey: Secrets.version
             ]
@@ -141,7 +141,7 @@ final class GroupViewModel: ObservableObject {
             method: .get,
             parameters: parameters
          ).responseData { response in
-             guard response.value != nil  else { return }
+             guard response.value != nil else { return }
              print("You have joined this group")
          }
     }

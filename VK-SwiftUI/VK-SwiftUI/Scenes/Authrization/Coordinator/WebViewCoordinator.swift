@@ -11,7 +11,7 @@ import WebKit
 final class WebViewCoordinator: NSObject {
   
     // MARK: Properties
-    var didStart: () ->  Void
+    var didStart: () -> Void
     var didFinish: () -> Void
     var didLogin: () -> Void
   

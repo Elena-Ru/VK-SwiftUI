@@ -42,7 +42,7 @@ struct CustomTabBar: View {
                                     Circle().stroke(.white, lineWidth: 3).shadow(radius: 7)
                                 }
                                 .offset(y: -30)
-                                .padding(.bottom , -20)
+                                .padding(.bottom, -20)
                                 .onTapGesture {
                                     withAnimation(.easeIn(duration: 0.2)) {
                                         selectedTab = tab
@@ -54,7 +54,7 @@ struct CustomTabBar: View {
                                 .foregroundColor(Color.theme.control)
                                 .bold()
                         } else {
-                            Image(systemName:  tab.rawValue)
+                            Image(systemName: tab.rawValue)
                                  .onTapGesture {
                                      withAnimation(.easeIn(duration: 0.1)) {
                                          selectedTab = tab

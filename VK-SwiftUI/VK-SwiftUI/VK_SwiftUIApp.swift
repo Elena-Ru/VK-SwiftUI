@@ -19,7 +19,7 @@ struct VK_SwiftUIApp: App {
             LoginViewWK()
             .environmentObject(friendsVM)
                 
-            ZStack{
+            ZStack {
                     if showLaunchScreen {
                         LaunchScreen(showLaunchScreen: $showLaunchScreen)
                             .transition(.move(edge: .leading))

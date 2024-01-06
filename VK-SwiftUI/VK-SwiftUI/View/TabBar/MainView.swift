@@ -20,7 +20,7 @@ struct MainView: View {
             VStack {
                 TabView(selection: $selection) {
                     switch selection {
-                    case .friends :
+                    case .friends:
                         FriendsList()
                             .tag(Tab.friends)
                     case .groups:
@@ -41,7 +41,6 @@ struct MainView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
-
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {

@@ -12,7 +12,7 @@ import SDWebImageSwiftUI
 // MARK: - PhotoView
 struct FriendPhotos: View {
     @ObservedObject var photoVieModel = PhotoViewModel()
-    @State var photos : [RLMPhoto] = []
+    @State var photos: [RLMPhoto] = []
     let columnLayout = Array(repeating: GridItem(.flexible(minimum: Constants.minimumSize, maximum: .infinity)), count: Constants.colomnCount)
     var friend: RLMFriend
     
@@ -46,7 +46,7 @@ struct FriendPhotos: View {
             }
             .navigationTitle(friend.firstName)
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear{
+            .onAppear {
                 getPhotos()
             }
         }

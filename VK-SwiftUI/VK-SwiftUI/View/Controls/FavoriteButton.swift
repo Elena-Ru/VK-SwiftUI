@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteButton: View {
  
-    @EnvironmentObject var friendsVM : FriendsViewModel
+    @EnvironmentObject var friendsVM: FriendsViewModel
      var friend: RLMFriend
     
     var body: some View {

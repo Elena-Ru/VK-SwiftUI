@@ -21,4 +21,3 @@ struct InnerHeart_Previews: PreviewProvider {
         InnerHeart()
     }
 }
-

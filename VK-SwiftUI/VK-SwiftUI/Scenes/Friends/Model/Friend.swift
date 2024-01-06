@@ -14,5 +14,5 @@ struct Friend {
   	var fullName: String
   	var isRealm: Bool
   	var isFavorite: Bool
-  	var photos : [RLMPhoto]?
+  	var photos: [RLMPhoto]?
 }

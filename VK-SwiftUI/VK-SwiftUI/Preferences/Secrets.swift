@@ -37,4 +37,3 @@ struct Secrets {
         return value
     }
 }
-

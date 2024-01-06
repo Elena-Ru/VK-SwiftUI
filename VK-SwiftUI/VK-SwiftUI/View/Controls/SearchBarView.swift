@@ -15,17 +15,16 @@ struct SearchBarView: View {
                 .foregroundColor( searchText.isEmpty ? .secondary : Color.theme.control)
           TextField(Texts.AllGroups.search, text: $searchText)
                 .autocorrectionDisabled()
-                .overlay (
+                .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .padding()
                         .offset(x: 10)
                         .foregroundColor(Color.theme.control)
                         .opacity(searchText.isEmpty ? 0 : 1)
-                        .onTapGesture{
+                        .onTapGesture {
                             UIApplication.shared.endEditing()
                             searchText = ""
-                        }
-                        ,alignment: .trailing
+                        }, alignment: .trailing
                 )
                 
         }

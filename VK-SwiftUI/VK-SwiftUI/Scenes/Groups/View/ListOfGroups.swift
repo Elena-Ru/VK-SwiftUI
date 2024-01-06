@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct ListOfGroups: View {
-    @ObservedObject var groupsViewModel : GroupViewModel
+    @ObservedObject var groupsViewModel: GroupViewModel
     @ObservedResults(Group.self) var itemGroups
     
     var body: some View {
